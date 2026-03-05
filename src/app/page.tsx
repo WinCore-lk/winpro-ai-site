@@ -96,69 +96,113 @@ export default function Home() {
     <div className="flex flex-col w-full relative overflow-hidden bg-black text-white">
       {/* Dynamic Background */}
       <div className="absolute inset-0 -z-10 bg-black overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] rounded-full bg-blue-900/20 blur-[120px] mix-blend-screen" />
-        <div className="absolute top-[30%] right-[-10%] w-[35rem] h-[35rem] rounded-full bg-emerald-900/10 blur-[120px] mix-blend-screen" />
-        <div className="absolute bottom-[-10%] left-[20%] w-[45rem] h-[45rem] rounded-full bg-indigo-900/20 blur-[150px] mix-blend-screen" />
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] rounded-full bg-blue-900/20 blur-[120px] mix-blend-screen"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute top-[30%] right-[-10%] w-[35rem] h-[35rem] rounded-full bg-emerald-900/10 blur-[120px] mix-blend-screen"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          className="absolute bottom-[-10%] left-[20%] w-[45rem] h-[45rem] rounded-full bg-indigo-900/20 blur-[150px] mix-blend-screen"
+        />
       </div>
 
       {/* Hero Section (Rubiq / PlayZense Vibe) */}
-      <section className="relative w-full pt-32 pb-24 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[90vh]">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md shadow-lg shadow-white/5"
-        >
-          <Globe className="w-4 h-4 text-blue-400" />
-          <span className="text-sm font-medium tracking-wide text-gray-300">Enterprise AI Solutions. Scaling Globally.</span>
-        </motion.div>
+      <section className="relative w-full pt-32 pb-24 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 flex min-h-[90vh] max-w-7xl mx-auto items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 z-10 w-full">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-lg shadow-white/5"
+            >
+              <Globe className="w-4 h-4 text-blue-400" />
+              <span className="text-sm font-medium tracking-wide text-gray-300">Enterprise AI Solutions. Scaling Globally.</span>
+            </motion.div>
 
-        <div className="max-w-5xl mx-auto text-center space-y-8">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter text-white mb-6 leading-[1.1]"
-          >
-            Discover Your <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">
-              Digital Destiny
-            </span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 font-light leading-relaxed"
-          >
-            We empower global enterprises with state-of-the-art AI. Optimize your workflow, gain actionable insights, and redefine what's possible for your business.
-          </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter text-white leading-[1.1]"
+            >
+              Discover Your <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">
+                Digital Destiny
+              </span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed"
+            >
+              We empower global enterprises with state-of-the-art AI. Optimize your workflow, gain actionable insights, and redefine what's possible for your business.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col justify-center lg:justify-start sm:flex-row gap-5 w-full lg:w-auto"
+            >
+              <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 h-14 text-lg font-semibold transition-transform hover:scale-105" asChild>
+                <Link href="/contact">Start Your Transformation</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-lg border-white/20 hover:bg-white/10 backdrop-blur-md transition-transform hover:scale-105" asChild>
+                <Link href="#playbook">Explore Playbook</Link>
+              </Button>
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row justify-center gap-5 mt-8"
+            initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }}
+            animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+            className="relative hidden lg:flex justify-center items-center w-full h-[600px] z-10"
           >
-            <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 h-14 text-lg font-semibold transition-transform hover:scale-105" asChild>
-              <Link href="/contact">Start Your Transformation</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-lg border-white/20 hover:bg-white/10 backdrop-blur-md transition-transform hover:scale-105" asChild>
-              <Link href="#playbook">Explore Playbook</Link>
-            </Button>
+            <motion.div
+              animate={{ y: [-20, 20, -20] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-full h-[500px]"
+            >
+              <Image
+                src="/wincore-mascot.png"
+                alt="WinCore AI Mascot"
+                fill
+                className="object-contain drop-shadow-[0_0_50px_rgba(59,130,246,0.3)]"
+                priority
+              />
+            </motion.div>
+
+            {/* Mascot Core Glow */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 via-transparent to-blue-500/20 blur-[100px] -z-10 rounded-full mix-blend-screen" />
           </motion.div>
         </div>
       </section>
 
       {/* Narrative Section (Dolphin Ad World Vibe) */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/5 bg-white/[0.02]">
-        <div className="max-w-4xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-4xl mx-auto text-center"
+        >
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tight">
             Traditional to autonomous, we are your full-service AI engineers.
           </h2>
           <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light">
             We still engineer like it's our first deployment. Amongst our victories, we proudly wear the scars of integrations that stumbled—for in each challenge, we find the absolute seeds of future operational brilliance.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Infinite Marquee Section */}
@@ -209,7 +253,13 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-blue-900/20" />
-        <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center"
+        >
           <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white mb-8">Ready to revolutionize your business?</h2>
           <p className="text-xl md:text-2xl text-gray-400 mb-10 font-light leading-relaxed">
             Join the modern wave of enterprises scaling with custom AI integrations globally. Let's solve the deep technical challenges facing your company.
@@ -217,7 +267,7 @@ export default function Home() {
           <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-12 h-16 text-lg font-bold transition-transform hover:scale-105" asChild>
             <Link href="/contact">Get in Touch Today</Link>
           </Button>
-        </div>
+        </motion.div>
       </section>
     </div>
   );
