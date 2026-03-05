@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Us | Winpro AI",
-    description: "Learn more about the team, mission, and vision driving AI adoption at Winpro AI.",
+    title: "About Us | WinCore AI",
+    description: "Learn more about the team, mission, and vision driving AI adoption at WinCore AI.",
 };
 
 export default function AboutPage() {
@@ -12,7 +12,7 @@ export default function AboutPage() {
 
             <div className="max-w-5xl mx-auto space-y-20 relative z-10 w-full">
                 <section className="space-y-8">
-                    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white">About Winpro AI</h1>
+                    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white">About WinCore AI</h1>
                     <p className="text-2xl text-gray-400 leading-relaxed font-light">
                         We are a highly specialized group of engineers, researchers, and strategists committed to democratizing enterprise-grade artificial intelligence.
                     </p>
@@ -25,7 +25,10 @@ export default function AboutPage() {
                             To drastically reduce operational friction by enabling intelligent automation. We believe that by removing the burden of repetitive tasks, humans can focus on highly creative, strategic, and deeply engaging work.
                         </p>
                         <p className="text-gray-400 leading-relaxed text-lg">
-                            From our founding, we have partnered with businesses of all scales—from nimble startups to Fortune 500 giants—to uncover hidden efficiencies and propel their growth via data-driven intelligence.
+                            We architect AI solutions that scale globally. By leveraging top-tier engineering talent, we provide premium, robust technological advancements to markets spanning North America, Europe, and the Middle East, without compromising on quality.
+                        </p>
+                        <p className="text-gray-400 leading-relaxed text-lg">
+                            From nimble startups to Fortune 500 giants, our projects range from autonomous ERP agents to sophisticated big-data predictive modeling. We don't just build software; we engineer transformative digital workforces.
                         </p>
                     </div>
                     <div className="rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20 border border-white/10 h-full min-h-[300px]"
@@ -40,15 +43,15 @@ export default function AboutPage() {
                 <section className="py-12 border-t border-white/10">
                     <h2 className="text-3xl font-bold text-white mb-10 text-center">Core Values</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="p-8 bg-white/5 rounded-2xl border border-white/10">
+                        <div className="p-8 bg-white/[0.03] backdrop-blur-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl border border-white/10 group hover:bg-white/[0.08] transition-colors">
                             <h3 className="text-xl font-semibold text-white mb-3">Innovation at Depth</h3>
                             <p className="text-gray-400">We do not accept superficial solutions. We solve the deepest technical challenges facing modern companies.</p>
                         </div>
-                        <div className="p-8 bg-white/5 rounded-2xl border border-white/10">
+                        <div className="p-8 bg-white/[0.03] backdrop-blur-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl border border-white/10 group hover:bg-white/[0.08] transition-colors">
                             <h3 className="text-xl font-semibold text-white mb-3">Radical Transparency</h3>
                             <p className="text-gray-400">Clear communication, open documentation, and no black box solutions. We empower your team to understand your own tech.</p>
                         </div>
-                        <div className="p-8 bg-white/5 rounded-2xl border border-white/10">
+                        <div className="p-8 bg-white/[0.03] backdrop-blur-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl border border-white/10 group hover:bg-white/[0.08] transition-colors">
                             <h3 className="text-xl font-semibold text-white mb-3">Scalable Impact</h3>
                             <p className="text-gray-400">Architectures built for tomorrow. Every line of code works toward a highly robust, secure, and scalable future.</p>
                         </div>

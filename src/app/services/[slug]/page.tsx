@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const resolvedParams = await params;
     const title = resolvedParams.slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
     return {
-        title: `${title} | Winpro AI`,
+        title: `${title} | WinCore AI`,
         description: `Detailed information about our ${title} capabilities.`
     };
 }

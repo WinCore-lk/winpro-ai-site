@@ -110,7 +110,7 @@ export default function Home() {
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md shadow-lg shadow-white/5"
         >
           <Globe className="w-4 h-4 text-blue-400" />
-          <span className="text-sm font-medium tracking-wide text-gray-300">Architected in Sri Lanka. Scaling Globally.</span>
+          <span className="text-sm font-medium tracking-wide text-gray-300">Enterprise AI Solutions. Scaling Globally.</span>
         </motion.div>
 
         <div className="max-w-5xl mx-auto text-center space-y-8">
@@ -152,7 +152,6 @@ export default function Home() {
       {/* Narrative Section (Dolphin Ad World Vibe) */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/5 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto text-center">
-          <Sparkles className="w-12 h-12 text-blue-500 mx-auto mb-8 opacity-80" />
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tight">
             Traditional to autonomous, we are your full-service AI engineers.
           </h2>
@@ -186,7 +185,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="bg-white/5 border-white/10 backdrop-blur-md h-full hover:bg-white/10 transition-colors group relative overflow-hidden">
+                <Card className="bg-white/[0.03] backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] h-full hover:bg-white/[0.08] transition-colors group relative overflow-hidden md:rounded-3xl">
                   <div className="absolute top-0 right-0 p-6 text-6xl font-black text-white/[0.03] group-hover:text-white/[0.05] transition-colors pointer-events-none">
                     {step.id}
                   </div>
@@ -211,7 +210,6 @@ export default function Home() {
       <section className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-blue-900/20" />
         <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
-          <ShieldCheck className="w-16 h-16 text-emerald-400 mb-8" />
           <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white mb-8">Ready to revolutionize your business?</h2>
           <p className="text-xl md:text-2xl text-gray-400 mb-10 font-light leading-relaxed">
             Join the modern wave of enterprises scaling with custom AI integrations globally. Let's solve the deep technical challenges facing your company.

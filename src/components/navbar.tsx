@@ -17,12 +17,12 @@ export function Navbar() {
     ];
 
     return (
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 bg-black/40 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl shadow-black/50">
+        <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-                            Winpro AI
+                            WinCore AI
                         </Link>
                     </div>
 
@@ -36,7 +36,7 @@ export function Navbar() {
                                 {link.label}
                             </Link>
                         ))}
-                        <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6">
+                        <Button asChild className="bg-white hover:bg-gray-200 text-black rounded-full px-8 font-semibold transition-transform hover:scale-105">
                             <Link href="/contact">Get Started</Link>
                         </Button>
                     </div>
@@ -73,7 +73,7 @@ export function Navbar() {
                                 </Link>
                             ))}
                             <div className="px-3 py-2">
-                                <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-md">
+                                <Button asChild className="w-full bg-white hover:bg-gray-200 text-black rounded-md font-semibold">
                                     <Link href="/contact" onClick={() => setIsOpen(false)}>Get Started</Link>
                                 </Button>
                             </div>

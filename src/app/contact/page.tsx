@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2, MessageCircle } from "lucide-react";
 
 export default function ContactPage() {
     const [loading, setLoading] = useState(false);
@@ -58,7 +58,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <p className="text-sm text-gray-500 font-semibold uppercase tracking-wider">Email Us</p>
-                                <p className="text-lg text-white">hello@winpro.ai</p>
+                                <p className="text-lg text-white">hello@wincore.ai</p>
                             </div>
                         </div>
 
@@ -81,10 +81,22 @@ export default function ContactPage() {
                                 <p className="text-lg text-white">100 Tech Hub Road, San Francisco, CA 94107</p>
                             </div>
                         </div>
+                        <div className="flex items-center space-x-4">
+                            <div className="p-3 bg-white/10 rounded-full border border-white/10 text-emerald-400">
+                                <MessageCircle className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wider">Direct WhatsApp</p>
+                                <a href="https://wa.me/15550000000" target="_blank" rel="noopener noreferrer" className="text-lg text-white hover:text-emerald-400 transition-colors">
+                                    +1 (555) 000-0000
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <Card className="bg-white/5 border-white/10 backdrop-blur-md">
+                <Card className="bg-white/[0.03] backdrop-blur-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/10 md:rounded-3xl p-6">
                     <CardHeader>
                         <CardTitle className="text-2xl text-white">Send us a message</CardTitle>
                         <CardDescription className="text-gray-400">We aim to respond to all inquiries within 24 hours.</CardDescription>

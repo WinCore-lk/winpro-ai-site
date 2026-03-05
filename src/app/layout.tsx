@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { CustomCursor } from "@/components/custom-cursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Winpro AI | AI & Automation Services",
-  description: "Winpro AI offers cutting-edge AI automation, machine learning solutions, and consulting services for modern businesses.",
+  title: "WinCore AI | AI & Automation Services",
+  description: "WinCore AI offers cutting-edge AI automation, machine learning solutions, and consulting services for modern businesses.",
 };
 
 export default function RootLayout({
@@ -28,9 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col cursor-none selection:bg-blue-500/30 selection:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col selection:bg-blue-500/30 selection:text-white`}
       >
-        <CustomCursor />
         <Navbar />
         <main className="flex-grow pt-20">
           {children}
