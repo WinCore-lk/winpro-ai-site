@@ -117,21 +117,13 @@ export default function Home() {
       <section className="relative w-full pt-32 pb-24 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 flex min-h-[90vh] max-w-7xl mx-auto items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 z-10 w-full">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-lg shadow-white/5"
-            >
-              <Globe className="w-4 h-4 text-blue-400" />
-              <span className="text-sm font-medium tracking-wide text-gray-300">Enterprise AI Solutions. Scaling Globally.</span>
-            </motion.div>
+
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter text-white leading-[1.1]"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-white leading-[1.1]"
             >
               Discover Your <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">
@@ -142,7 +134,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed"
             >
               We empower global enterprises with state-of-the-art AI. Optimize your workflow, gain actionable insights, and redefine what's possible for your business.
             </motion.p>
@@ -192,14 +184,14 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-tight">
             Traditional to autonomous, we are your full-service AI engineers.
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed font-light">
             We still engineer like it's our first deployment. Amongst our victories, we proudly wear the scars of integrations that stumbled—for in each challenge, we find the absolute seeds of future operational brilliance.
           </p>
         </motion.div>
@@ -212,9 +204,9 @@ export default function Home() {
       <section id="playbook" className="py-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-6">Our AI Playbook</h2>
-              <p className="text-xl text-gray-400 font-light">
+            <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4 md:mb-6">Our AI Playbook</h2>
+              <p className="text-lg sm:text-xl text-gray-400 font-light">
                 Our digital playbook is the framework we use to help brands scale. It brings together insight, engineering, and data to make sure every automation has a reason behind it.
               </p>
             </div>
@@ -228,22 +220,37 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative"
               >
-                <Card className="bg-white/[0.03] backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] h-full hover:bg-white/[0.08] transition-colors group relative overflow-hidden md:rounded-3xl">
-                  <div className="absolute top-0 right-0 p-6 text-6xl font-black text-white/[0.03] group-hover:text-white/[0.05] transition-colors pointer-events-none">
+                {/* Glow halo on hover */}
+                <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-blue-500/30 via-indigo-500/20 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none" />
+
+                {/* Glass card */}
+                <div className="relative h-full rounded-3xl overflow-hidden border border-white/[0.12] bg-white/[0.05] backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)] group-hover:border-white/20 group-hover:bg-white/[0.08] transition-all duration-500">
+
+                  {/* Shimmer sweep */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
+                  </div>
+
+                  {/* Large step number watermark */}
+                  <div className="absolute top-0 right-0 p-4 sm:p-6 text-5xl sm:text-6xl font-black text-white/[0.04] group-hover:text-white/[0.07] transition-colors duration-500 pointer-events-none select-none leading-none">
                     {step.id}
                   </div>
-                  <CardContent className="p-8 relative z-10 flex flex-col h-full">
-                    <div className="mb-6 p-4 rounded-full bg-gradient-to-br from-blue-500/20 to-indigo-500/20 inline-flex w-fit border border-blue-500/20">
+
+                  <div className="p-8 relative z-10 flex flex-col h-full">
+                    {/* Icon bubble */}
+                    <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 inline-flex w-fit border border-blue-400/20 shadow-[0_0_20px_rgba(99,102,241,0.15)] group-hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] transition-shadow duration-500">
                       {step.icon}
                     </div>
-                    <h3 className="text-2xl font-semibold text-white mb-4">{step.title}</h3>
-                    <p className="text-gray-400 leading-relaxed font-light">{step.desc}</p>
-                  </CardContent>
-                </Card>
+                    <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">{step.title}</h3>
+                    <p className="text-gray-400 leading-relaxed font-light text-sm sm:text-base">{step.desc}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -260,11 +267,11 @@ export default function Home() {
           transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center"
         >
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white mb-8">Ready to revolutionize your business?</h2>
-          <p className="text-xl md:text-2xl text-gray-400 mb-10 font-light leading-relaxed">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-white mb-6 md:mb-8">Ready to revolutionize your business?</h2>
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-8 md:mb-10 font-light leading-relaxed">
             Join the modern wave of enterprises scaling with custom AI integrations globally. Let's solve the deep technical challenges facing your company.
           </p>
-          <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-12 h-16 text-lg font-bold transition-transform hover:scale-105" asChild>
+          <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 sm:px-12 h-14 sm:h-16 text-base sm:text-lg font-bold transition-transform hover:scale-105" asChild>
             <Link href="/contact">Get in Touch Today</Link>
           </Button>
         </motion.div>

@@ -53,39 +53,39 @@ export default function ContactPage() {
                     className="space-y-12"
                 >
                     <div>
-                        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-                            Let's architect <br className="hidden md:block" />
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-tight">
+                            Let's architect <br className="hidden sm:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">your future.</span>
                         </h1>
-                        <p className="text-xl text-gray-400 font-light leading-relaxed max-w-lg">
+                        <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-lg">
                             Whether you're looking for automation, ML algorithms, or AI consulting, our experts are here to help scale your operations.
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div className="p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-3xl hover:bg-white/[0.05] transition-colors group">
-                            <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-blue-400 w-fit mb-4 group-hover:bg-blue-500/10 transition-colors">
-                                <Mail className="w-6 h-6" />
+                        <div className="p-5 sm:p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/[0.05] transition-colors group">
+                            <div className="p-2 sm:p-3 bg-white/5 rounded-xl sm:rounded-2xl border border-white/10 text-blue-400 w-fit mb-3 sm:mb-4 group-hover:bg-blue-500/10 transition-colors">
+                                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
-                            <p className="text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Email Us</p>
-                            <p className="text-lg text-white font-medium">hello@wincore.ai</p>
+                            <p className="text-xs sm:text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Email Us</p>
+                            <p className="text-base sm:text-lg text-white font-medium">hello@wincore.ai</p>
                         </div>
 
-                        <div className="p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-3xl hover:bg-white/[0.05] transition-colors group">
-                            <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-emerald-400 w-fit mb-4 group-hover:bg-emerald-500/10 transition-colors">
-                                <Phone className="w-6 h-6" />
+                        <div className="p-5 sm:p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/[0.05] transition-colors group">
+                            <div className="p-2 sm:p-3 bg-white/5 rounded-xl sm:rounded-2xl border border-white/10 text-emerald-400 w-fit mb-3 sm:mb-4 group-hover:bg-emerald-500/10 transition-colors">
+                                <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
-                            <p className="text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Call Us</p>
-                            <p className="text-lg text-white font-medium">+1 (555) 123-4567</p>
+                            <p className="text-xs sm:text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Call Us</p>
+                            <p className="text-base sm:text-lg text-white font-medium">+1 (555) 123-4567</p>
                         </div>
 
-                        <div className="p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-3xl hover:bg-white/[0.05] transition-colors group sm:col-span-2 flex items-center justify-between">
+                        <div className="p-5 sm:p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/[0.05] transition-colors group sm:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
                             <div>
-                                <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-purple-400 w-fit mb-4 group-hover:bg-purple-500/10 transition-colors">
-                                    <MessageCircle className="w-6 h-6" />
+                                <div className="p-2 sm:p-3 bg-white/5 rounded-xl sm:rounded-2xl border border-white/10 text-purple-400 w-fit mb-3 sm:mb-4 group-hover:bg-purple-500/10 transition-colors">
+                                    <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
                                 </div>
-                                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Direct WhatsApp</p>
-                                <a href="https://wa.me/15550000000" target="_blank" rel="noopener noreferrer" className="text-lg text-white font-medium hover:text-purple-400 transition-colors">
+                                <p className="text-xs sm:text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Direct WhatsApp</p>
+                                <a href="https://wa.me/15550000000" target="_blank" rel="noopener noreferrer" className="text-base sm:text-lg text-white font-medium hover:text-purple-400 transition-colors">
                                     +1 (555) 000-0000
                                 </a>
                             </div>
@@ -94,12 +94,12 @@ export default function ContactPage() {
                             </Button>
                         </div>
 
-                        <div className="p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-3xl sm:col-span-2 group">
-                            <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-cyan-400 w-fit mb-4 group-hover:bg-cyan-500/10 transition-colors">
-                                <MapPin className="w-6 h-6" />
+                        <div className="p-5 sm:p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl sm:rounded-3xl sm:col-span-2 group">
+                            <div className="p-2 sm:p-3 bg-white/5 rounded-xl sm:rounded-2xl border border-white/10 text-cyan-400 w-fit mb-3 sm:mb-4 group-hover:bg-cyan-500/10 transition-colors">
+                                <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
-                            <p className="text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Visit Us</p>
-                            <p className="text-lg text-white font-medium">100 Tech Hub Road, San Francisco, CA 94107</p>
+                            <p className="text-xs sm:text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Visit Us</p>
+                            <p className="text-base sm:text-lg text-white font-medium">100 Tech Hub Road, San Francisco, CA 94107</p>
                         </div>
                     </div>
                 </motion.div>
@@ -109,10 +109,10 @@ export default function ContactPage() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    <Card className="bg-white/[0.02] backdrop-blur-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] border border-white/10 md:rounded-3xl p-8 lg:p-10 h-full flex flex-col justify-center">
-                        <CardHeader className="px-0 pt-0 mb-6">
-                            <CardTitle className="text-3xl text-white font-bold tracking-tight">Send an Inquiry</CardTitle>
-                            <CardDescription className="text-gray-400 text-lg font-light mt-2">Our technical directors typically respond within 12 hours.</CardDescription>
+                    <Card className="bg-white/[0.02] backdrop-blur-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] border border-white/10 rounded-2xl md:rounded-3xl p-6 sm:p-8 lg:p-10 h-full flex flex-col justify-center">
+                        <CardHeader className="px-0 pt-0 mb-4 sm:mb-6">
+                            <CardTitle className="text-2xl sm:text-3xl text-white font-bold tracking-tight">Send an Inquiry</CardTitle>
+                            <CardDescription className="text-gray-400 text-base sm:text-lg font-light mt-1 sm:mt-2">Our technical directors typically respond within 12 hours.</CardDescription>
                         </CardHeader>
                         <CardContent className="px-0 pb-0">
                             <form onSubmit={handleSubmit} className="space-y-6">

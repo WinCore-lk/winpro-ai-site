@@ -78,27 +78,27 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
                 <div className="space-y-12">
                     <div>
-                        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
                             {service.title}
                         </h1>
-                        <p className="text-2xl text-gray-300 font-light max-w-2xl">
+                        <p className="text-xl sm:text-2xl text-gray-300 font-light max-w-2xl">
                             {service.subtitle}
                         </p>
                     </div>
 
                     <div className="prose prose-lg prose-invert max-w-none">
-                        <p className="text-gray-400 leading-relaxed text-xl">
+                        <p className="text-gray-400 leading-relaxed text-lg sm:text-xl">
                             {service.content}
                         </p>
                     </div>
 
-                    <div className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-3xl mt-12">
-                        <h3 className="text-2xl font-bold text-white mb-8">Key Capabilities</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="bg-white/5 border border-white/10 p-6 sm:p-8 md:p-12 rounded-2xl md:rounded-3xl mt-8 sm:mt-12">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Key Capabilities</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                             {service.features.map((feature, i) => (
                                 <div key={i} className="flex items-start">
-                                    <CheckCircle2 className="w-6 h-6 text-emerald-400 mr-4 flex-shrink-0" />
-                                    <span className="text-gray-300 text-lg">{feature}</span>
+                                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 mr-3 sm:mr-4 flex-shrink-0 mt-0.5" />
+                                    <span className="text-gray-300 text-base sm:text-lg leading-snug">{feature}</span>
                                 </div>
                             ))}
                         </div>

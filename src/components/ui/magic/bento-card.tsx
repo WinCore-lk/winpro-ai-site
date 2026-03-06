@@ -42,8 +42,8 @@ export function BentoCard({ title, description, icon, backgroundImage, className
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
 
             {/* Content */}
-            <div className="relative z-20 h-full flex flex-col justify-end p-8 sm:p-10">
-                <div className="absolute top-8 right-8 w-12 h-12 rounded-full border border-white/20 bg-black/30 backdrop-blur-md flex items-center justify-center transition-transform duration-500 ease-out group-hover:-rotate-45">
+            <div className="relative z-20 h-full flex flex-col justify-end p-6 sm:p-8 md:p-10">
+                <div className="absolute top-6 right-6 sm:top-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 bg-black/30 backdrop-blur-md flex items-center justify-center transition-transform duration-500 ease-out group-hover:-rotate-45">
                     <ArrowRight className="w-5 h-5 text-white" />
                 </div>
 
