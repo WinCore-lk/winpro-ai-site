@@ -76,7 +76,7 @@ export function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-gray-500 text-sm font-light">
+                    <p className="text-gray-500 text-sm font-light" suppressHydrationWarning>
                         &copy; {new Date().getFullYear()} WinCore AI. All rights reserved.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 font-light">
