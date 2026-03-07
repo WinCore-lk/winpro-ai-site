@@ -37,7 +37,7 @@ export function Navbar() {
                             </Link>
                         ))}
                         <Button asChild className="bg-white hover:bg-gray-200 text-black rounded-full px-8 font-semibold transition-transform hover:scale-105">
-                            <Link href="/contact">Get Started</Link>
+                            <Link href="/contact">Start a Deal</Link>
                         </Button>
                     </div>
 
@@ -74,7 +74,7 @@ export function Navbar() {
                             ))}
                             <div className="px-3 py-2">
                                 <Button asChild className="w-full bg-white hover:bg-gray-200 text-black rounded-md font-semibold">
-                                    <Link href="/contact" onClick={() => setIsOpen(false)}>Get Started</Link>
+                                    <Link href="/contact" onClick={() => setIsOpen(false)}>Start a Deal</Link>
                                 </Button>
                             </div>
                         </div>

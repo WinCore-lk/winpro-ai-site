@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Bot, BarChart3, BrainCircuit, Activity, LineChart, Code2, Globe, Sparkles, Workflow, GitMerge, Settings2, ShieldCheck, ArrowRight } from "lucide-react";
@@ -40,6 +40,24 @@ const services = [
     description: "Strategic planning for AI adoption across enterprise divisions.",
     icon: <LineChart className="w-8 h-8 text-rose-400" />,
   },
+];
+
+const showcaseItems = [
+  {
+    image: "/ai_dashboard_preview_1772885226339.png",
+    title: "Intelligent Insights",
+    desc: "Real-time analytics engine tracking core KPIs."
+  },
+  {
+    image: "/ai_agent_architecture_1772885265043.png",
+    title: "Agentic Orchestration",
+    desc: "Multi-layer AI networks working in harmony."
+  },
+  {
+    image: "/enterprise_automation_scene_1772885306171.png",
+    title: "Future Operations",
+    desc: "Autonomous solutions for enterprise scale."
+  }
 ];
 
 const playbookSteps = [
@@ -91,26 +109,53 @@ function Target(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+import { useState, useEffect } from "react";
+
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % showcaseItems.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="flex flex-col w-full relative overflow-hidden bg-black text-white">
-      {/* Dynamic Background */}
-      <div className="absolute inset-0 -z-10 bg-black overflow-hidden pointer-events-none">
+      {/* Dynamic Background with more vibrancy */}
+      <div className="absolute inset-0 -z-10 bg-[#020617] overflow-hidden pointer-events-none">
         <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] rounded-full bg-blue-900/20 blur-[120px] mix-blend-screen"
+          animate={{ 
+            scale: [1, 1.2, 1], 
+            opacity: [0.3, 0.6, 0.3],
+            x: [0, 50, 0],
+            y: [0, -30, 0]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-10%] left-[-10%] w-[50rem] h-[50rem] rounded-full bg-blue-600/20 blur-[130px] mix-blend-screen"
         />
         <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-[30%] right-[-10%] w-[35rem] h-[35rem] rounded-full bg-emerald-900/10 blur-[120px] mix-blend-screen"
+          animate={{ 
+            scale: [1, 1.3, 1], 
+            opacity: [0.2, 0.5, 0.2],
+            x: [0, -40, 0],
+            y: [0, 40, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute top-[20%] right-[-15%] w-[45rem] h-[45rem] rounded-full bg-cyan-500/15 blur-[120px] mix-blend-screen"
         />
         <motion.div
-          animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-          className="absolute bottom-[-10%] left-[20%] w-[45rem] h-[45rem] rounded-full bg-indigo-900/20 blur-[150px] mix-blend-screen"
+          animate={{ 
+            scale: [1, 1.2, 1], 
+            opacity: [0.3, 0.7, 0.3],
+            y: [0, 60, 0]
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          className="absolute bottom-[-15%] left-[10%] w-[55rem] h-[55rem] rounded-full bg-indigo-600/25 blur-[160px] mix-blend-screen"
         />
+        {/* Added a warm highlight for depth */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vh] bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.03)_0%,transparent_70%)]" />
       </div>
 
       {/* Hero Section (Rubiq / PlayZense Vibe) */}
@@ -125,9 +170,9 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-white leading-[1.1]"
             >
-              Discover Your <br className="hidden md:block" />
+              Building <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-emerald-400">
-                Digital Destiny
+                Autonomous Engines
               </span>
             </motion.h1>
             <motion.p
@@ -136,7 +181,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed"
             >
-              We empower global enterprises with state-of-the-art AI. Optimize your workflow, gain actionable insights, and redefine what's possible for your business.
+              We engineer custom AI automation, intelligent agent networks, and predictive data ecosystems for global enterprises. Redefine your operational limits with state-of-the-art intelligence.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -144,8 +189,8 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col justify-center lg:justify-start sm:flex-row gap-5 w-full lg:w-auto"
             >
-              <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 h-14 text-lg font-semibold transition-transform hover:scale-105" asChild>
-                <Link href="/contact">Start Your Transformation</Link>
+              <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 h-14 text-lg font-semibold transition-transform hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.2)]" asChild>
+                <Link href="/contact">Start a Partnership</Link>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-lg border-white/20 hover:bg-white/10 backdrop-blur-md transition-transform hover:scale-105" asChild>
                 <Link href="#playbook">Explore Playbook</Link>
@@ -179,6 +224,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Interactive Expertise Section (Highlighting what we do) */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 relative max-w-7xl mx-auto border-t border-white/5">
+        <div className="flex flex-col items-center mb-20 text-center">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-blue-400 font-bold tracking-[0.2em] uppercase text-sm mb-4"
+          >
+            Core Capabilities
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-white"
+          >
+            What we do. <span className="text-gray-600">And how we win.</span>
+          </motion.h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group p-8 rounded-[2.5rem] bg-gradient-to-b from-white/[0.08] to-transparent border border-white/10 hover:border-blue-400/50 hover:bg-white/[0.1] transition-all duration-500 relative overflow-hidden backdrop-blur-xl"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-400/10 blur-[50px] -mr-16 -mt-16 group-hover:bg-blue-400/20 transition-colors" />
+              <div className="mb-6 relative z-10 p-4 bg-white/5 rounded-2xl w-fit border border-white/10 group-hover:scale-110 group-hover:bg-white/10 transition-all">
+                {service.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors relative z-10 tracking-tight">{service.title}</h3>
+              <p className="text-gray-400 group-hover:text-gray-200 transition-colors leading-relaxed relative z-10 font-normal">
+                {service.description}
+              </p>
+              
+              {/* Bottom accent line */}
+              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500/0 to-transparent group-hover:via-blue-500/50 transition-all duration-700" />
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+
       {/* Narrative Section (Dolphin Ad World Vibe) */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/5 bg-white/[0.02]">
         <motion.div
@@ -188,12 +279,13 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-tight">
-            Traditional to autonomous, we are your full-service AI engineers.
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6 md:mb-8 leading-tight tracking-tight italic">
+            From complex legacy systems to autonomous future, we are your AI strike team.
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed font-light">
-            We still engineer like it's our first deployment. Amongst our victories, we proudly wear the scars of integrations that stumbled—for in each challenge, we find the absolute seeds of future operational brilliance.
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed font-normal">
+            We specialize in high-stakes integrations where precision matters. Our engineers don't just "implement" AI; we architect core business logic into autonomous ecosystems that drive 10x efficiency.
           </p>
+
         </motion.div>
       </section>
 
@@ -226,25 +318,25 @@ export default function Home() {
                 <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-blue-500/30 via-indigo-500/20 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none" />
 
                 {/* Glass card */}
-                <div className="relative h-full rounded-3xl overflow-hidden border border-white/[0.12] bg-white/[0.05] backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)] group-hover:border-white/20 group-hover:bg-white/[0.08] transition-all duration-500">
+                <div className="relative h-full rounded-3xl overflow-hidden border border-white/20 bg-white/[0.04] backdrop-blur-3xl shadow-2xl group-hover:border-blue-400/50 group-hover:bg-white/[0.08] transition-all duration-500">
 
                   {/* Shimmer sweep */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.1] via-transparent to-transparent" />
                   </div>
 
                   {/* Large step number watermark */}
-                  <div className="absolute top-0 right-0 p-4 sm:p-6 text-5xl sm:text-6xl font-black text-white/[0.04] group-hover:text-white/[0.07] transition-colors duration-500 pointer-events-none select-none leading-none">
+                  <div className="absolute top-0 right-0 p-4 sm:p-6 text-5xl sm:text-6xl font-black text-white/[0.05] group-hover:text-white/[0.1] transition-colors duration-500 pointer-events-none select-none leading-none">
                     {step.id}
                   </div>
 
                   <div className="p-8 relative z-10 flex flex-col h-full">
                     {/* Icon bubble */}
-                    <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 inline-flex w-fit border border-blue-400/20 shadow-[0_0_20px_rgba(99,102,241,0.15)] group-hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] transition-shadow duration-500">
+                    <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-blue-400/20 to-indigo-400/20 inline-flex w-fit border border-blue-400/30 shadow-[0_0_25px_rgba(99,102,241,0.2)] group-hover:shadow-[0_0_40px_rgba(99,102,241,0.4)] group-hover:scale-110 transition-all duration-500">
                       {step.icon}
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">{step.title}</h3>
-                    <p className="text-gray-400 leading-relaxed font-light text-sm sm:text-base">{step.desc}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">{step.title}</h3>
+                    <p className="text-gray-400 group-hover:text-gray-200 transition-colors leading-relaxed font-normal text-sm sm:text-base">{step.desc}</p>
                   </div>
                 </div>
               </motion.div>
@@ -256,6 +348,118 @@ export default function Home() {
 
       {/* Cinematic Work Showcase (RnP Brands style Bento Grid) */}
       <WorkShowcase />
+
+      {/* "Make a Deal" Quick Steps / CTA Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="w-full bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-[3rem] p-10 md:p-20 border border-white/10 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+          >
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 blur-[130px] rounded-full -mr-72 -mt-72 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/10 blur-[120px] rounded-full -ml-64 -mb-64 pointer-events-none" />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+              <div>
+                <motion.span 
+                  className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-blue-300 text-sm font-bold mb-6 backdrop-blur-md"
+                >
+                  Streamlined Partnership
+                </motion.span>
+                <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight italic">
+                  Start a Deal <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500">In 3 Minutes.</span>
+                </h2>
+                <p className="text-xl text-gray-300 mb-10 max-w-lg leading-relaxed font-normal">
+                  We've streamlined our technical vetting and onboarding to make high-stakes partnerships effortless.
+                </p>
+                
+                <div className="space-y-6 mb-12">
+                  {[
+                    { id: 1, text: "Instant NDA & Secure Project Portal" },
+                    { id: 2, text: "Strategy Call with Lead Architects" },
+                    { id: 3, text: "Custom MVP Roadmap & Fixed Pricing" }
+                  ].map((step) => (
+                    <div key={step.id} className="flex items-center gap-5 text-white/90 group">
+                      <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-blue-400 border border-white/10 flex-shrink-0 group-hover:bg-blue-500/20 group-hover:scale-110 transition-all font-bold">
+                        {step.id}
+                      </div>
+                      <span className="text-lg font-medium group-hover:text-blue-300 transition-colors uppercase tracking-tight">{step.text}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-full px-12 h-16 text-xl font-black transition-all hover:scale-105 shadow-[0_10px_40px_rgba(255,255,255,0.2)]" asChild>
+                  <Link href="/contact">Draft Your Proposal <ArrowRight className="ml-2 w-6 h-6"/></Link>
+                </Button>
+              </div>
+              
+              <div className="relative w-full h-[500px] lg:h-[650px] group">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentSlide}
+                    initial={{ opacity: 0, x: 20, scale: 0.95 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: -20, scale: 0.95 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="absolute inset-0 flex flex-col"
+                  >
+                    {/* Image Card Part */}
+                    <div className="relative flex-1 rounded-t-[3rem] overflow-hidden border-x border-t border-white/10 shadow-2xl">
+                       <Image 
+                        src={showcaseItems[currentSlide].image} 
+                        alt={showcaseItems[currentSlide].title} 
+                        fill 
+                        className="object-cover" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                    </div>
+
+                    {/* Content Card Part (Meaning area) */}
+                    <div className="bg-white/[0.04] backdrop-blur-3xl p-8 lg:p-10 rounded-b-[3rem] border border-white/10 relative z-10">
+                      <div className="flex justify-between items-end">
+                        <div>
+                          <motion.h4 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-white font-black text-2xl mb-2 tracking-tight uppercase"
+                          >
+                            {showcaseItems[currentSlide].title}
+                          </motion.h4>
+                          <motion.p 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className="text-gray-400 text-lg font-light max-w-sm"
+                          >
+                            {showcaseItems[currentSlide].desc}
+                          </motion.p>
+                        </div>
+                        
+                        <div className="flex gap-3 mb-2">
+                          {showcaseItems.map((_, i) => (
+                            <button
+                              key={i}
+                              onClick={() => setCurrentSlide(i)}
+                              className={`w-3 h-3 rounded-full transition-all duration-500 ${i === currentSlide ? "bg-blue-400 w-8" : "bg-white/20 hover:bg-white/40"}`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Decorative border glow */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-transparent to-cyan-600/20 rounded-[4rem] blur-3xl opacity-30 group-hover:opacity-60 transition-opacity pointer-events-none" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
 
       {/* CTA Section */}
       <section className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
