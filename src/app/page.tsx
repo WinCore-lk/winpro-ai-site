@@ -10,29 +10,34 @@ import { WorkShowcase } from "@/components/work-showcase";
 
 const services = [
   {
-    title: "Process Automation & Workflows",
-    description: "Automate repetitive BPO tasks: data entry from invoices/PDFs to spreadsheets/ERP, approval flows, email reminders for VAT/RAMIS filings. Example: auto-pull payroll data → EPF/ETF → payslips → flag discrepancies. We typically cut manual time by 40–70% on routine steps. Builds on our payroll and VAT expertise.",
+    title: "Process Automation",
+    description: "Automate repetitive BPO tasks like invoice entry and VAT filings. We cut manual time by 40–70% using deterministic workflows built on our payroll expertise.",
     icon: <Activity className="w-8 h-8 text-blue-400" />,
+    image: "/automation_dashboard.png"
   },
   {
     title: "Intelligent Chatbots",
-    description: "RAG-based bots that answer FAQs on payroll rules, VAT rates, compliance deadlines  -  using your knowledge base. Internal (e.g. “What’s the latest EPF rate?”) or client-facing (“Track my VAT filing status”). Add to WhatsApp, website, or Slack. Low dev cost, quick setup.",
+    description: "RAG-based bots grounded in your knowledge base. Deploy on WhatsApp, Slack, or Web to answer internal or client compliance queries with high accuracy.",
     icon: <Bot className="w-8 h-8 text-indigo-400" />,
+    image: "/chatbot_interface.png"
   },
   {
-    title: "AI Consulting & Process Audits",
-    description: "We audit your payroll, bookkeeping, and compliance → find bottlenecks → recommend quick automations (e.g. “Automate 3 manual steps in VAT prep”). You get a roadmap with costs, tools, and expected savings. No heavy coding  -  our domain knowledge plus practical AI. Bundles with existing advisory/CFO support.",
+    title: "AI Process Audits",
+    description: "Rapid audits of your financial operations to identify high-ROI automation targets. Receive a clear roadmap with costs and expected savings.",
     icon: <LineChart className="w-8 h-8 text-rose-400" />,
+    image: "/ai_agent_architecture_1772885265043.png"
   },
   {
-    title: "Smart Reporting & Dashboards",
-    description: "Pull from Excel/ERP → auto-generate insights: cashflow trends, anomaly detection in expenses. Daily auto-updated dashboards for payroll variances or VAT compliance risks. Ties directly to your reporting and advisory work.",
+    title: "Smart Dashboards",
+    description: "Real-time visibility into cashflow, expenses, and compliance. Automated reporting pulled directly from your ERP or spreadsheets for better decision-making.",
     icon: <BarChart3 className="w-8 h-8 text-cyan-400" />,
+    image: "/ai_dashboard_preview_1772885226339.png"
   },
   {
-    title: "Document Processing (OCR)",
-    description: "Extract data from invoices, payslips, or compliance docs and feed it into your systems. Auto-read supplier invoices → populate accounting entries. Practical for accounting and BPO workflows.",
+    title: "Document Processing",
+    description: "Automate data extraction (OCR) for invoices and compliance docs. Feed high-precision data directly into your systems to eliminate manual entry.",
     icon: <FileText className="w-8 h-8 text-purple-400" />,
+    image: "/enterprise_automation_scene_1772885306171.png"
   },
 ];
 
@@ -210,17 +215,28 @@ export default function Home() {
                 key={service.title}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
+                viewport={{ once: true, margin: "-10px" }}
                 transition={{ delay: index * 0.06, duration: 0.4 }}
-                className="group card-surface card-surface-hover p-6 md:p-8"
+                className="group card-surface card-surface-hover overflow-hidden flex flex-col"
               >
-                <div className="mb-5 p-3 rounded-xl bg-white/5 w-fit border border-white/10">
-                  {service.icon}
+                <div className="h-44 w-full relative overflow-hidden border-b border-white/10">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-6 p-2.5 rounded-xl bg-black/50 backdrop-blur border border-white/10">
+                    {service.icon}
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3 tracking-tight">{service.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-                  {service.description}
-                </p>
+                <div className="p-6 md:p-8">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight">{service.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-sm">
+                    {service.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -259,7 +275,7 @@ export default function Home() {
               "WinCore's automation saved us hours on reporting. We used to chase spreadsheets; now the dashboard is updated daily and we can focus on decisions."
             </p>
             <p className="text-gray-400 text-sm">
-               -  BPO client, now using WinCore AI for dashboards and process automation
+              -  BPO client, now using WinCore AI for dashboards and process automation
             </p>
           </motion.div>
         </div>

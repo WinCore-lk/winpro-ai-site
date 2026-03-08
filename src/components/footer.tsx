@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Github, Twitter, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 
 export function Footer() {
     return (
@@ -9,13 +10,23 @@ export function Footer() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-10 mb-14">
                     <div className="md:col-span-12 lg:col-span-5">
-                        <div className="flex items-center gap-3 mb-5">
-                            <Link href="/" className="text-2xl font-semibold text-white hover:text-white/90 transition-colors">
-                                WinCore AI
-                            </Link>
-                            <a href="https://wincore.lk" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
-                                WinCore.lk
-                            </a>
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-white/5 border border-white/10 p-1.5 flex-shrink-0">
+                                <Image
+                                    src="/wincore-mascot.png"
+                                    alt="WinCore Mascot"
+                                    fill
+                                    className="object-contain p-1"
+                                />
+                            </div>
+                            <div className="flex flex-col">
+                                <Link href="/" className="text-xl font-bold text-white hover:text-white/90 transition-colors tracking-tight">
+                                    WinCore AI
+                                </Link>
+                                <a href="https://wincore.lk" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-white transition-colors">
+                                    Part of WinCore.lk
+                                </a>
+                            </div>
                         </div>
                         <p className="text-gray-400 text-base leading-relaxed mb-6 max-w-sm">
                             Practical AI and BPO automation for businesses worldwide. Based in Colombo; we work with global clients. Up to 40–60% time savings on repetitive tasks (e.g. payroll prep, reporting), with compliance-aware delivery.
