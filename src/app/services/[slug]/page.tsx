@@ -5,49 +5,50 @@ import { ArrowLeft, CheckCircle2 } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
-    const title = resolvedParams.slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+    const service = serviceDetails[resolvedParams.slug];
+    if (!service) return { title: "Service | WinCore AI" };
     return {
-        title: `${title} | WinCore AI`,
-        description: `Detailed information about our ${title} capabilities.`
+        title: `${service.title} | WinCore AI`,
+        description: `${service.subtitle}. ${service.content.slice(0, 120)}...`
     };
 }
 
 const serviceDetails: Record<string, { title: string, subtitle: string, content: string, features: string[] }> = {
     "ai-automation": {
-        title: "AI Automation",
-        subtitle: "Streamline operations with agentic models",
-        content: "We design and deploy autonomous AI agents capable of handling complex, multi-step workflows. By integrating directly into your ERP, CRM, and internal databases, our automation systems act as a 24/7 digital workforce, eliminating human error in repetitive tasks.",
-        features: ["End-to-end workflow automation", "Custom agentic modeling", "ERP/CRM integration", "Reduced operational costs"]
+        title: "Process Automation & Workflows",
+        subtitle: "Strongest starting point  -  we can deliver this now",
+        content: "We automate repetitive BPO tasks so you see immediate ROI. That includes: data entry from invoices/PDFs into spreadsheets or ERP; approval flows (e.g. expense claims); email reminders for VAT/RAMIS filings; or supplier payment workflows. We use Zapier, Make.com, n8n for no-code flows, and simple Python scripts when needed. Example: auto-pull payroll data from client sheets → calculate EPF/ETF → generate payslips → flag discrepancies. In practice we cut manual time by 40–70% on routine steps. This builds directly on our payroll and VAT expertise.",
+        features: ["Data entry from invoices/PDFs to ERP", "Approval flows & compliance reminders (VAT/RAMIS)", "Payroll → EPF/ETF → payslips → discrepancy flags", "Zapier/Make/n8n or light scripting", "40–70% time savings on routine steps"]
     },
     "ai-chatbots": {
-        title: "AI Chatbots",
-        subtitle: "Intelligent, context-aware conversational agents",
-        content: "Our custom LLM-based chatbots go far beyond standard query-matching. We build context-aware conversational systems empowered with Retrieval-Augmented Generation (RAG) to instantly answer complex customer support inquiries using your secure, proprietary data.",
-        features: ["RAG architecture implementation", "Multi-platform integration (Web, Slack, Teams)", "Contextual memory", "Seamless human hand-off"]
-    },
-    "machine-learning-solutions": {
-        title: "Machine Learning Solutions",
-        subtitle: "Predictive power at scale",
-        content: "Turn historical data into future certainty. We train bespoke machine learning models to detect anomalies, optimize pricing dynamically, and forecast demand with high precision, tailored to your specific industry constraints.",
-        features: ["Custom model training", "Predictive maintenance", "Demand forecasting", "Algorithm auditing & tuning"]
-    },
-    "computer-vision": {
-        title: "Computer Vision",
-        subtitle: "Advanced spatial intelligence",
-        content: "Deploy state-of-the-art visual recognition systems. We implement computer vision pipelines capable of real-time object tracking, automated quality control on manufacturing lines, and advanced facial recognition systems for secure access.",
-        features: ["Real-time video analysis", "Automated defect detection", "Spatial tracking", "Edge AI deployment"]
-    },
-    "data-intelligence": {
-        title: "Data Intelligence",
-        subtitle: "Clarity amidst noise",
-        content: "Extract actionable meaning from massive unstructured datasets. We build robust ETL pipelines and elegant, real-time analytics dashboards that give executive teams complete visibility over their operations.",
-        features: ["Unstructured data parsing", "Real-time dashboarding", "Big data ETL architecture", "Automated reporting"]
+        title: "Intelligent Chatbots",
+        subtitle: "Very doable  -  we start simple",
+        content: "We build chatbots for client support that answer FAQs on payroll rules, VAT rates, compliance deadlines, or basic queries using your knowledge base. We use Retrieval-Augmented Generation (RAG): we feed your FAQs and policies into proven tools (e.g. OpenAI with Pinecone/Weaviate, or no-code like Voiceflow/Landbot). You can have an internal bot for your BPO team (e.g. “What’s the latest EPF rate?”) or a client-facing one (“Track my VAT filing status”). We add to WhatsApp, website, or Slack. Low dev cost, quick setup  -  for teams anywhere.",
+        features: ["RAG on your FAQs & policies", "Internal or client-facing", "WhatsApp, web, Slack", "Quick setup, affordable for small firms"]
     },
     "ai-consulting": {
-        title: "AI Consulting",
-        subtitle: "Strategic roadmap to intelligence",
-        content: "Don't adopt AI because it's a trend; adopt it where it drives ROI. Our technical strategists will audit your existing infrastructure, identify high-impact AI use cases, and design a secure, scalable roadmap for adoption.",
-        features: ["Infrastructure audits", "ROI analysis", "Proof-of-concept development", "Executive technical training"]
+        title: "AI Consulting & Process Audits",
+        subtitle: "Easiest entry  -  we deliver this immediately",
+        content: "We audit your processes (payroll, bookkeeping, compliance), find bottlenecks, and recommend quick automations  -  e.g. “Automate 3 manual steps in VAT prep.” You get a roadmap with costs, tools, and expected savings (e.g. “Rs. X/month for Zapier flows”). No heavy coding: we use our domain knowledge plus basic AI awareness. We bundle this with our existing advisory and CFO support so it fits how you already work.",
+        features: ["Audit of payroll, bookkeeping, compliance", "Bottleneck & quick-win recommendations", "Roadmap with costs, tools, savings", "Bundles with WinCore advisory/CFO"]
+    },
+    "data-intelligence": {
+        title: "Smart Reporting & Dashboards",
+        subtitle: "Good next step after process or consulting",
+        content: "We pull data from your Excel or ERP and auto-generate insights: cashflow trends, anomaly detection in expenses. You get a daily auto-updated dashboard for things like payroll variances or VAT compliance risks. We use Google Looker Studio, Power BI with basic AI features, or lightweight Streamlit-style apps. This ties directly to your reporting and advisory work  -  no “big data” hype, just clarity you can use.",
+        features: ["Dashboards from Excel/ERP", "Cashflow trends & expense anomalies", "Payroll/VAT compliance views", "Daily auto-updates"]
+    },
+    "machine-learning-solutions": {
+        title: "Basic Predictive Insights",
+        subtitle: "Pilot-level  -  we do this after 1–2 process/reporting clients",
+        content: "Simple demand forecasting for retail or wholesale: we forecast sales or inventory from your historical data using proven tools (e.g. scikit-learn or no-code like Akkio). Example: we helped a Colombo retailer improve inventory accuracy by 30%  -  we trained only on their data. We don’t do large-scale “global enterprise” ML; we do practical pilots that you can measure. We take this on once we’ve already delivered process automation or reporting for you.",
+        features: ["Demand/sales or inventory forecasting", "Trained on your data only", "Simple, explainable models", "Pilot after process/reporting work with us"]
+    },
+    "document-processing": {
+        title: "Document Processing (OCR)",
+        subtitle: "Feasible add-on for accounting and BPO",
+        content: "We extract data from invoices, payslips, or compliance docs and feed it into your systems. Auto-read supplier invoices to populate accounting entries. We use Google Document AI, Tesseract, or affordable APIs. Practical for accounting firms and BPO workflows.",
+        features: ["Invoice and payslip extraction", "Auto-populate accounting entries", "Compliance doc handling", "Fits existing BPO workflows"]
     }
 };
 
@@ -67,52 +68,51 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     }
 
     return (
-        <div className="flex flex-col w-full min-h-screen bg-black py-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto w-full relative">
-                <div className="mb-10">
-                    <Link href="/services" className="inline-flex items-center text-gray-400 hover:text-blue-400 transition-colors">
+        <div className="page-root">
+            <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
+                <div className="absolute top-0 right-0 w-[30rem] h-[20rem] bg-sky-500/[0.04] blur-[80px] rounded-full" />
+            </div>
+            <section className="section-pad">
+                <div className="max-w-4xl mx-auto w-full">
+                    <Link href="/services" className="inline-flex items-center text-gray-400 hover:text-sky-400 transition-colors text-sm font-medium mb-10">
                         <ArrowLeft className="w-4 h-4 mr-2" />
-                        Back to all services
+                        Back to services
                     </Link>
-                </div>
 
-                <div className="space-y-12">
-                    <div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-                            {service.title}
-                        </h1>
-                        <p className="text-xl sm:text-2xl text-gray-300 font-light max-w-2xl">
-                            {service.subtitle}
-                        </p>
-                    </div>
+                    <div className="space-y-10">
+                        <div>
+                            <h1 className="section-heading mb-3">
+                                {service.title}
+                            </h1>
+                            <p className="text-xl text-gray-400 max-w-2xl">
+                                {service.subtitle}
+                            </p>
+                        </div>
 
-                    <div className="prose prose-lg prose-invert max-w-none">
-                        <p className="text-gray-400 leading-relaxed text-lg sm:text-xl">
+                        <p className="text-gray-400 leading-relaxed text-lg">
                             {service.content}
                         </p>
-                    </div>
 
-                    <div className="bg-white/5 border border-white/10 p-6 sm:p-8 md:p-12 rounded-2xl md:rounded-3xl mt-8 sm:mt-12">
-                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Key Capabilities</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                            {service.features.map((feature, i) => (
-                                <div key={i} className="flex items-start">
-                                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 mr-3 sm:mr-4 flex-shrink-0 mt-0.5" />
-                                    <span className="text-gray-300 text-base sm:text-lg leading-snug">{feature}</span>
-                                </div>
-                            ))}
+                        <div className="card-surface p-6 sm:p-8">
+                            <h3 className="text-lg font-semibold text-white mb-6">Key capabilities</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {service.features.map((feature, i) => (
+                                    <div key={i} className="flex items-start gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                                        <span className="text-gray-300 text-sm sm:text-base leading-snug">{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="mt-16 text-center pb-10">
-                        <div className="inline-block p-[2px] rounded-full bg-gradient-to-r from-blue-500 to-emerald-500">
-                            <Button size="lg" className="bg-black hover:bg-black/80 text-white rounded-full px-12 h-16 text-lg w-full sm:w-auto" asChild>
-                                <Link href="/contact">Discuss this with our team</Link>
+                        <div className="pt-8">
+                            <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 h-12 font-semibold w-full sm:w-auto" asChild>
+                                <Link href="/contact">Discuss with our team</Link>
                             </Button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

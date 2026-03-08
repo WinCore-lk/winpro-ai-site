@@ -5,10 +5,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Loader2, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2, Calendar } from "lucide-react";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import { motion } from "framer-motion";
+
+// Replace with your Calendly URL, e.g. https://calendly.com/wincore
+const CALENDLY_URL = "https://calendly.com";
 
 export default function ContactPage() {
     const [loading, setLoading] = useState(false);
@@ -42,123 +50,177 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="flex flex-col w-full min-h-screen bg-[#020617] relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <div className="absolute top-[-10%] left-[-10%] w-[50rem] h-[50rem] rounded-full bg-blue-600/10 blur-[130px] mix-blend-screen pointer-events-none" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[45rem] h-[45rem] rounded-full bg-indigo-600/10 blur-[130px] mix-blend-screen pointer-events-none" />
-            <div className="absolute top-[30%] inset-x-0 w-full h-[500px] bg-gradient-to-b from-blue-900/5 via-emerald-900/5 to-transparent pointer-events-none" />
-
-            <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10 mt-10">
-                <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="space-y-12"
-                >
-                    <div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-tight">
-                            Let's architect <br className="hidden sm:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">your future.</span>
-                        </h1>
-                        <p className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-lg">
-                            Whether you're looking for automation, ML algorithms, or AI consulting, our experts are here to help scale your operations.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div className="p-6 bg-white/[0.05] backdrop-blur-3xl border border-white/10 rounded-3xl hover:bg-white/[0.08] hover:border-blue-400/30 transition-all group relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 blur-[40px] -mr-12 -mt-12 group-hover:bg-blue-500/10 transition-colors" />
-                            <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-blue-400 w-fit mb-4 group-hover:scale-110 group-hover:bg-blue-500/10 transition-all">
-                                <Mail className="w-6 h-6" />
-                            </div>
-                            <p className="text-xs text-gray-400 font-bold uppercase tracking-[0.2em] mb-1">Email Us</p>
-                            <p className="text-lg text-white font-bold tracking-tight">hello@wincore.ai</p>
-                        </div>
-
-                        <div className="p-6 bg-white/[0.05] backdrop-blur-3xl border border-white/10 rounded-3xl hover:bg-white/[0.08] hover:border-emerald-400/30 transition-all group relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 blur-[40px] -mr-12 -mt-12 group-hover:bg-emerald-500/10 transition-colors" />
-                            <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-emerald-400 w-fit mb-4 group-hover:scale-110 group-hover:bg-emerald-500/10 transition-all">
-                                <Phone className="w-6 h-6" />
-                            </div>
-                            <p className="text-xs text-gray-400 font-bold uppercase tracking-[0.2em] mb-1">Call Us</p>
-                            <p className="text-lg text-white font-bold tracking-tight">+1 (555) 123-4567</p>
-                        </div>
-
-                        <div className="p-5 sm:p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl sm:rounded-3xl hover:bg-white/[0.05] transition-colors group sm:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
-                            <div>
-                                <div className="p-2 sm:p-3 bg-white/5 rounded-xl sm:rounded-2xl border border-white/10 text-purple-400 w-fit mb-3 sm:mb-4 group-hover:bg-purple-500/10 transition-colors">
-                                    <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-                                </div>
-                                <p className="text-xs sm:text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Direct WhatsApp</p>
-                                <a href="https://wa.me/15550000000" target="_blank" rel="noopener noreferrer" className="text-base sm:text-lg text-white font-medium hover:text-purple-400 transition-colors">
-                                    +1 (555) 000-0000
-                                </a>
-                            </div>
-                            <Button asChild variant="outline" className="border-white/10 bg-transparent hover:bg-white/5 text-white rounded-full">
-                                <a href="https://wa.me/15550000000" target="_blank" rel="noopener noreferrer">Message Now</a>
-                            </Button>
-                        </div>
-
-                        <div className="p-5 sm:p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl sm:rounded-3xl sm:col-span-2 group">
-                            <div className="p-2 sm:p-3 bg-white/5 rounded-xl sm:rounded-2xl border border-white/10 text-cyan-400 w-fit mb-3 sm:mb-4 group-hover:bg-cyan-500/10 transition-colors">
-                                <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
-                            </div>
-                            <p className="text-xs sm:text-sm text-gray-500 font-semibold uppercase tracking-wider mb-1">Visit Us</p>
-                            <p className="text-base sm:text-lg text-white font-medium">100 Tech Hub Road, San Francisco, CA 94107</p>
-                        </div>
-                    </div>
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                    <Card className="bg-white/[0.04] backdrop-blur-3xl shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-white/10 rounded-[2.5rem] p-8 sm:p-10 lg:p-12 h-full flex flex-col justify-center relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[100px] pointer-events-none" />
-                        <CardHeader className="px-0 pt-0 mb-8">
-                            <CardTitle className="text-3xl sm:text-4xl text-white font-black tracking-tighter">Submit a Project Proposal</CardTitle>
-                            <CardDescription className="text-gray-400 text-lg font-normal mt-3">Our engineering directors personally review all technical inquiries within 12 business hours.</CardDescription>
-                        </CardHeader>
-                        <CardContent className="px-0 pb-0">
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div className="space-y-3">
-                                        <Label htmlFor="firstName" className="text-gray-300 font-medium">First Name</Label>
-                                        <Input id="firstName" name="firstName" required className="bg-black/40 border-white/10 text-white placeholder:text-gray-600 focus-visible:ring-blue-500 focus-visible:border-blue-500 h-12 rounded-xl transition-all" placeholder="John" />
-                                    </div>
-                                    <div className="space-y-3">
-                                        <Label htmlFor="lastName" className="text-gray-300 font-medium">Last Name</Label>
-                                        <Input id="lastName" name="lastName" required className="bg-black/40 border-white/10 text-white placeholder:text-gray-600 focus-visible:ring-blue-500 focus-visible:border-blue-500 h-12 rounded-xl transition-all" placeholder="Doe" />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-3">
-                                    <Label htmlFor="email" className="text-gray-300 font-medium">Work Email Address</Label>
-                                    <Input id="email" name="email" type="email" required className="bg-black/40 border-white/10 text-white placeholder:text-gray-600 focus-visible:ring-blue-500 focus-visible:border-blue-500 h-12 rounded-xl transition-all" placeholder="john@enterprise.com" />
-                                </div>
-
-                                <div className="space-y-3">
-                                    <Label htmlFor="company" className="text-gray-300 font-medium">Company Name</Label>
-                                    <Input id="company" name="company" className="bg-black/40 border-white/10 text-white placeholder:text-gray-600 focus-visible:ring-blue-500 focus-visible:border-blue-500 h-12 rounded-xl transition-all" placeholder="Acme Inc." />
-                                </div>
-
-                                <div className="space-y-3">
-                                    <Label htmlFor="message" className="text-gray-300 font-medium">Project Details</Label>
-                                    <Textarea id="message" name="message" required className="bg-black/40 border-white/10 text-white min-h-[140px] placeholder:text-gray-600 focus-visible:ring-blue-500 focus-visible:border-blue-500 rounded-xl resize-none transition-all p-4" placeholder="Tell us about the challenges you're trying to solve..." />
-                                </div>
-
-                                {error && <p className="text-red-400 text-sm font-medium">{error}</p>}
-                                {success && <p className="text-emerald-400 text-sm font-medium p-4 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-center">Your inquiry has been successfully transmitted. We will be in touch shortly.</p>}
-
-                                <Button type="submit" disabled={loading} className="w-full bg-white hover:bg-gray-200 text-black h-14 rounded-xl text-lg font-bold transition-transform hover:scale-[1.02]">
-                                    {loading ? <Loader2 className="animate-spin w-6 h-6" /> : "Initiate Consultation"}
-                                </Button>
-                            </form>
-                        </CardContent>
-                    </Card>
-                </motion.div>
-
+        <div className="page-root">
+            <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[50rem] h-[30rem] bg-sky-500/[0.04] blur-[100px] rounded-full" />
+                <div className="absolute bottom-0 right-0 w-[40rem] h-[25rem] bg-indigo-500/[0.03] blur-[100px] rounded-full" />
             </div>
+
+            <section className="section-pad">
+            <div className="section-inner">
+                {/* Headline + what to expect */}
+                <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center max-w-2xl mx-auto mb-14"
+                >
+                    <h1 className="section-heading mb-4">
+                        Start a conversation
+                    </h1>
+                    <p className="text-lg text-gray-400 leading-relaxed mb-10">
+                        Tell us what you want to automate or improve. A real person from our team will reply within 24–48 hours with a clear next step, not a bot.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+                        <span className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500/80" /> 24–48h response
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-sky-500/80" /> No commitment to start
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-purple-500/80" /> Scoped proposal if it's a fit
+                        </span>
+                    </div>
+                </motion.div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+                {/* Form first on mobile, left on desktop */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="lg:order-2"
+                >
+                    <div className="card-surface p-8 sm:p-10">
+                        <h2 className="text-xl font-semibold text-white mb-2">Send us a message</h2>
+                        <p className="text-gray-400 text-sm mb-6">We use this to prepare for our first conversation. No spam, no reselling your data.</p>
+                        <form onSubmit={handleSubmit} className="space-y-5">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div className="space-y-2">
+                                    <Label htmlFor="firstName" className="text-gray-400 text-sm">First name</Label>
+                                    <Input id="firstName" name="firstName" required className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 h-11 rounded-lg" placeholder="Jane" />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="lastName" className="text-gray-400 text-sm">Last name</Label>
+                                    <Input id="lastName" name="lastName" required className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 h-11 rounded-lg" placeholder="Smith" />
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="email" className="text-gray-400 text-sm">Email</Label>
+                                <Input id="email" name="email" type="email" required className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 h-11 rounded-lg" placeholder="jane@company.com" />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="company" className="text-gray-400 text-sm">Company (optional)</Label>
+                                <Input id="company" name="company" className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 h-11 rounded-lg" placeholder="Your company" />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="message" className="text-gray-400 text-sm">What do you want to automate or improve?</Label>
+                                <Textarea id="message" name="message" required className="bg-white/5 border-white/10 text-white min-h-[120px] placeholder:text-gray-500 rounded-lg resize-none p-4" placeholder="e.g. payroll data entry, VAT reminders, a support chatbot, or reporting dashboards..." />
+                            </div>
+                            {error && <p className="text-red-400 text-sm">{error}</p>}
+                            {success && (
+                                <div className="p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm">
+                                    Thanks. We'll reply within 24–48 hours with next steps.
+                                </div>
+                            )}
+                            <Button type="submit" disabled={loading} className="w-full bg-white hover:bg-gray-100 text-black h-12 rounded-lg font-medium">
+                                {loading ? <Loader2 className="animate-spin w-5 h-5 mx-auto" /> : "Send message"}
+                            </Button>
+                        </form>
+                    </div>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.15 }}
+                    className="space-y-8 lg:order-1"
+                >
+                    {/* Direct contact */}
+                    <div>
+                        <h2 className="text-lg font-semibold text-white mb-4">Or reach out directly</h2>
+                        <div className="space-y-3">
+                            <a href="mailto:info@wincore.lk" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-colors group">
+                                <div className="p-2 rounded-lg bg-sky-500/10 text-sky-400">
+                                    <Mail className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <p className="text-white font-medium group-hover:text-sky-300 transition-colors">info@wincore.lk</p>
+                                    <p className="text-gray-500 text-sm">Email us</p>
+                                </div>
+                            </a>
+                            <a href="tel:+94777470904" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-colors group">
+                                <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+                                    <Phone className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <p className="text-white font-medium group-hover:text-emerald-300 transition-colors">+94 77 747 0904</p>
+                                    <p className="text-gray-500 text-sm">Call us</p>
+                                </div>
+                            </a>
+                            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-colors group">
+                                <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
+                                    <Calendar className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <p className="text-white font-medium group-hover:text-purple-300 transition-colors">Book a call</p>
+                                    <p className="text-gray-500 text-sm">Pick a time that works for you</p>
+                                </div>
+                            </a>
+                            <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/10">
+                                <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">
+                                    <MapPin className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <p className="text-white font-medium">Colombo, Sri Lanka</p>
+                                    <p className="text-gray-500 text-sm">Office</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* FAQ */}
+                    <div>
+                        <h2 className="text-lg font-semibold text-white mb-4">Common questions</h2>
+                        <Accordion type="single" collapsible className="space-y-2">
+                            <AccordionItem value="what-is-ai" className="card-surface border-white/10 rounded-xl px-4">
+                                <AccordionTrigger className="text-left text-gray-300 hover:text-white py-4">
+                                    What do you mean by &quot;AI&quot; here?
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-400 pb-4 pr-4">
+                                    We use it to mean software that can do repetitive tasks or spot patterns without a person doing every step  -  e.g. filling forms from documents, forecasting demand from past sales, or answering common customer questions. We don&apos;t do sci-fi; we do things that save you time and reduce errors.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="data-security" className="card-surface border-white/10 rounded-xl px-4">
+                                <AccordionTrigger className="text-left text-gray-300 hover:text-white py-4">
+                                    Is my data safe? Where does it live?
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-400 pb-4 pr-4">
+                                    We design for compliance in your jurisdiction and can keep data in regions you specify (including Sri Lanka). We don&apos;t use your data to train public models. We&apos;ll spell out where data is stored and who can access it in our agreement.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="how-long" className="card-surface border-white/10 rounded-xl px-4">
+                                <AccordionTrigger className="text-left text-gray-300 hover:text-white py-4">
+                                    How long does a typical project take?
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-400 pb-4 pr-4">
+                                    It depends on scope. A simple dashboard or chatbot might be a few weeks; payroll or VAT automation with your existing BPO setup can be a couple of months. We give you a timeline and milestones before we start.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="cost" className="card-surface border-white/10 rounded-xl px-4">
+                                <AccordionTrigger className="text-left text-gray-300 hover:text-white py-4">
+                                    What does it cost? Do you have starter packages?
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-400 pb-4 pr-4">
+                                    We offer starter packages for small businesses at competitive rates, and custom scopes for larger operations  -  we work with clients globally. After we understand your process, we give you a fixed or capped quote  -  no surprise invoices.
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </div>
+                </motion.div>
+                </div>
+            </div>
+            </section>
         </div>
     );
 }

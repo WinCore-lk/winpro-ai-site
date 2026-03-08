@@ -38,7 +38,7 @@ export async function POST(req: Request) {
         const companyLine = company ? `<strong>Company:</strong> ${company}<br/>` : "";
 
         // -------------------------------------------------------
-        //  EMAIL 1 — Admin notification
+        //  EMAIL 1  -  Admin notification
         //  Receives every inquiry with full details
         // -------------------------------------------------------
         const adminMailOptions = {
@@ -85,7 +85,7 @@ export async function POST(req: Request) {
         };
 
         // -------------------------------------------------------
-        //  EMAIL 2 — Merchant / team notification
+        //  EMAIL 2  -  Merchant / team notification
         //  Same data, slightly different subject line
         // -------------------------------------------------------
         const merchantMailOptions = {

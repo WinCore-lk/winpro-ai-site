@@ -1,90 +1,91 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileText, Store, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-const solutions = [
+const segments = [
     {
-        industry: "Financial Services",
-        description: "Harness predictive models to detect fraud in real-time, automate loan risk assessment, and offer hyper-personalized banking experiences to modern consumers.",
-        imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3"
+        title: "Financial & compliance teams",
+        description: "Automate VAT filings, payroll calculations, and anomaly checks. We start where it matters: finance, compliance, payroll, VAT, reporting, and back-office workflows  -  for teams everywhere.",
+        icon: <FileText className="w-8 h-8 text-sky-400" />,
     },
     {
-        industry: "Healthcare & Life Sciences",
-        description: "Accelerate patient diagnosis through advanced computer vision, unstructured medical data analysis, and predictive healthcare outcomes.",
-        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3"
+        title: "Retail & small traders",
+        description: "Simple forecasting for inventory and sales trends. Practical tools that plug into the data you already have  -  no “big AI” hype.",
+        icon: <Store className="w-8 h-8 text-emerald-400" />,
     },
     {
-        industry: "Retail & E-Commerce",
-        description: "Deploy generative AI recommendation engines, dynamic pricing algorithms based on global demand, and intelligent supply chain optimization tools.",
-        imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2574&ixlib=rb-4.0.3"
+        title: "Any business",
+        description: "Chatbots for internal FAQs or customer support on compliance rules. Trained on your policies and knowledge base; add to WhatsApp, web, or Slack.",
+        icon: <MessageCircle className="w-8 h-8 text-purple-400" />,
     },
-    {
-        industry: "Manufacturing",
-        description: "Implement predictive maintenance algorithms to minimize downtime, maximize efficiency, and automate quality control using AI vision cameras.",
-        imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3"
-    }
 ];
 
 export default function SolutionsPage() {
     return (
-        <div className="flex flex-col w-full min-h-screen bg-black py-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto space-y-16 w-full mt-10">
-                <div className="text-center max-w-4xl mx-auto">
+        <div className="page-root">
+            <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
+                <div className="absolute bottom-0 right-0 w-[50rem] h-[30rem] bg-indigo-500/[0.03] blur-[100px] rounded-full" />
+            </div>
+
+            <section className="section-pad">
+                <div className="section-inner max-w-3xl">
                     <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6"
+                        transition={{ delay: 0.05 }}
+                        className="section-heading mb-6"
                     >
-                        Industry Solutions
+                        For your business
                     </motion.h1>
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed"
+                        className="text-lg text-gray-400 leading-relaxed mb-14"
                     >
-                        We adapt cutting-edge AI architectures to meet the specific demands of your industry, driving a competitive edge on a global scale.
+                        We start where it matters most: finance, compliance, payroll, VAT, reporting, and back-office workflows  -  for SMEs and teams worldwide.
                     </motion.p>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-16 pb-20">
-                    {solutions.map((solution, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                        >
-                            <Card className="bg-transparent border-0 overflow-hidden group cursor-default">
-                                <div className="relative rounded-3xl overflow-hidden border border-white/10 aspect-[4/3] w-full">
-                                    <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
-                                        style={{ backgroundImage: `url(${solution.imageUrl})` }}
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-
-                                    <div className="absolute bottom-0 left-0 p-8 w-full">
-                                        <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">{solution.industry}</h3>
-                                        <p className="text-gray-300 leading-relaxed font-light text-lg mb-6 max-w-lg">
-                                            {solution.description}
-                                        </p>
-                                        <Button asChild variant="outline" className="rounded-full bg-white/10 hover:bg-white border-white/20 text-white hover:text-black backdrop-blur-md px-6">
-                                            <Link href="/contact" className="inline-flex items-center">
-                                                Discuss Use Cases <ArrowRight className="w-4 h-4 ml-2" />
-                                            </Link>
-                                        </Button>
+                    <div className="space-y-8">
+                        {segments.map((seg, index) => (
+                            <motion.div
+                                key={seg.title}
+                                initial={{ opacity: 0, y: 16 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 + index * 0.08 }}
+                                className="card-surface card-surface-hover p-6 md:p-8"
+                            >
+                                <div className="flex gap-4">
+                                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 shrink-0">
+                                        {seg.icon}
+                                    </div>
+                                    <div>
+                                        <h2 className="text-xl font-semibold text-white mb-2">{seg.title}</h2>
+                                        <p className="text-gray-400 leading-relaxed">{seg.description}</p>
                                     </div>
                                 </div>
-                            </Card>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="mt-14 text-center"
+                    >
+                        <p className="text-gray-400 mb-6">Not sure which fits? Tell us your use case and we’ll suggest next steps.</p>
+                        <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl font-semibold" asChild>
+                            <Link href="/contact" className="inline-flex items-center gap-2">
+                                Discuss your use case <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </Button>
+                    </motion.div>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

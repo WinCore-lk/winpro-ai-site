@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WinCore AI | AI & Automation Services",
-  description: "WinCore AI offers cutting-edge AI automation, machine learning solutions, and consulting services for modern businesses.",
+  title: "WinCore AI | Practical AI & BPO Automation · Global",
+  description: "Practical automation and consulting for finance, BPO, and compliance. Payroll, VAT, reporting, document processing, chatbots. Up to 40–60% time savings on repetitive tasks. Based in Colombo; serving clients worldwide. Part of WinCore.lk.",
+  keywords: ["AI automation", "BPO automation", "AI services", "process automation", "WinCore", "Colombo", "Sri Lanka", "global BPO"],
 };
 
 export default function RootLayout({
@@ -27,10 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col selection:bg-blue-500/30 selection:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-[#0a0a0f] text-white selection:bg-sky-500/20 selection:text-white`}
       >
         <Navbar />
-        <main className="flex-grow pt-20">
+        <main className="flex-grow pt-24 pb-12">
           {children}
         </main>
         <Footer />

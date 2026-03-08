@@ -138,3 +138,75 @@
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(1 0 0 / 25%);
 }
+
+/* Product page consistency */
+.page-root {
+  @apply flex flex-col w-full min-h-screen bg-[#0a0a0f] text-white relative overflow-hidden;
+}
+.section-pad {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 640px) {
+  .section-pad {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .section-pad {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+.section-inner {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+.section-heading {
+  @apply text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white;
+}
+.section-label {
+  @apply text-sm font-semibold uppercase tracking-[0.2em] text-sky-400/90;
+}
+.card-surface {
+  @apply bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-3xl;
+}
+.card-surface-hover {
+  @apply hover:border-white/20 hover:bg-white/[0.06] transition-all duration-300;
+}
+/* Image treatment for product feel */
+.img-frame {
+  @apply rounded-2xl overflow-hidden border border-white/10 shadow-xl shadow-black/20;
+}
+.img-frame-hover {
+  @apply transition-transform duration-500 hover:scale-[1.02];
+}
+/* Subtle entrance animation class for reuse */
+.animate-in-up {
+  animation: animateInUp 0.6s ease-out forwards;
+}
+@keyframes animateInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

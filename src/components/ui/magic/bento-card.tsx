@@ -22,12 +22,12 @@ export function BentoCard({ title, description, icon, backgroundImage, className
     return (
         <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className={`relative rounded-3xl overflow-hidden group border border-white/10 bg-white/[0.02] backdrop-blur-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] ${className}`}
+            className={`relative rounded-2xl md:rounded-3xl overflow-hidden group border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:border-white/20 transition-colors ${className}`}
         >
             {/* Background Graphic */}
             <div
