@@ -139,7 +139,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.05 }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.15]"
               >
-                Practical AI and automation for finance, BPO, and compliance.
+                High-performance AI engineering for finance, BPO, and compliance.
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -147,7 +147,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-lg sm:text-xl text-gray-400 max-w-xl font-normal leading-relaxed"
               >
-                We work with businesses globally. Practical enhancements to your finance and compliance workflows  -  automation, chatbots, reporting. Based in Colombo with 10+ years in BPO and compliance. Up to 40–60% time savings on repetitive tasks like payroll prep or reporting; compliance-aware delivery for your region.
+                We engineer high-impact AI solutions for the global market. From autonomous finance workflows to intelligent compliance engines, we help you scale with 10+ years of deep BPO expertise. Measurable ROI, delivered with technical excellence.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -172,7 +172,7 @@ export default function Home() {
                   <ShieldCheck className="w-4 h-4 text-sky-400/80" /> Compliance-aware delivery
                 </span>
                 <span className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500/80" /> 24–48h response, global clients
+                  <span className="w-2 h-2 rounded-full bg-emerald-500/80" /> Fast response, global clients
                 </span>
               </motion.div>
             </div>
@@ -256,7 +256,7 @@ export default function Home() {
               Trusted delivery. Clear value.
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed">
-              Up to 40–60% time savings on repetitive tasks like payroll prep and reporting. Compliance-aware delivery, a team that knows your processes, and transparent pricing. We work with clients worldwide from our base in Colombo.
+              Proven ROI through intelligent automation. Our team combines deep process knowledge with cutting-edge AI to deliver seamless, compliant, and scalable results for global clients.
             </p>
           </motion.div>
         </div>
@@ -301,7 +301,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-gray-400 text-lg"
             >
-              A clear framework so every project has a defined scope, timeline, and success criteria.
+              A streamlined engineering process built for speed, transparency, and clinical precision.
             </motion.p>
           </div>
 
@@ -342,16 +342,16 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <h2 className="section-heading mb-6">
-                  From first call to delivery  -  we keep it simple.
+                  From blueprint to deployment: AI, engineered for impact.
                 </h2>
                 <p className="text-gray-400 text-lg mb-10 max-w-lg leading-relaxed">
-                  Clear process, fixed scope where possible, and a single point of contact so you're never left in the dark.
+                  High-touch partnership, transparent roadmaps, and dedicated engineering support every step of the way.
                 </p>
                 <ul className="space-y-5 mb-10">
                   {[
                     "NDA & secure project setup",
                     "Strategy call with our leads",
-                    "Scoped roadmap & transparent pricing",
+                    "Strategic roadmap & value-driven pricing",
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-4 text-white/90">
                       <span className="w-8 h-8 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center text-sm font-semibold text-sky-300 flex-shrink-0">
@@ -418,9 +418,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-2xl mx-auto text-center"
           >
-            <h2 className="section-heading mb-6">Tell us what you want to automate.</h2>
+            <h2 className="section-heading mb-6">Let&apos;s architect your AI future.</h2>
             <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-              Wherever you're based  -  we'll respond within 24–48 hours with a clear next step.
+              Wherever you're based  -  we'll respond with a clear next step.
             </p>
             <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02]" asChild>
               <Link href="/contact">Get in touch</Link>

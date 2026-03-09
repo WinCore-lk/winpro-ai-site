@@ -65,20 +65,20 @@ export default function ContactPage() {
                         className="text-center max-w-2xl mx-auto mb-14"
                     >
                         <h1 className="section-heading mb-4">
-                            Start a conversation
+                            Let&apos;s build something extraordinary
                         </h1>
                         <p className="text-lg text-gray-400 leading-relaxed mb-10">
-                            Tell us what you want to automate or improve. A real person from our team will reply within 24–48 hours with a clear next step, not a bot.
+                            Fuel your growth with expert-led AI automation. Our senior team will review your requirements and reach out personally with a strategic starting point.
                         </p>
                         <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
                             <span className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-emerald-500/80" /> 24–48h response
+                                <span className="w-2 h-2 rounded-full bg-emerald-500/80" /> Fast response
                             </span>
                             <span className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-sky-500/80" /> No commitment to start
+                                <span className="w-2 h-2 rounded-full bg-sky-500/80" /> Strategic AI assessment
                             </span>
                             <span className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-purple-500/80" /> Scoped proposal if it's a fit
+                                <span className="w-2 h-2 rounded-full bg-purple-500/80" /> Bespoke implementation plan
                             </span>
                         </div>
                     </motion.div>
@@ -92,7 +92,7 @@ export default function ContactPage() {
                             className="lg:order-2"
                         >
                             <div className="card-surface p-8 sm:p-10">
-                                <h2 className="text-xl font-semibold text-white mb-2">Send us a message</h2>
+                                <h2 className="text-xl font-semibold text-white mb-2">Initiate your project</h2>
                                 <p className="text-gray-400 text-sm mb-6">We use this to prepare for our first conversation. No spam, no reselling your data.</p>
                                 <form onSubmit={handleSubmit} className="space-y-5">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -120,7 +120,7 @@ export default function ContactPage() {
                                     {error && <p className="text-red-400 text-sm">{error}</p>}
                                     {success && (
                                         <div className="p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm">
-                                            Thanks. We'll reply within 24–48 hours with next steps.
+                                            Thanks. We'll reply with next steps.
                                         </div>
                                     )}
                                     <Button type="submit" disabled={loading} className="w-full bg-white hover:bg-gray-100 text-black h-12 rounded-lg font-medium">

@@ -29,7 +29,7 @@ export function Footer() {
                             </div>
                         </div>
                         <p className="text-gray-400 text-base leading-relaxed mb-6 max-w-sm">
-                            Practical AI and BPO automation for businesses worldwide. Based in Colombo; we work with global clients. Up to 40–60% time savings on repetitive tasks (e.g. payroll prep, reporting), with compliance-aware delivery.
+                            High-performance AI engineering for global finance & BPO. Expert-led automation workflows that drive measurable impact, delivered with clinical precision.
                         </p>
                         <div className="flex gap-3">
                             <a href="#" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Twitter">
