@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Bot, BarChart3, Activity, LineChart, Workflow, GitMerge, Settings2, ArrowRight, ShieldCheck, FileText, Search, PenTool, Code, Rocket, Briefcase, Plane, ShoppingCart, Landmark } from "lucide-react";
+import { Bot, BarChart3, Activity, LineChart, Workflow, GitMerge, Settings2, ArrowRight, ShieldCheck, FileText, Search, PenTool, Code, Rocket, Briefcase, Plane, ShoppingCart, Landmark, Award, Globe, Users, TrendingUp, Clock, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Marquee } from "@/components/marquee";
@@ -14,22 +14,22 @@ const services = [
   {
     title: "AI Automation",
     description: "Automate repetitive tasks with intelligent workflows.",
-    icon: <Activity className="w-8 h-8 text-sky-400" />,
+    icon: <Activity className="w-8 h-8 text-white" />,
   },
   {
     title: "Custom AI Development",
     description: "Build tailored AI systems for your business.",
-    icon: <LineChart className="w-8 h-8 text-sky-400" />,
+    icon: <LineChart className="w-8 h-8 text-white" />,
   },
   {
     title: "AI Chatbots",
     description: "Deploy smart assistants for customers and teams.",
-    icon: <Bot className="w-8 h-8 text-sky-400" />,
+    icon: <Bot className="w-8 h-8 text-white" />,
   },
   {
     title: "AI Consulting",
     description: "Plan and implement AI strategy for your company.",
-    icon: <Settings2 className="w-8 h-8 text-sky-400" />,
+    icon: <Settings2 className="w-8 h-8 text-white" />,
   },
 ];
 
@@ -77,6 +77,8 @@ const playbookSteps = [
     icon: <Rocket className="w-6 h-6 text-white" />
   },
 ];
+
+
 
 // Reusing an icon for Target that was missing
 function Target(props: React.SVGProps<SVGSVGElement>) {

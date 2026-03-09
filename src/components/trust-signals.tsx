@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Database, Award, Users, Globe } from "lucide-react";
 
 const stats = [
-  { label: "Years Experience", value: "10+", icon: <Award className="w-5 h-5 text-sky-400" /> },
-  { label: "Global Clients", value: "50+", icon: <Globe className="w-5 h-5 text-sky-400" /> },
-  { label: "Success Rate", value: "99%", icon: <ShieldCheck className="w-5 h-5 text-sky-400" /> },
-  { label: "Expert Engineers", value: "15+", icon: <Users className="w-5 h-5 text-sky-400" /> },
+  { label: "Years Experience", value: "10+", icon: <Award className="w-5 h-5 text-white/70" /> },
+  { label: "Global Clients", value: "50+", icon: <Globe className="w-5 h-5 text-white/70" /> },
+  { label: "Success Rate", value: "99%", icon: <ShieldCheck className="w-5 h-5 text-white/70" /> },
+  { label: "Expert Engineers", value: "15+", icon: <Users className="w-5 h-5 text-white/70" /> },
 ];
 
 const certifications = [

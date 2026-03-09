@@ -11,9 +11,9 @@ const caseStudies = [
     problem: "Customer support tickets were overwhelming the team, leading to increased churn and operator burnout.",
     solution: "We engineered a RAG-based AI assistant integrated directly into their knowledge base and Slack workspace.",
     results: [
-      { label: "Ticket Reduction", value: 65, suffix: "%", icon: <TrendingUp className="w-5 h-5" />, color: "text-sky-400" },
-      { label: "Resolution Speed", value: 40, suffix: "% faster", icon: <Clock className="w-5 h-5" />, color: "text-sky-400" },
-      { label: "Automated Responses", value: 100, suffix: "% coverage", icon: <MessageSquare className="w-5 h-5" />, color: "text-sky-400" },
+      { label: "Ticket Reduction", value: 65, suffix: "%", icon: <TrendingUp className="w-5 h-5" />, color: "text-white" },
+      { label: "Resolution Speed", value: 40, suffix: "% faster", icon: <Clock className="w-5 h-5" />, color: "text-white" },
+      { label: "Automated Responses", value: 100, suffix: "% coverage", icon: <MessageSquare className="w-5 h-5" />, color: "text-white" },
     ],
   },
 ];
@@ -67,8 +67,8 @@ export function CaseStudies() {
 
                 <div className="space-y-8 mb-10">
                   <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center flex-shrink-0">
-                      <TrendingUp className="w-5 h-5 text-sky-400" />
+                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                      <TrendingUp className="w-5 h-5 text-white/70" />
                     </div>
                     <div>
                       <h4 className="text-white font-semibold mb-1">Problem</h4>
@@ -77,8 +77,8 @@ export function CaseStudies() {
                   </div>
 
                   <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-5 h-5 text-sky-400" />
+                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-5 h-5 text-white/70" />
                     </div>
                     <div>
                       <h4 className="text-white font-semibold mb-1">Solution</h4>
