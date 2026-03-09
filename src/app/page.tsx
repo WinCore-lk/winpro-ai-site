@@ -2,42 +2,34 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Bot, BarChart3, Activity, LineChart, Workflow, GitMerge, Settings2, ArrowRight, ShieldCheck, FileText } from "lucide-react";
+import { Bot, BarChart3, Activity, LineChart, Workflow, GitMerge, Settings2, ArrowRight, ShieldCheck, FileText, Search, PenTool, Code, Rocket, Briefcase, Plane, ShoppingCart, Landmark } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Marquee } from "@/components/marquee";
 import { WorkShowcase } from "@/components/work-showcase";
+import { CaseStudies } from "@/components/case-studies";
+import { TrustSignals } from "@/components/trust-signals";
 
 const services = [
   {
-    title: "Process Automation",
-    description: "Automate repetitive BPO tasks like invoice entry and VAT filings. We cut manual time by 40–70% using deterministic workflows built on our payroll expertise.",
-    icon: <Activity className="w-8 h-8 text-blue-400" />,
-    image: "/automation_dashboard.png"
+    title: "AI Automation",
+    description: "Automate repetitive tasks with intelligent workflows.",
+    icon: <Activity className="w-8 h-8 text-sky-400" />,
   },
   {
-    title: "Intelligent Chatbots",
-    description: "RAG-based bots grounded in your knowledge base. Deploy on WhatsApp, Slack, or Web to answer internal or client compliance queries with high accuracy.",
-    icon: <Bot className="w-8 h-8 text-indigo-400" />,
-    image: "/chatbot_interface.png"
+    title: "Custom AI Development",
+    description: "Build tailored AI systems for your business.",
+    icon: <LineChart className="w-8 h-8 text-sky-400" />,
   },
   {
-    title: "AI Process Audits",
-    description: "Rapid audits of your financial operations to identify high-ROI automation targets. Receive a clear roadmap with costs and expected savings.",
-    icon: <LineChart className="w-8 h-8 text-rose-400" />,
-    image: "/ai_agent_architecture_1772885265043.png"
+    title: "AI Chatbots",
+    description: "Deploy smart assistants for customers and teams.",
+    icon: <Bot className="w-8 h-8 text-sky-400" />,
   },
   {
-    title: "Smart Dashboards",
-    description: "Real-time visibility into cashflow, expenses, and compliance. Automated reporting pulled directly from your ERP or spreadsheets for better decision-making.",
-    icon: <BarChart3 className="w-8 h-8 text-cyan-400" />,
-    image: "/ai_dashboard_preview_1772885226339.png"
-  },
-  {
-    title: "Document Processing",
-    description: "Automate data extraction (OCR) for invoices and compliance docs. Feed high-precision data directly into your systems to eliminate manual entry.",
-    icon: <FileText className="w-8 h-8 text-purple-400" />,
-    image: "/enterprise_automation_scene_1772885306171.png"
+    title: "AI Consulting",
+    description: "Plan and implement AI strategy for your company.",
+    icon: <Settings2 className="w-8 h-8 text-sky-400" />,
   },
 ];
 
@@ -62,27 +54,27 @@ const showcaseItems = [
 const playbookSteps = [
   {
     id: "01",
-    title: "Understand your process",
-    desc: "We look at what you do today  -  payroll, VAT, inventory, support  -  and where the bottlenecks are.",
-    icon: <Target className="w-6 h-6 text-white" />
+    title: "Discovery",
+    desc: "We analyze your business workflows to find the highest-impact automation targets.",
+    icon: <Search className="w-6 h-6 text-white" />
   },
   {
     id: "02",
-    title: "Propose a scope",
-    desc: "We suggest what to automate first, what it will cost, and how it fits with your BPO or in-house team.",
-    icon: <Workflow className="w-6 h-6 text-white" />
+    title: "Solution Design",
+    desc: "We design a custom AI system tailored specifically to your business needs.",
+    icon: <PenTool className="w-6 h-6 text-white" />
   },
   {
     id: "03",
-    title: "Build and integrate",
-    desc: "We build the solution and plug it into your systems. You get documentation and handover, not a black box.",
-    icon: <GitMerge className="w-6 h-6 text-white" />
+    title: "Development",
+    desc: "Our senior engineers build and integrate the AI solution into your existing systems.",
+    icon: <Code className="w-6 h-6 text-white" />
   },
   {
     id: "04",
-    title: "Support and improve",
-    desc: "We help you run it and tune it over time. If your process changes, we adapt.",
-    icon: <Settings2 className="w-6 h-6 text-white" />
+    title: "Deployment",
+    desc: "We launch, monitor, and optimize your AI system for peak performance.",
+    icon: <Rocket className="w-6 h-6 text-white" />
   },
 ];
 
@@ -128,7 +120,7 @@ export default function Home() {
         <div className="absolute bottom-0 right-0 w-[50rem] h-[30rem] bg-indigo-500/[0.03] blur-[100px] rounded-full" />
       </div>
 
-      {/* Hero */}
+      {/* 1. Hero */}
       <section className="section-pad flex min-h-[85vh] items-center">
         <div className="section-inner">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -139,7 +131,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.05 }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.15]"
               >
-                High-performance AI engineering for finance, BPO, and compliance.
+                AI Automation & Custom AI Solutions for Businesses
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -147,7 +139,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-lg sm:text-xl text-gray-400 max-w-xl font-normal leading-relaxed"
               >
-                We engineer high-impact AI solutions for the global market. From autonomous finance workflows to intelligent compliance engines, we help you scale with 10+ years of deep BPO expertise. Measurable ROI, delivered with technical excellence.
+                We design and implement AI systems including automation, chatbots, machine learning solutions, and intelligent workflows to help businesses operate faster and smarter.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -156,10 +148,10 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto"
               >
                 <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02] active:scale-[0.98]" asChild>
-                  <Link href="/contact">Get in touch</Link>
+                  <Link href="/contact">Book a Free Consultation</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-xl px-8 h-12 text-base border-white/20 hover:bg-white/10 text-white" asChild>
-                  <Link href="#playbook">How we work</Link>
+                  <Link href="#process">Our Process</Link>
                 </Button>
               </motion.div>
               <motion.div
@@ -185,18 +177,34 @@ export default function Home() {
             >
               <Image
                 src="/wincore-mascot.png"
-                alt="WinCore  -  AI & Automation"
+                alt="WinCore - AI & Automation"
                 fill
                 className="object-contain object-center p-8"
                 priority
               />
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            transition={{ delay: 0.8 }}
+            className="mt-20 pt-10 border-t border-white/5"
+          >
+            <p className="text-center text-xs uppercase tracking-[0.2em] font-semibold text-gray-500 mb-8">Trusted by companies worldwide</p>
+            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+               <span className="text-xl font-bold text-white tracking-tighter">FINTECH</span>
+               <span className="text-xl font-bold text-white tracking-tighter">GLOBALBPO</span>
+               <span className="text-xl font-bold text-white tracking-tighter">MARITIME CO</span>
+               <span className="text-xl font-bold text-white tracking-tighter">LOGISTICS PRO</span>
+               <span className="text-xl font-bold text-white tracking-tighter">RETAIL AI</span>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* What we do */}
-      <section className="section-pad border-t border-white/5">
+      {/* 2. Services */}
+      <section id="services" className="section-pad border-t border-white/5">
         <div className="section-inner">
           <div className="flex flex-col items-center mb-16 text-center">
             <motion.h2
@@ -205,95 +213,48 @@ export default function Home() {
               viewport={{ once: true }}
               className="section-heading text-center"
             >
-              What we actually do
+              Solutions for Every Business Need
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10px" }}
-                transition={{ delay: index * 0.06, duration: 0.4 }}
-                className="group card-surface card-surface-hover overflow-hidden flex flex-col"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
+                whileHover={{ y: -5 }}
+                className="group card-surface card-surface-hover p-8 md:p-10 flex flex-col items-start text-left"
               >
-                <div className="h-44 w-full relative overflow-hidden border-b border-white/10">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-6 p-2.5 rounded-xl bg-black/50 backdrop-blur border border-white/10">
-                    {service.icon}
-                  </div>
-                </div>
-                <div className="p-6 md:p-8">
-                  <h3 className="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight">{service.title}</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm">
-                    {service.description}
-                  </p>
-                </div>
+                <motion.div 
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="mb-6 p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-white/10 group-hover:border-white/20 transition-colors duration-300"
+                >
+                  {service.icon}
+                </motion.div>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">{service.title}</h3>
+                <p className="text-gray-400 leading-relaxed text-base md:text-lg">
+                  {service.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Value + cost angle */}
-      <section className="section-pad border-t border-white/5 bg-white/[0.02]">
+      {/* 3. How we work */}
+      <section id="process" className="section-pad border-t border-white/5">
         <div className="section-inner">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-              Trusted delivery. Clear value.
-            </h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-              Proven ROI through intelligent automation. Our team combines deep process knowledge with cutting-edge AI to deliver seamless, compliant, and scalable results for global clients.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Testimonial */}
-      <section className="section-pad border-t border-white/5">
-        <div className="section-inner">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="card-surface p-8 md:p-12 max-w-3xl mx-auto"
-          >
-            <p className="text-xl md:text-2xl text-white/95 leading-relaxed italic mb-6">
-              "WinCore's automation saved us hours on reporting. We used to chase spreadsheets; now the dashboard is updated daily and we can focus on decisions."
-            </p>
-            <p className="text-gray-400 text-sm">
-              -  BPO client, now using WinCore AI for dashboards and process automation
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <Marquee />
-
-      {/* How we work */}
-      <section id="playbook" className="section-pad border-t border-white/5">
-        <div className="section-inner">
-          <div className="mb-14 max-w-2xl">
+          <div className="mb-14 text-center max-w-3xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="section-heading mb-4"
             >
-              How we work
+              Our Process
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 12 }}
@@ -305,21 +266,25 @@ export default function Home() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
             {playbookSteps.map((step, index) => (
               <motion.div
                 key={step.id}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="group card-surface card-surface-hover p-6 md:p-8 relative"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="group card-surface card-surface-hover p-8 relative flex flex-col items-start"
               >
-                <span className="absolute top-6 right-6 text-4xl font-bold text-white/[0.06]">{step.id}</span>
-                <div className="mb-5 p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 w-fit">
+                <span className="absolute top-6 right-6 text-4xl font-bold text-white/[0.04] group-hover:text-white/[0.08] transition-colors">{step.id}</span>
+                <motion.div 
+                  whileHover={{ rotate: 10 }}
+                  className="mb-6 p-3 rounded-xl bg-white/5 border border-white/10 w-fit group-hover:bg-white/10 group-hover:border-sky-500/30 transition-all"
+                >
                   {step.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2 tracking-tight">{step.title}</h3>
+                </motion.div>
+                <h3 className="text-xl font-semibold text-white mb-3 tracking-tight">{step.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
@@ -327,89 +292,103 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Cinematic Work Showcase (RnP Brands style Bento Grid) */}
-      <WorkShowcase />
+      {/* 4. Case Studies */}
+      <CaseStudies />
 
-      {/* Get started  -  with showcase carousel */}
-      <section className="section-pad border-t border-white/5">
+      {/* 5. Industries */}
+      <section className="section-pad border-t border-white/5 bg-white/[0.01]">
         <div className="section-inner">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="card-surface p-8 md:p-12 lg:p-16"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <h2 className="section-heading mb-6">
-                  From blueprint to deployment: AI, engineered for impact.
-                </h2>
-                <p className="text-gray-400 text-lg mb-10 max-w-lg leading-relaxed">
-                  High-touch partnership, transparent roadmaps, and dedicated engineering support every step of the way.
-                </p>
-                <ul className="space-y-5 mb-10">
-                  {[
-                    "NDA & secure project setup",
-                    "Strategy call with our leads",
-                    "Strategic roadmap & value-driven pricing",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-4 text-white/90">
-                      <span className="w-8 h-8 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center text-sm font-semibold text-sky-300 flex-shrink-0">
-                        {i + 1}
-                      </span>
-                      <span className="font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02]" asChild>
-                  <Link href="/contact">Start a project <ArrowRight className="ml-2 w-5 h-5" /></Link>
-                </Button>
-              </div>
+          <div className="flex flex-col items-center mb-16 text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="section-heading text-center"
+            >
+              AI for Every Industry
+            </motion.h2>
+            <p className="text-gray-400 text-lg mt-4 max-w-2xl">
+              We deliver specialized AI solutions across diverse sectors, ensuring compliance and operational excellence tailored to your niche.
+            </p>
+          </div>
 
-              <div className="relative w-full h-[420px] lg:h-[500px]">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentSlide}
-                    initial={{ opacity: 0, x: 12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -12 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="absolute inset-0 flex flex-col img-frame overflow-hidden"
-                  >
-                    <div className="relative flex-1 min-h-[240px]">
-                      <Image
-                        src={showcaseItems[currentSlide].image}
-                        alt={showcaseItems[currentSlide].title}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                    </div>
-                    <div className="p-6 bg-white/[0.03] border-t border-white/10 flex justify-between items-end flex-wrap gap-4">
-                      <div>
-                        <h4 className="text-lg font-semibold text-white mb-1">{showcaseItems[currentSlide].title}</h4>
-                        <p className="text-gray-400 text-sm">{showcaseItems[currentSlide].desc}</p>
-                      </div>
-                      <div className="flex gap-2">
-                        {showcaseItems.map((_, i) => (
-                          <button
-                            key={i}
-                            onClick={() => setCurrentSlide(i)}
-                            className={`h-2 rounded-full transition-all duration-300 ${i === currentSlide ? "bg-sky-400 w-6" : "bg-white/25 w-2 hover:bg-white/40"}`}
-                            aria-label={`View slide ${i + 1}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "Finance & BPO", icon: <Landmark className="w-6 h-6" />, desc: "Automated VAT, payroll, and financial reporting." },
+              { name: "Logistics", icon: <Plane className="w-6 h-6" />, desc: "Route optimization and supply chain automation." },
+              { name: "Retail", icon: <ShoppingCart className="w-6 h-6" />, desc: "Conversational commerce and inventory forecasting." },
+              { name: "Legal", icon: <Briefcase className="w-6 h-6" />, desc: "Document processing and compliance auditing." },
+            ].map((industry, i) => (
+              <motion.div
+                key={industry.name}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="card-surface p-6 border border-white/5 hover:border-white/20 transition-all text-center"
+              >
+                <div className="mb-4 inline-flex p-3 rounded-xl bg-white/5 text-sky-400">
+                  {industry.icon}
+                </div>
+                <h4 className="text-lg font-bold text-white mb-2">{industry.name}</h4>
+                <p className="text-gray-400 text-sm">{industry.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* 6. Why Choose Us */}
+      <TrustSignals />
+
+      <section className="section-pad border-t border-white/5">
+        <div className="section-inner">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="card-surface p-8 md:p-10"
+            >
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed italic mb-6">
+                "WinCore's automation saved us hours on reporting. We used to chase spreadsheets; now the dashboard is updated daily and we can focus on decisions."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-sky-400 font-bold">B</div>
+                <div>
+                  <p className="text-white font-semibold text-sm">Operations Director</p>
+                  <p className="text-gray-500 text-xs">Global BPO Client</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="card-surface p-8 md:p-10"
+            >
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed italic mb-6">
+                "The AI support bot we implemented with WinCore has handled 65% of our Tier 1 queries autonomously. The team's expertise is unmatched."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-emerald-400 font-bold">S</div>
+                <div>
+                  <p className="text-white font-semibold text-sm">CTO</p>
+                  <p className="text-gray-500 text-xs">SaaS Enterprise</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <WorkShowcase />
+
+      <Marquee />
+
+      {/* 7. Final CTA */}
       <section className="section-pad border-t border-white/5 bg-white/[0.02]">
         <div className="section-inner">
           <motion.div
@@ -420,10 +399,10 @@ export default function Home() {
           >
             <h2 className="section-heading mb-6">Let&apos;s architect your AI future.</h2>
             <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-              Wherever you're based  -  we'll respond with a clear next step.
+              Wherever you&apos;re based - we&apos;ll respond with a clear next step.
             </p>
             <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02]" asChild>
-              <Link href="/contact">Get in touch</Link>
+              <Link href="/contact">Book a Free Consultation</Link>
             </Button>
           </motion.div>
         </div>

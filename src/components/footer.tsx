@@ -46,11 +46,10 @@ export function Footer() {
                     <div className="md:col-span-4 lg:col-span-2">
                         <h3 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">Services</h3>
                         <ul className="space-y-3">
-                            <li><Link href="/services/ai-automation" className="text-gray-400 hover:text-white transition-colors text-sm">Process Automation</Link></li>
-                            <li><Link href="/services/ai-chatbots" className="text-gray-400 hover:text-white transition-colors text-sm">Chatbots</Link></li>
-                            <li><Link href="/services/ai-consulting" className="text-gray-400 hover:text-white transition-colors text-sm">Consulting & Audits</Link></li>
-                            <li><Link href="/services/data-intelligence" className="text-gray-400 hover:text-white transition-colors text-sm">Reporting & Dashboards</Link></li>
-                            <li><Link href="/services/document-processing" className="text-gray-400 hover:text-white transition-colors text-sm">Document Processing</Link></li>
+                            <li><Link href="/services/ai-automation" className="text-gray-400 hover:text-white transition-colors text-sm">AI Automation</Link></li>
+                            <li><Link href="/services/custom-ai-dev" className="text-gray-400 hover:text-white transition-colors text-sm">Custom AI Development</Link></li>
+                            <li><Link href="/services/ai-chatbots" className="text-gray-400 hover:text-white transition-colors text-sm">AI Chatbots & Assistants</Link></li>
+                            <li><Link href="/services/ai-strategy" className="text-gray-400 hover:text-white transition-colors text-sm">AI Consulting & Strategy</Link></li>
                         </ul>
                     </div>
                     <div className="md:col-span-4 lg:col-span-2">

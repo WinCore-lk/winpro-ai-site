@@ -65,10 +65,10 @@ export default function ContactPage() {
                         className="text-center max-w-2xl mx-auto mb-14"
                     >
                         <h1 className="section-heading mb-4">
-                            Let&apos;s build something extraordinary
+                            Schedule Your Free Discovery Call
                         </h1>
                         <p className="text-lg text-gray-400 leading-relaxed mb-10">
-                            Fuel your growth with expert-led AI automation. Our senior team will review your requirements and reach out personally with a strategic starting point.
+                            Book a discovery call with our senior experts to explore how custom AI solutions can automate your workflows and accelerate your business growth.
                         </p>
                         <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
                             <span className="flex items-center gap-2">
@@ -124,7 +124,7 @@ export default function ContactPage() {
                                         </div>
                                     )}
                                     <Button type="submit" disabled={loading} className="w-full bg-white hover:bg-gray-100 text-black h-12 rounded-lg font-medium">
-                                        {loading ? <Loader2 className="animate-spin w-5 h-5 mx-auto" /> : "Send message"}
+                                        {loading ? <Loader2 className="animate-spin w-5 h-5 mx-auto" /> : "Book My Discovery Call"}
                                     </Button>
                                 </form>
                             </div>
