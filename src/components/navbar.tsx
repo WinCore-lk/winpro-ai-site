@@ -17,8 +17,8 @@ export function Navbar() {
     ];
 
     return (
-        <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50 bg-[#0a0a0f]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-lg">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[94%] max-w-[100rem] z-50 bg-[#0a0a0f]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-lg">
+            <div className="max-w-[100rem] mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center h-14">
                     <div className="flex items-center gap-4">
                         <Link href="/" className="text-xl font-semibold text-white hover:text-white/90 transition-colors">
