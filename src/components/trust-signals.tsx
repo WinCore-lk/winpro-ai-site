@@ -14,7 +14,7 @@ const certifications = [
   "10+ Years Experience",
   "5+ Expert Engineers",
   "100% Success Rate",
-  "Data Privacy Compliant",
+  "Enterprise-Grade Security",
 ];
 
 export function TrustSignals() {

@@ -5,18 +5,25 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Loader2, Calendar } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2, Calendar, CheckCircle2, ShieldCheck, Clock, Zap } from "lucide-react";
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
-// Replace with your Calendly URL, e.g. https://calendly.com/wincore
+// Replace with your Calendly URL
 const CALENDLY_URL = "https://calendly.com";
+
+const trustBadges = [
+    { icon: <Clock className="w-5 h-5" />, label: "Fast response" },
+    { icon: <ShieldCheck className="w-5 h-5" />, label: "Strategic AI assessment" },
+    { icon: <Zap className="w-5 h-5" />, label: "Bespoke plan" },
+];
 
 export default function ContactPage() {
     const [loading, setLoading] = useState(false);
@@ -50,174 +57,192 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="page-root">
+        <div className="page-root min-h-screen">
+            {/* Artistic Background */}
             <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[50rem] h-[30rem] bg-sky-500/[0.04] blur-[100px] rounded-full" />
-                <div className="absolute bottom-0 right-0 w-[40rem] h-[25rem] bg-indigo-500/[0.03] blur-[100px] rounded-full" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80rem] h-[40rem] bg-sky-500/[0.04] blur-[120px] rounded-full" />
+                
+                {/* Artistic Brush Stroke (Orange/Yellow) */}
+                <motion.div 
+                    initial={{ opacity: 0, scale: 1.1, rotate: -2 }}
+                    animate={{ opacity: 0.1, scale: 1, rotate: 0 }}
+                    transition={{ duration: 2, ease: "easeOut" }}
+                    className="absolute top-[5%] -right-[15%] w-[1200px] h-[1200px] mix-blend-screen grayscale-0 pointer-events-none"
+                >
+                    <Image 
+                        src="/brush-stroke.png" 
+                        alt="" 
+                        fill 
+                        className="object-contain opacity-30 brightness-110"
+                    />
+                </motion.div>
             </div>
 
-            <section className="section-pad">
+            <section className="section-pad pt-32 lg:pt-40">
                 <div className="section-inner">
-                    {/* Headline + what to expect */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-center max-w-2xl mx-auto mb-14"
-                    >
-                        <h1 className="section-heading mb-4">
-                            Schedule Your Free Discovery Call
-                        </h1>
-                        <p className="text-lg text-gray-400 leading-relaxed mb-10">
-                            Book a discovery call with our senior experts to explore how custom AI solutions can automate your workflows and accelerate your business growth.
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-                            <span className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-emerald-500/80" /> Fast response
-                            </span>
-                            <span className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-sky-500/80" /> Strategic AI assessment
-                            </span>
-                            <span className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-purple-500/80" /> Bespoke implementation plan
-                            </span>
-                        </div>
-                    </motion.div>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+                        
+                        {/* Left Column: Context & Trust */}
+                        <div className="lg:col-span-5 space-y-12">
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <h1 className="text-5xl lg:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1]">
+                                    Let&apos;s architect your <span className="text-sky-400">AI future.</span>
+                                </h1>
+                                <p className="text-xl text-gray-400 leading-relaxed font-light">
+                                    Bring your challenges. We&apos;ll bring the engineering expertise. Book a discovery call to audit your workflows and design a custom AI roadmap.
+                                </p>
+                            </motion.div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
-                        {/* Form first on mobile, left on desktop */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="lg:order-2"
-                        >
-                            <div className="card-surface p-8 sm:p-10">
-                                <h2 className="text-xl font-semibold text-white mb-2">Initiate your project</h2>
-                                <p className="text-gray-400 text-sm mb-6">We use this to prepare for our first conversation. No spam, no reselling your data.</p>
-                                <form onSubmit={handleSubmit} className="space-y-5">
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                        <div className="space-y-2">
-                                            <Label htmlFor="firstName" className="text-gray-400 text-sm">First name</Label>
-                                            <Input id="firstName" name="firstName" required className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 h-11 rounded-lg" placeholder="Jane" />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <Label htmlFor="lastName" className="text-gray-400 text-sm">Last name</Label>
-                                            <Input id="lastName" name="lastName" required className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 h-11 rounded-lg" placeholder="Smith" />
-                                        </div>
+                            <motion.div 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.3 }}
+                                className="flex flex-wrap gap-4"
+                            >
+                                {trustBadges.map((badge, i) => (
+                                    <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white/60">
+                                        <div className="text-sky-400">{badge.icon}</div>
+                                        {badge.label}
                                     </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="email" className="text-gray-400 text-sm">Email</Label>
-                                        <Input id="email" name="email" type="email" required className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 h-11 rounded-lg" placeholder="jane@company.com" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="company" className="text-gray-400 text-sm">Company (optional)</Label>
-                                        <Input id="company" name="company" className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 h-11 rounded-lg" placeholder="Your company" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="message" className="text-gray-400 text-sm">What do you want to automate or improve?</Label>
-                                        <Textarea id="message" name="message" required className="bg-white/5 border-white/10 text-white min-h-[120px] placeholder:text-gray-500 rounded-lg resize-none p-4" placeholder="e.g. payroll data entry, VAT reminders, a support chatbot, or reporting dashboards..." />
-                                    </div>
-                                    {error && <p className="text-red-400 text-sm">{error}</p>}
-                                    {success && (
-                                        <div className="p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm">
-                                            Thanks. We'll reply with next steps.
-                                        </div>
-                                    )}
-                                    <Button type="submit" disabled={loading} className="w-full bg-white hover:bg-gray-100 text-black h-12 rounded-lg font-medium">
-                                        {loading ? <Loader2 className="animate-spin w-5 h-5 mx-auto" /> : "Book My Discovery Call"}
-                                    </Button>
-                                </form>
-                            </div>
-                        </motion.div>
+                                ))}
+                            </motion.div>
 
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.15 }}
-                            className="space-y-8 lg:order-1"
-                        >
-                            {/* Direct contact */}
-                            <div>
-                                <h2 className="text-lg font-semibold text-white mb-4">Or reach out directly</h2>
-                                <div className="space-y-3">
-                                    <a href="mailto:info@wincore.lk" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-colors group">
-                                        <div className="p-2 rounded-lg bg-sky-500/10 text-sky-400">
-                                            <Mail className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <p className="text-white font-medium group-hover:text-sky-300 transition-colors">info@wincore.lk</p>
-                                            <p className="text-gray-500 text-sm">Email us</p>
-                                        </div>
+                            <div className="space-y-6 pt-8 border-t border-white/5">
+                                <h2 className="text-lg font-semibold text-white">Direct Access</h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <a href="mailto:info@wincore.lk" className="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-white/10 transition-all group">
+                                        <Mail className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
+                                        <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors">info@wincore.lk</span>
                                     </a>
-                                    <a href="tel:+94777470904" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-colors group">
-                                        <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
-                                            <Phone className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <p className="text-white font-medium group-hover:text-emerald-300 transition-colors">+94 77 747 0904</p>
-                                            <p className="text-gray-500 text-sm">Call us</p>
-                                        </div>
+                                    <a href="tel:+94777470904" className="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-white/10 transition-all group">
+                                        <Phone className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
+                                        <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors">+94 77 747 0904</span>
                                     </a>
-                                    <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-colors group">
-                                        <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
-                                            <Calendar className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <p className="text-white font-medium group-hover:text-purple-300 transition-colors">Book a call</p>
-                                            <p className="text-gray-500 text-sm">Pick a time that works for you</p>
-                                        </div>
-                                    </a>
-                                    <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/10">
-                                        <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">
-                                            <MapPin className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <p className="text-white font-medium">Colombo, Sri Lanka</p>
-                                            <p className="text-gray-500 text-sm">Office</p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
-                            {/* FAQ */}
-                            <div>
-                                <h2 className="text-lg font-semibold text-white mb-4">Common questions</h2>
-                                <Accordion type="single" collapsible className="space-y-2">
-                                    <AccordionItem value="what-is-ai" className="card-surface border-white/10 rounded-xl px-4">
-                                        <AccordionTrigger className="text-left text-gray-300 hover:text-white py-4">
-                                            What do you mean by &quot;AI&quot; here?
+                            {/* Mini FAQ or Quote */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                className="p-8 rounded-3xl bg-sky-500/[0.03] border border-sky-500/10 hidden lg:block"
+                            >
+                                <p className="text-white/80 italic leading-relaxed text-lg mb-4">
+                                    &quot;We don&apos;t do sci-fi; we do things that save you time and reduce errors. Practical automation with 100% handover.&quot;
+                                </p>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-full bg-gray-500/20" />
+                                    <span className="text-sm font-medium text-white/40 uppercase tracking-widest">Engineering Hub, Colombo</span>
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        {/* Right Column: High-End Form */}
+                        <div className="lg:col-span-7">
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.7, delay: 0.2 }}
+                                className="relative lg:sticky lg:top-32"
+                            >
+                                <div className="card-surface p-8 md:p-12 shadow-2xl shadow-sky-500/5 ring-1 ring-white/10 overflow-hidden">
+                                    {/* Glassmorphism blur elements inside card */}
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 blur-[60px] rounded-full -z-10" />
+                                    
+                                    <div className="mb-10">
+                                        <h2 className="text-2xl font-bold text-white mb-2">Initiate Discovery</h2>
+                                        <p className="text-gray-400 text-sm italic">Briefly describe your current manual workflows.</p>
+                                    </div>
+
+                                    <form onSubmit={handleSubmit} className="space-y-6">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                            <div className="space-y-2">
+                                                <Label htmlFor="firstName" className="text-xs font-semibold uppercase tracking-widest text-gray-500 ml-1">First name</Label>
+                                                <Input id="firstName" name="firstName" required className="bg-white/[0.02] border-white/10 text-white placeholder:text-gray-600 h-14 rounded-xl px-5 focus:ring-2 focus:ring-sky-500/20 transition-all border-none shadow-inner" placeholder="E.g. Jane" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <Label htmlFor="lastName" className="text-xs font-semibold uppercase tracking-widest text-gray-500 ml-1">Last name</Label>
+                                                <Input id="lastName" name="lastName" required className="bg-white/[0.02] border-white/10 text-white placeholder:text-gray-600 h-14 rounded-xl px-5 focus:ring-2 focus:ring-sky-500/20 transition-all border-none shadow-inner" placeholder="E.g. Smith" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="space-y-2">
+                                            <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-widest text-gray-500 ml-1">Professional Email</Label>
+                                            <Input id="email" name="email" type="email" required className="bg-white/[0.02] border-white/10 text-white placeholder:text-gray-600 h-14 rounded-xl px-5 focus:ring-2 focus:ring-sky-500/20 transition-all border-none shadow-inner" placeholder="jane@enterprise.com" />
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <Label htmlFor="message" className="text-xs font-semibold uppercase tracking-widest text-gray-500 ml-1">Proposed Automation Goal</Label>
+                                            <Textarea id="message" name="message" required className="bg-white/[0.02] border-white/10 text-white min-h-[140px] placeholder:text-gray-600 rounded-2xl resize-none p-5 focus:ring-2 focus:ring-sky-500/20 transition-all border-none shadow-inner leading-relaxed" placeholder="Tell us about the process you want to automate..." />
+                                        </div>
+
+                                        {error && <p className="text-red-400 text-sm bg-red-400/10 p-4 rounded-xl border border-red-400/20 font-medium">{error}</p>}
+                                        
+                                        {success ? (
+                                            <motion.div 
+                                                initial={{ opacity: 0, scale: 0.9 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center gap-4"
+                                            >
+                                                <CheckCircle2 className="w-6 h-6 flex-shrink-0" />
+                                                <div className="text-sm font-medium">Message routed to engineering team. We'll reply within 24 hours.</div>
+                                            </motion.div>
+                                        ) : (
+                                            <Button type="submit" disabled={loading} className="w-full bg-white hover:bg-sky-50 text-black h-16 rounded-2xl font-bold group transition-all text-lg shadow-xl shadow-white/5">
+                                                {loading ? <Loader2 className="animate-spin w-5 h-5 mx-auto" /> : (
+                                                    <span className="flex items-center justify-center gap-2">
+                                                        Book Discovery Call <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                                                    </span>
+                                                )}
+                                            </Button>
+                                        )}
+                                        
+                                        <p className="text-center text-[10px] text-gray-600 uppercase tracking-[0.2em] font-medium">
+                                            Secure Data Processing · GDPR Compliant
+                                        </p>
+                                    </form>
+                                </div>
+                                
+                                {/* Secondary Call to Action */}
+                                <div className="mt-8 text-center">
+                                    <p className="text-gray-500 text-sm">
+                                        Prefer direct scheduling? <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="text-white hover:text-sky-400 underline underline-offset-4 transition-colors">Open Calendly</a>
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+
+                    {/* FAQ Section */}
+                    <div className="mt-32 pt-20 border-t border-white/5">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl font-bold text-white mb-4">Discovery FAQ</h2>
+                            <p className="text-gray-400">Standardizing transparency from the first touchpoint.</p>
+                        </div>
+                        <div className="max-w-3xl mx-auto">
+                            <Accordion type="single" collapsible className="space-y-4">
+                                {[
+                                    { q: "What should I prepare for the discovery call?", a: "Bring a high-level overview of your manual workflows, any specific documents involved (e.g., invoices, reports), and your desired outcome (time savings, error reduction, etc.). No technical preparation is needed." },
+                                    { q: "Is there a charge for the first consultation?", a: "No. The initial discovery call is free. We use it to determine if your project is a fit for our automation frameworks and to provide a preliminary roadmap." },
+                                    { q: "Do you sign NDAs before we share process details?", a: "Yes. We respect enterprise data privacy. We can sign a standard NDA before we dive into the specifics of your internal operations." },
+                                    { q: "Can you handle global time zones from Colombo?", a: "Absolutely. Our team is structured to support clients worldwide, primarily serving Europe, Australia, and the US West Coast with flexible scheduling." },
+                                ].map((faq, i) => (
+                                    <AccordionItem key={i} value={`item-${i}`} className="card-surface px-6 md:px-8 border-white/5 rounded-2xl overflow-hidden hover:bg-white/[0.04] transition-colors">
+                                        <AccordionTrigger className="text-left text-gray-200 hover:text-white py-6 text-lg font-medium group">
+                                            {faq.q}
                                         </AccordionTrigger>
-                                        <AccordionContent className="text-gray-400 pb-4 pr-4">
-                                            We use it to mean software that can do repetitive tasks or spot patterns without a person doing every step  -  e.g. filling forms from documents, forecasting demand from past sales, or answering common customer questions. We don&apos;t do sci-fi; we do things that save you time and reduce errors.
+                                        <AccordionContent className="text-gray-400 pb-8 pr-12 leading-relaxed text-base">
+                                            {faq.a}
                                         </AccordionContent>
                                     </AccordionItem>
-                                    <AccordionItem value="data-security" className="card-surface border-white/10 rounded-xl px-4">
-                                        <AccordionTrigger className="text-left text-gray-300 hover:text-white py-4">
-                                            Is my data safe? Where does it live?
-                                        </AccordionTrigger>
-                                        <AccordionContent className="text-gray-400 pb-4 pr-4">
-                                            We design for compliance in your jurisdiction and can keep data in regions you specify (including Sri Lanka). We don&apos;t use your data to train public models. We&apos;ll spell out where data is stored and who can access it in our agreement.
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="how-long" className="card-surface border-white/10 rounded-xl px-4">
-                                        <AccordionTrigger className="text-left text-gray-300 hover:text-white py-4">
-                                            How long does a typical project take?
-                                        </AccordionTrigger>
-                                        <AccordionContent className="text-gray-400 pb-4 pr-4">
-                                            It depends on scope. A simple dashboard or chatbot might be a few weeks; payroll or VAT automation with your existing BPO setup can be a couple of months. We give you a timeline and milestones before we start.
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                    <AccordionItem value="cost" className="card-surface border-white/10 rounded-xl px-4">
-                                        <AccordionTrigger className="text-left text-gray-300 hover:text-white py-4">
-                                            What does it cost? Do you have starter packages?
-                                        </AccordionTrigger>
-                                        <AccordionContent className="text-gray-400 pb-4 pr-4">
-                                            We offer starter packages for small businesses at competitive rates, and custom scopes for larger operations  -  we work with clients globally. After we understand your process, we give you a fixed or capped quote  -  no surprise invoices.
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                </Accordion>
-                            </div>
-                        </motion.div>
+                                ))}
+                            </Accordion>
+                        </div>
                     </div>
                 </div>
             </section>
