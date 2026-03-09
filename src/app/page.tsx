@@ -187,7 +187,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
             transition={{ delay: 0.8 }}
@@ -201,7 +201,7 @@ export default function Home() {
                <span className="text-xl font-bold text-white tracking-tighter">LOGISTICS PRO</span>
                <span className="text-xl font-bold text-white tracking-tighter">RETAIL AI</span>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
@@ -230,7 +230,7 @@ export default function Home() {
                 whileHover={{ y: -5 }}
                 className="group card-surface card-surface-hover p-8 md:p-10 flex flex-col items-start text-left"
               >
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className="mb-6 p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-white/10 group-hover:border-white/20 transition-colors duration-300"
                 >
@@ -280,7 +280,7 @@ export default function Home() {
                 className="group card-surface card-surface-hover p-8 relative flex flex-col items-start"
               >
                 <span className="absolute top-6 right-6 text-4xl font-bold text-white/[0.04] group-hover:text-white/[0.08] transition-colors">{step.id}</span>
-                <motion.div 
+                <motion.div
                   whileHover={{ rotate: 10 }}
                   className="mb-6 p-3 rounded-xl bg-white/5 border border-white/10 w-fit group-hover:bg-white/10 group-hover:border-sky-500/30 transition-all"
                 >
