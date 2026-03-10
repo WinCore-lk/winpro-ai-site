@@ -8,27 +8,34 @@ import Image from "next/image";
 import { WorkShowcase } from "@/components/work-showcase";
 import { CaseStudies } from "@/components/case-studies";
 import { TrustSignals } from "@/components/trust-signals";
+import { CardHoverLines } from "@/components/card-hover-lines";
+import { WorkflowDiagram } from "@/components/workflow-diagram";
+import { TechStack } from "@/components/tech-stack";
 
 const services = [
   {
     title: "AI Automation",
-    description: "Automate repetitive tasks with intelligent workflows.",
+    description: "Automate repetitive tasks with intelligent workflows. Used in finance, BPO, and ecommerce.",
     icon: <Activity className="w-8 h-8 text-white" />,
+    href: "/services",
   },
   {
     title: "Custom AI Development",
-    description: "Build tailored AI systems for your business.",
+    description: "Build tailored AI systems for your business, from predictive tools to custom APIs.",
     icon: <LineChart className="w-8 h-8 text-white" />,
+    href: "/services",
   },
   {
     title: "AI Chatbots",
-    description: "Deploy smart assistants for customers and teams.",
+    description: "Deploy smart assistants for customer support and lead generation.",
     icon: <Bot className="w-8 h-8 text-white" />,
+    href: "/services",
   },
   {
     title: "AI Consulting",
-    description: "Plan and implement AI strategy for your company.",
+    description: "Audit your processes to find bottlenecks and plan your AI roadmap.",
     icon: <Settings2 className="w-8 h-8 text-white" />,
+    href: "/services",
   },
 ];
 
@@ -118,7 +125,7 @@ export default function Home() {
       {/* Subtle background */}
       <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80rem] h-[40rem] bg-sky-500/[0.04] blur-[120px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[50rem] h-[30rem] bg-indigo-500/[0.03] blur-[100px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[50rem] h-[30rem] bg-gold/[0.03] blur-[100px] rounded-full" />
         
         {/* Artistic Brush Stroke 1 (Orange) */}
         <motion.div 
@@ -163,7 +170,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.05 }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.15]"
               >
-                AI Automation & Custom AI Solutions for Businesses
+                Automate Repetitive Business Workflows with AI
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -171,7 +178,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-lg sm:text-xl text-gray-400 max-w-xl font-normal leading-relaxed"
               >
-                We design and implement AI systems including automation, chatbots, machine learning solutions, and intelligent workflows to help businesses operate faster and smarter.
+                We build AI-powered workflows, chatbots, and integrations that eliminate repetitive business tasks and reduce manual operations.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -196,7 +203,7 @@ export default function Home() {
                   <ShieldCheck className="w-4 h-4 text-sky-400/80" /> Compliance-aware delivery
                 </span>
                 <span className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500/80" /> Fast response, global clients
+                  <span className="w-2 h-2 rounded-full bg-gold/80 shadow-[0_0_8px_rgba(255,191,0,0.4)]" /> Fast response, global clients
                 </span>
               </motion.div>
             </div>
@@ -245,11 +252,11 @@ export default function Home() {
               viewport={{ once: true }}
               className="section-heading text-center"
             >
-              Solutions for Every Business Need
+              Our Capabilities
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-6 lg:gap-8 xl:gap-10">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -258,23 +265,34 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
                 whileHover={{ y: -5 }}
-                className="group card-surface card-surface-hover p-8 md:p-10 flex flex-col items-start text-left"
+                className="group h-full"
               >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="mb-6 p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-white/10 group-hover:border-white/20 transition-colors duration-300"
-                >
-                  {service.icon}
-                </motion.div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">{service.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-base md:text-lg">
-                  {service.description}
-                </p>
+                <Link key={service.title} href={service.href} className="group h-full">
+                  <div className="card-service p-8 h-full relative flex flex-col">
+                    {/* HUD Decoration */}
+                    <div className="hud-corner hud-tl" />
+                    <div className="hud-corner hud-br" />
+
+                    <div className="mb-6 p-3 w-fit rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300 relative z-10">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors relative z-10">{service.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow relative z-10">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-sky-400 font-semibold text-xs uppercase tracking-widest relative z-10">
+                      Explore Service <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* 2.5 Workflow Animation */}
+      <WorkflowDiagram />
 
       {/* 3. How we work */}
       <section id="process" className="section-pad border-t border-white/5">
@@ -298,7 +316,7 @@ export default function Home() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 gap-6 lg:gap-8 px-4">
             {playbookSteps.map((step, index) => (
               <motion.div
                 key={step.id}
@@ -307,25 +325,31 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="group card-surface card-surface-hover p-8 relative flex flex-col items-start"
+                className="group card-service p-8 relative flex flex-col items-start"
               >
-                <span className="absolute top-6 right-6 text-4xl font-bold text-white/[0.04] group-hover:text-white/[0.08] transition-colors">{step.id}</span>
-                <motion.div
-                  whileHover={{ rotate: 10 }}
-                  className="mb-6 p-3 rounded-xl bg-white/5 border border-white/10 w-fit group-hover:bg-white/10 group-hover:border-sky-500/30 transition-all"
-                >
+                {/* HUD Decoration */}
+                <div className="hud-corner hud-tl" />
+                <div className="hud-corner hud-br" />
+
+                <div className="absolute top-6 right-8 text-5xl font-black text-white/[0.03] group-hover:text-sky-500/[0.08] transition-colors font-mono pointer-events-none z-0">
+                  {step.id}
+                </div>
+
+                <div className="mb-6 p-3 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300 relative z-10 shadow-lg shadow-sky-500/5">
                   {step.icon}
-                </motion.div>
-                <h3 className="text-xl font-semibold text-white mb-3 tracking-tight">{step.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-sky-400 transition-colors relative z-10">{step.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed relative z-10">{step.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Case Studies */}
       <CaseStudies />
+
+      {/* 4.5 Tech Stack */}
+      <TechStack />
 
       {/* 5. Industries */}
       <section className="section-pad border-t border-white/5 bg-white/[0.01]">
@@ -344,7 +368,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8">
             {[
               { name: "Finance & BPO", icon: <Landmark className="w-6 h-6" />, desc: "Automated VAT, payroll, and financial reporting." },
               { name: "Logistics", icon: <Plane className="w-6 h-6" />, desc: "Route optimization and supply chain automation." },
@@ -405,7 +429,7 @@ export default function Home() {
                 "The AI support bot we implemented with WinCore has handled 65% of our Tier 1 queries autonomously. The team's expertise is unmatched."
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-emerald-400 font-bold">S</div>
+                <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-gold font-bold">S</div>
                 <div>
                   <p className="text-white font-semibold text-sm">CTO</p>
                   <p className="text-gray-500 text-xs">SaaS Enterprise</p>
@@ -417,6 +441,7 @@ export default function Home() {
       </section>
 
       <WorkShowcase />
+
 
 
       {/* 7. Final CTA */}

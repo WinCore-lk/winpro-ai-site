@@ -38,6 +38,9 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-blueprint-blue: #0ea5e9;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -80,6 +83,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --gold: oklch(0.85 0.15 90);
+  --gold-foreground: oklch(0.2 0.05 90);
 }
 
 .dark {
@@ -114,6 +119,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --gold: oklch(0.85 0.15 90);
+  --gold-foreground: oklch(0.2 0.05 90);
 }
 
 @layer base {
@@ -181,12 +188,30 @@
 }
 
 .section-inner {
-  max-width: 100rem;
+  max-width: 90rem;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   position: relative;
   z-index: 10;
+}
+
+@media (min-width: 1536px) {
+  .section-inner {
+    max-width: 110rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .section-inner {
+    max-width: 130rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .section-inner {
+    max-width: 160rem;
+  }
 }
 
 .section-heading {
@@ -201,8 +226,332 @@
   @apply bg-white/[0.02] backdrop-blur-2xl border border-white/5 rounded-2xl md:rounded-3xl;
 }
 
+/* CodePen-style card hover: shine + golden glow (#D4AF37) */
 .card-surface-hover {
-  @apply hover:border-white/10 hover:bg-white/[0.03] transition-all duration-300;
+  --card-gold: #D4AF37;
+  --card-shine-opacity: 0.12;
+  --card-tile-color: rgba(212, 175, 55, 0.05);
+  --card-line-color: rgba(212, 175, 55, 0.15);
+  @apply relative overflow-hidden transition-all duration-300;
+  @apply hover:border-[var(--card-gold)]/30 hover:shadow-[0_0_0_1px_rgba(212,175,55,0.15),0_8px_25px_-5px_rgba(0,0,0,0.2),0_15px_40px_-10px_rgba(0,0,0,0.25)];
+}
+
+/* Shine (conic gradient) on hover */
+.card-surface-hover .card-shine {
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.card-surface-hover .card-shine:before {
+  content: '';
+  width: 150%;
+  padding-bottom: 150%;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 55%;
+  filter: blur(35px);
+  opacity: var(--card-shine-opacity);
+  transform: translateX(-50%);
+  background-image: conic-gradient(
+    from 205deg at 50% 50%,
+    rgba(212, 175, 55, 0) 0deg,
+    var(--card-gold) 25deg,
+    rgba(212, 175, 55, 0.18) 295deg,
+    rgba(212, 175, 55, 0) 360deg
+  );
+}
+
+.card-surface-hover:hover .card-shine {
+  opacity: 1;
+}
+
+/* Background Tiles and Lines */
+.card-hover-bg {
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+  mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+  pointer-events: none;
+}
+
+.card-hover-bg .tiles {
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.card-hover-bg .tiles .tile {
+  position: absolute;
+  background-color: var(--card-tile-color);
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+.card-hover-bg .tiles .tile.tile-4,
+.card-hover-bg .tiles .tile.tile-6,
+.card-hover-bg .tiles .tile.tile-10 { animation-delay: -2s; }
+.card-hover-bg .tiles .tile.tile-3,
+.card-hover-bg .tiles .tile.tile-5,
+.card-hover-bg .tiles .tile.tile-8 { animation-delay: -4s; }
+.card-hover-bg .tiles .tile.tile-2,
+.card-hover-bg .tiles .tile.tile-9 { animation-delay: -6s; }
+
+.card-hover-bg .tiles .tile-1 { top: 0; left: 0; height: 10%; width: 22.5%; }
+.card-hover-bg .tiles .tile-2 { top: 0; left: 22.5%; height: 10%; width: 27.5%; }
+.card-hover-bg .tiles .tile-3 { top: 0; left: 50%; height: 10%; width: 27.5%; }
+.card-hover-bg .tiles .tile-4 { top: 0; left: 77.5%; height: 10%; width: 22.5%; }
+.card-hover-bg .tiles .tile-5 { top: 10%; left: 0; height: 22.5%; width: 22.5%; }
+.card-hover-bg .tiles .tile-6 { top: 10%; left: 22.5%; height: 22.5%; width: 27.5%; }
+.card-hover-bg .tiles .tile-7 { top: 10%; left: 50%; height: 22.5%; width: 27.5%; }
+.card-hover-bg .tiles .tile-8 { top: 10%; left: 77.5%; height: 22.5%; width: 22.5%; }
+.card-hover-bg .tiles .tile-9 { top: 32.5%; left: 50%; height: 22.5%; width: 27.5%; }
+.card-hover-bg .tiles .tile-10 { top: 32.5%; left: 77.5%; height: 22.5%; width: 22.5%; }
+
+@keyframes tile {
+  0%, 12.5%, 100% { opacity: 1; }
+  25%, 82.5% { opacity: 0; }
+}
+
+.card-hover-bg .line {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.card-hover-bg .line:before,
+.card-hover-bg .line:after {
+  content: '';
+  position: absolute;
+  background-color: var(--card-line-color);
+  transition: transform 0.35s;
+}
+
+.card-hover-bg .line:before {
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.card-hover-bg .line:after {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+}
+
+.card-hover-bg .line-1:before { top: 10%; transition-delay: 0.3s; }
+.card-hover-bg .line-1:after { left: 22.5%; transition-delay: 0.3s; }
+.card-hover-bg .line-2:before { top: 32.5%; transition-delay: 0.15s; }
+.card-hover-bg .line-2:after { left: 50%; transition-delay: 0.15s; }
+.card-hover-bg .line-3:before { top: 55%; }
+.card-hover-bg .line-3:after { right: 22.5%; left: auto; }
+
+.card-surface-hover:hover .card-hover-bg .tiles {
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+
+.card-surface-hover:hover .card-hover-bg .tiles .tile {
+  animation-name: tile;
+}
+
+.card-surface-hover:hover .card-hover-bg .line {
+  opacity: 1;
+  transition-duration: 0.15s;
+}
+
+.card-surface-hover:hover .card-hover-bg .line:before { transform: scaleX(1); }
+.card-surface-hover:hover .card-hover-bg .line:after { transform: scaleY(1); }
+
+.card-surface-hover:hover .card-hover-bg .line-1:before,
+.card-surface-hover:hover .card-hover-bg .line-1:after { transition-delay: 0s; }
+.card-surface-hover:hover .card-hover-bg .line-2:before,
+.card-surface-hover:hover .card-hover-bg .line-2:after { transition-delay: 0.15s; }
+.card-surface-hover:hover .card-hover-bg .line-3:before,
+.card-surface-hover:hover .card-hover-bg .line-3:after { transition-delay: 0.3s; }
+
+/* Ensure card content stays above shine and lines */
+.card-surface-hover > *:not(.card-hover-bg):not(.card-shine) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Golden slide hover for all buttons (#D4AF37) */
+/* Case Study specific "Blueprint" feel */
+.card-blueprint {
+  --blueprint-gold: #D4AF37;
+  @apply relative overflow-hidden bg-[#050507] border border-white/5 rounded-3xl transition-all duration-500;
+  background-image: 
+    linear-gradient(rgba(14, 165, 233, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.card-blueprint::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.card-blueprint:hover {
+  border-color: rgba(14, 165, 233, 0.2);
+  box-shadow: 0 0 40px -10px rgba(14, 165, 233, 0.1);
+}
+
+.card-blueprint:hover::before {
+  opacity: 1;
+}
+
+/* Blueprint Corner Brackets */
+.blueprint-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  pointer-events: none;
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+
+.card-blueprint:hover .blueprint-corner {
+  border-color: var(--blueprint-gold);
+  width: 30px;
+  height: 30px;
+}
+
+.corner-tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.corner-tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+.corner-br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+/* Scanning Line Animation */
+.blueprint-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card-blueprint:hover .blueprint-scan {
+  animation: blueprint-scan 3s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes blueprint-scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* Binary Glow Text for Blueprint Background */
+.blueprint-bg-text {
+  position: absolute;
+  inset: 10%;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: rgba(14, 165, 233, 0.02);
+  line-height: 1;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(circle, black, transparent 80%);
+}
+
+/* Service Card specific refined tech feel */
+.card-service {
+  @apply relative overflow-hidden bg-white/[0.01] border border-white/5 rounded-3xl transition-all duration-500 backdrop-blur-md;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.card-service::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 45%, rgba(14, 165, 233, 0.05) 50%, transparent 55%);
+  background-size: 200% 200%;
+  transition: background-position 0.6s ease;
+  background-position: 100% 100%;
+  pointer-events: none;
+}
+
+.card-service:hover {
+  @apply border-white/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)];
+  background-position: 0% 0%;
+}
+
+.card-service:hover::after {
+  background-position: 0% 0%;
+}
+
+/* HUD corners for services - only 2 for lighter feel */
+.hud-corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  z-index: 10;
+  transition: all 0.4s ease;
+}
+
+.card-service:hover .hud-corner {
+  border-color: #0ea5e9;
+  width: 25px;
+  height: 25px;
+}
+
+.hud-tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.hud-br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+[data-slot="button"] {
+  --golden: #D4AF37;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-slot="button"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--golden);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+[data-slot="button"]:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+[data-slot="button"]:hover {
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.25);
 }
 
 /* Image treatment for product feel */

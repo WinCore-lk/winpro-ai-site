@@ -39,7 +39,7 @@ export function WorkShowcase() {
                         className="md:col-span-2 md:row-span-1"
                         title="Consulting & process audits"
                         description="We audit your processes, find bottlenecks, recommend quick automations. Roadmap with costs and tools. No heavy coding  -  domain knowledge + practical AI."
-                        icon={<Target className="w-8 h-8 text-emerald-400" />}
+                        icon={<Target className="w-8 h-8 text-gold" />}
                     />
                     <BentoCard
                         className="md:col-span-1 md:row-span-1"
@@ -51,7 +51,7 @@ export function WorkShowcase() {
                         className="md:col-span-1 md:row-span-1"
                         title="Reporting & document processing"
                         description="Dashboards from Excel/ERP. OCR for invoices and payslips to cut manual data entry."
-                        icon={<BarChart3 className="w-8 h-8 text-rose-400" />}
+                        icon={<BarChart3 className="w-8 h-8 text-gold" />}
                     />
                 </div>
             </div>

@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FAQSection } from "@/components/faq-section";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { CardHoverLines } from "@/components/card-hover-lines";
 
 export function AboutContent() {
     return (
@@ -12,7 +14,7 @@ export function AboutContent() {
             </div>
 
             <section className="section-pad">
-                <div className="section-inner max-w-5xl">
+                <div className="section-inner">
                     <motion.h1
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -58,7 +60,7 @@ export function AboutContent() {
                                     viewport={{ once: true }}
                                     className="text-gray-400 leading-relaxed text-lg"
                                 >
-                                    On our main site, WinCore.lk, we report 95%+ client satisfaction. We bring the same standards to AI: no black boxes, no hype  -  just solutions that work and that you can own.
+                                    We build using modern AI frameworks and automation pipelines. No black boxes, no hype  -  just systems built for speed and reliability that your team can own.
                                 </motion.p>
                             </div>
                         </div>
@@ -106,6 +108,8 @@ export function AboutContent() {
                                     transition={{ delay: i * 0.08 }}
                                     className="card-surface card-surface-hover p-6 md:p-8"
                                 >
+                                    <div className="card-shine" />
+                                    <CardHoverLines />
                                     <h3 className="text-lg font-semibold text-white mb-3">{item.title}</h3>
                                     <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
                                 </motion.div>
@@ -123,6 +127,11 @@ export function AboutContent() {
                             <Link href="/contact">Get in touch</Link>
                         </Button>
                     </motion.div>
+
+                    {/* Global FAQ Section */}
+                    <div className="mt-20">
+                        <FAQSection />
+                    </div>
                 </div>
             </section>
         </div>

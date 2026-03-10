@@ -56,7 +56,8 @@ export function Footer() {
                         <h3 className="text-sm font-semibold text-white mb-5 uppercase tracking-wider">Company</h3>
                         <ul className="space-y-3">
                             <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">About</Link></li>
-                            <li><Link href="/solutions" className="text-gray-400 hover:text-white transition-colors text-sm">Solutions</Link></li>
+                            <li><Link href="/case-studies" className="text-gray-400 hover:text-white transition-colors text-sm">Case Studies</Link></li>
+                            <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors text-sm">Blog</Link></li>
                             <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">Contact</Link></li>
                             <li><Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Careers</Link></li>
                         </ul>
@@ -70,7 +71,7 @@ export function Footer() {
                             <Input
                                 type="email"
                                 placeholder="Email"
-                                className="bg-white/5 border-white/10 text-white placeholder-gray-500 focus-visible:ring-sky-500 rounded-xl h-11 text-sm flex-1"
+                                className="bg-white/5 border-white/10 text-white placeholder-gray-500 focus-visible:ring-gold rounded-xl h-11 text-sm flex-1"
                             />
                             <Button type="button" size="icon" className="h-11 w-11 rounded-xl bg-white text-black hover:bg-gray-100 flex-shrink-0">
                                 <ArrowRight className="w-4 h-4" />

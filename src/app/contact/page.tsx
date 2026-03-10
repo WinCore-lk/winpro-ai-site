@@ -133,7 +133,7 @@ export default function ContactPage() {
                                 className="p-8 rounded-3xl bg-sky-500/[0.03] border border-sky-500/10 hidden lg:block"
                             >
                                 <p className="text-white/80 italic leading-relaxed text-lg mb-4">
-                                    &quot;We don&apos;t do sci-fi; we do things that save you time and reduce errors. Practical automation with 100% handover.&quot;
+                                    &quot;We don&apos;t do sci-fi; we do things that save you time and reduce errors. Practical automation built with modern engineering pipelines.&quot;
                                 </p>
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded-full bg-gray-500/20" />
@@ -218,32 +218,6 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    {/* FAQ Section */}
-                    <div className="mt-32 pt-20 border-t border-white/5">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold text-white mb-4">Discovery FAQ</h2>
-                            <p className="text-gray-400">Standardizing transparency from the first touchpoint.</p>
-                        </div>
-                        <div className="max-w-3xl mx-auto">
-                            <Accordion type="single" collapsible className="space-y-4">
-                                {[
-                                    { q: "What should I prepare for the discovery call?", a: "Bring a high-level overview of your manual workflows, any specific documents involved (e.g., invoices, reports), and your desired outcome (time savings, error reduction, etc.). No technical preparation is needed." },
-                                    { q: "Is there a charge for the first consultation?", a: "No. The initial discovery call is free. We use it to determine if your project is a fit for our automation frameworks and to provide a preliminary roadmap." },
-                                    { q: "Do you sign NDAs before we share process details?", a: "Yes. We respect enterprise data privacy. We can sign a standard NDA before we dive into the specifics of your internal operations." },
-                                    { q: "Can you handle global time zones from Colombo?", a: "Absolutely. Our team is structured to support clients worldwide, primarily serving Europe, Australia, and the US West Coast with flexible scheduling." },
-                                ].map((faq, i) => (
-                                    <AccordionItem key={i} value={`item-${i}`} className="card-surface px-6 md:px-8 border-white/5 rounded-2xl overflow-hidden hover:bg-white/[0.04] transition-colors">
-                                        <AccordionTrigger className="text-left text-gray-200 hover:text-white py-6 text-lg font-medium group">
-                                            {faq.q}
-                                        </AccordionTrigger>
-                                        <AccordionContent className="text-gray-400 pb-8 pr-12 leading-relaxed text-base">
-                                            {faq.a}
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
-                        </div>
-                    </div>
                 </div>
             </section>
         </div>

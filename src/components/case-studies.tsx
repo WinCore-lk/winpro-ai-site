@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, TrendingUp, Clock, MessageSquare, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { CardHoverLines } from "@/components/card-hover-lines";
 
 const caseStudies = [
   {
@@ -30,12 +32,15 @@ export function CaseStudies() {
               viewport={{ once: true }}
               className="section-heading mb-4"
             >
-              Measurable Success
+              Case Studies
             </motion.h2>
             <p className="text-gray-400 text-lg">
-              Proof of excellence in complex AI implementations. We deliver tangible ROI for modern enterprises.
+              Proof of excellence in complex AI implementations. We deliver tangible ROI.
             </p>
           </div>
+          <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 rounded-xl" asChild>
+            <Link href="/case-studies">View all projects <ArrowRight className="w-4 h-4 ml-2" /></Link>
+          </Button>
         </div>
 
         <div className="space-y-12">
@@ -45,20 +50,32 @@ export function CaseStudies() {
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="card-surface p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ring-1 ring-white/10"
+              className="card-blueprint p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
             >
-              <div>
+              {/* Blueprint Decoration */}
+              <div className="blueprint-corner corner-tl" />
+              <div className="blueprint-corner corner-tr" />
+              <div className="blueprint-corner corner-bl" />
+              <div className="blueprint-corner corner-br" />
+              <div className="blueprint-scan" />
+              <div className="blueprint-bg-text font-mono opacity-20 leading-none">
+                {Array.from({ length: 15 }).map((_, i) => (
+                  <div key={i}>01101010010101110101010100110101010101011010101001010111010101010011010101010</div>
+                ))}
+              </div>
+
+              <div className="relative z-10">
                 <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   className="flex items-center gap-2 mb-6"
                 >
-                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-white/60 tracking-wider">
+                  <span className="px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs font-semibold text-sky-400 tracking-wider">
                     CASE STUDY
                   </span>
                   <span className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="text-sm font-medium text-sky-400">{study.client}</span>
+                  <span className="text-sm font-medium text-gray-400">{study.client}</span>
                 </motion.div>
 
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
@@ -68,7 +85,7 @@ export function CaseStudies() {
                 <div className="space-y-8 mb-10">
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                      <TrendingUp className="w-5 h-5 text-white/70" />
+                      <TrendingUp className="w-5 h-5 text-sky-400" />
                     </div>
                     <div>
                       <h4 className="text-white font-semibold mb-1">Problem</h4>
@@ -78,7 +95,7 @@ export function CaseStudies() {
 
                   <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-5 h-5 text-white/70" />
+                      <CheckCircle2 className="w-5 h-5 text-sky-400" />
                     </div>
                     <div>
                       <h4 className="text-white font-semibold mb-1">Solution</h4>
@@ -92,8 +109,8 @@ export function CaseStudies() {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-1 gap-6 relative">
-                 {/* Visual Results */}
+              <div className="grid grid-cols-1 gap-6 relative z-10">
+                 {/* Visual Results - using a glass box feel */}
                  {study.results.map((result, rIdx) => (
                    <motion.div
                     key={result.label}
@@ -101,15 +118,15 @@ export function CaseStudies() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 + (rIdx * 0.1) }}
-                    className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between group hover:bg-white/[0.04] transition-colors"
+                    className="p-6 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 flex items-center justify-between group hover:border-sky-500/30 transition-all duration-300 shadow-xl"
                    >
-                     <div className="flex items-center gap-4">
-                       <div className={`p-3 rounded-xl bg-white/5 border border-white/10 ${result.color}`}>
+                     <div className="flex items-center gap-4 relative z-10">
+                       <div className={`p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400`}>
                          {result.icon}
                        </div>
-                       <span className="text-gray-400 font-medium">{result.label}</span>
+                       <span className="text-gray-300 font-medium">{result.label}</span>
                      </div>
-                     <div className="text-right">
+                     <div className="text-right relative z-10">
                         <motion.span
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
@@ -124,16 +141,13 @@ export function CaseStudies() {
                             initial={{ width: 0 }}
                             whileInView={{ width: `${(result.value / 100) * 100}%` }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1, delay: 0.4 }}
-                            className={`h-full ${result.color.replace('text-', 'bg-')}`}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="h-full bg-sky-400"
                           />
                         </div>
                      </div>
                    </motion.div>
                  ))}
-
-                 {/* Decorative element */}
-                 <div className="absolute -z-10 -right-20 -top-20 w-80 h-80 bg-sky-500/[0.05] blur-[80px] rounded-full pointer-events-none" />
               </div>
             </motion.div>
           ))}
