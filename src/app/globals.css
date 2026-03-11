@@ -763,12 +763,11 @@
   are completely invisible, making the dark background seamless.
 */
 .hexagon-container {
-  /* Cover the whole fixed viewport */
-  position: fixed;
+  /* Fill the parent hero section */
+  position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
-  /* Centre the honeycomb tightly */
   justify-content: flex-start;
   align-items: flex-start;
   overflow: hidden;

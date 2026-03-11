@@ -1,28 +1,47 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export const HexagonGrid = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
     const [mousePos, setMousePos] = useState({ x: -9999, y: -9999 });
 
     useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
         const handleMouseMove = (e: MouseEvent) => {
-            setMousePos({ x: e.clientX, y: e.clientY });
+            const rect = el.getBoundingClientRect();
+            setMousePos({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+            });
         };
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
+
+        const handleMouseLeave = () => {
+            setMousePos({ x: -9999, y: -9999 });
+        };
+
+        el.addEventListener("mousemove", handleMouseMove);
+        el.addEventListener("mouseleave", handleMouseLeave);
+        
+        return () => {
+            el.removeEventListener("mousemove", handleMouseMove);
+            el.removeEventListener("mouseleave", handleMouseLeave);
+        };
     }, []);
 
     return (
         <div
-            className="fixed inset-0 pointer-events-none"
+            ref={containerRef}
+            className="absolute inset-0 pointer-events-none overflow-hidden"
             style={{ zIndex: 0 }}
             aria-hidden="true"
         >
-            {/* Very dark base fill */}
+            {/* Dark base fill for the hero section background */}
             <div className="absolute inset-0 bg-[#0a0a0f]" />
 
-            {/* The hexagon "revealed by cursor" layer */}
+            {/* The hexagon container uses CSS variables to track the mouse position for the mask/hover effects */}
             <div
                 className="hexagon-container"
                 style={{
@@ -39,7 +58,7 @@ export const HexagonGrid = () => {
                 ))}
             </div>
 
-            {/* Edge vignettes — smooth fade-out near edges */}
+            {/* Fade out near edges for smoothness */}
             <div className="absolute inset-0 pointer-events-none" style={{
                 background: `
                     radial-gradient(ellipse at 50% 0%, transparent 60%, #0a0a0f 100%),

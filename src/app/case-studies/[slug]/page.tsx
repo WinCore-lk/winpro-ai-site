@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, TrendingUp, Clock, FileText, Code, Users, Zap, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, TrendingUp, Clock, FileText, Code, Users, Zap, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
