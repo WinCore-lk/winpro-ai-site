@@ -1,8 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { Github, Twitter, Linkedin, Mail, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { NewsletterForm } from "./newsletter-form";
 
 export function Footer() {
     return (
@@ -59,7 +60,6 @@ export function Footer() {
                             <li><Link href="/case-studies" className="text-gray-400 hover:text-white transition-colors text-sm">Case Studies</Link></li>
                             <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors text-sm">Blog</Link></li>
                             <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">Contact</Link></li>
-                            <li><Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Careers</Link></li>
                         </ul>
                     </div>
                     <div className="md:col-span-4 lg:col-span-3">
@@ -67,16 +67,7 @@ export function Footer() {
                         <p className="text-gray-400 text-sm mb-4">
                             Updates on AI and automation, no spam.
                         </p>
-                        <div className="flex gap-2">
-                            <Input
-                                type="email"
-                                placeholder="Email"
-                                className="bg-white/5 border-white/10 text-white placeholder-gray-500 focus-visible:ring-gold rounded-xl h-11 text-sm flex-1"
-                            />
-                            <Button type="button" size="icon" className="h-11 w-11 rounded-xl bg-white text-black hover:bg-gray-100 flex-shrink-0">
-                                <ArrowRight className="w-4 h-4" />
-                            </Button>
-                        </div>
+                        <NewsletterForm layout="compact" placeholder="Email" />
                     </div>
                 </div>
 
@@ -85,8 +76,8 @@ export function Footer() {
                         &copy; {new Date().getFullYear()} WinCore AI. All rights reserved.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms</Link>
+                        <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+                        <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
                         <a href="mailto:info@wincore.lk" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
                             <Mail size={14} /> info@wincore.lk
                         </a>

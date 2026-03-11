@@ -7,9 +7,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const resolvedParams = await params;
     const service = serviceDetails[resolvedParams.slug];
     if (!service) return { title: "Service | WinCore AI" };
+    
+    const title = `${service.title} | WinCore AI`;
+    const description = `${service.subtitle}. ${service.content.slice(0, 160)}...`;
+    
     return {
-        title: `${service.title} | WinCore AI`,
-        description: `${service.subtitle}. ${service.content.slice(0, 120)}...`
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            type: "article",
+            images: ["/og-image.png"], // Reusing the global OG image for now
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: ["/og-image.png"],
+        }
     };
 }
 
@@ -106,7 +122,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                         </div>
 
                         <div className="pt-8">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 h-12 font-semibold w-full sm:w-auto" asChild>
+                            <Button size="lg" variant="gold" className="rounded-xl px-8 h-12 font-semibold w-full sm:w-auto" asChild>
                                 <Link href="/contact">Discuss with our team</Link>
                             </Button>
                         </div>

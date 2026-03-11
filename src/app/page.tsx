@@ -186,7 +186,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.15 }}
                 className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto"
               >
-                <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02] active:scale-[0.98]" asChild>
+                <Button size="lg" variant="gold" className="rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02] active:scale-[0.98]" asChild>
                   <Link href="/contact">Book a Free Consultation</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-xl px-8 h-12 text-base border-white/20 hover:bg-white/10 text-white" asChild>
@@ -457,7 +457,7 @@ export default function Home() {
             <p className="text-lg text-gray-400 mb-8 leading-relaxed">
               Wherever you&apos;re based - we&apos;ll respond with a clear next step.
             </p>
-            <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02]" asChild>
+            <Button size="lg" variant="gold" className="rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02]" asChild>
               <Link href="/contact">Book a Free Consultation</Link>
             </Button>
           </motion.div>

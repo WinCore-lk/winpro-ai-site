@@ -155,7 +155,7 @@ export default function ServicesPage() {
                         <p className="text-gray-400 mb-8 max-w-xl mx-auto relative z-10">
                             Tell us your goals. We'll propose a scoped approach and transparent pricing.
                         </p>
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 h-12 font-bold transition-all hover:scale-[1.02] relative z-10 shadow-lg shadow-white/10" asChild>
+                        <Button size="lg" variant="gold" className="rounded-xl px-8 h-12 font-bold transition-all hover:scale-[1.02] relative z-10 shadow-lg shadow-white/10" asChild>
                             <Link href="/contact">Get in touch</Link>
                         </Button>
                     </motion.div>

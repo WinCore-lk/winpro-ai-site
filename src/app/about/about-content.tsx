@@ -123,7 +123,7 @@ export function AboutContent() {
                         viewport={{ once: true }}
                         className="mt-16 text-center"
                     >
-                        <Button size="lg" className="rounded-xl bg-white text-black hover:bg-gray-100 font-semibold" asChild>
+                        <Button size="lg" variant="gold" className="rounded-xl font-semibold" asChild>
                             <Link href="/contact">Get in touch</Link>
                         </Button>
                     </motion.div>

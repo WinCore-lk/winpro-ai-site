@@ -15,9 +15,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WinCore AI | Practical AI & BPO Automation · Global",
+  title: {
+    default: "WinCore AI | Practical AI & BPO Automation · Global",
+    template: "%s | WinCore AI"
+  },
   description: "Practical automation and consulting for finance, BPO, and compliance. Payroll, VAT, reporting, document processing, chatbots. Up to 40–60% time savings on repetitive tasks. Based in Colombo; serving clients worldwide. Part of WinCore.lk.",
   keywords: ["AI automation", "BPO automation", "AI services", "process automation", "WinCore", "Colombo", "Sri Lanka", "global BPO"],
+  metadataBase: new URL("https://wincore.lk"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://wincore-ai.site",
+    siteName: "WinCore AI",
+    title: "WinCore AI | Practical AI & BPO Automation",
+    description: "Practical automation and consulting for finance, BPO, and compliance. Up to 40–60% time savings on repetitive tasks. Based in Colombo, serving global clients.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "WinCore AI - Practical AI & BPO Automation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WinCore AI | Practical AI & BPO Automation",
+    description: "Practical automation and consulting for finance, BPO, and compliance. Up to 40-60% time savings.",
+    images: ["/og-image.png"],
+    creator: "@wincore",
+  },
 };
 
 export default function RootLayout({

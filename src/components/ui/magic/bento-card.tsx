@@ -27,7 +27,7 @@ export function BentoCard({ title, description, icon, backgroundImage, className
             transition={{ duration: 0.5, ease: "easeOut" }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className={`relative rounded-2xl md:rounded-3xl overflow-hidden group border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:border-white/20 transition-colors ${className}`}
+            className={`relative rounded-2xl md:rounded-3xl overflow-hidden group border border-gold/15 bg-white/[0.03] backdrop-blur-2xl hover:border-gold/30 hover:shadow-[var(--shadow-blue-strong)] transition-all duration-300 ${className}`}
         >
             {/* Background Graphic */}
             <div

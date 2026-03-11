@@ -40,6 +40,8 @@
   --color-card: var(--card);
   --color-gold: var(--gold);
   --color-gold-foreground: var(--gold-foreground);
+  --color-shadow-blue: var(--shadow-blue);
+  --color-shadow-blue-strong: var(--shadow-blue-strong);
   --color-blueprint-blue: #0ea5e9;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -85,6 +87,8 @@
   --sidebar-ring: oklch(0.708 0 0);
   --gold: oklch(0.85 0.15 90);
   --gold-foreground: oklch(0.2 0.05 90);
+  --shadow-blue: 0 10px 40px -8px rgba(14, 165, 233, 0.15);
+  --shadow-blue-strong: 0 20px 50px -12px rgba(14, 165, 233, 0.25);
 }
 
 .dark {
@@ -121,6 +125,8 @@
   --sidebar-ring: oklch(0.556 0 0);
   --gold: oklch(0.85 0.15 90);
   --gold-foreground: oklch(0.2 0.05 90);
+  --shadow-blue: 0 10px 40px -8px rgba(14, 165, 233, 0.2);
+  --shadow-blue-strong: 0 20px 50px -12px rgba(14, 165, 233, 0.35);
 }
 
 @layer base {
@@ -223,7 +229,8 @@
 }
 
 .card-surface {
-  @apply bg-white/[0.02] backdrop-blur-2xl border border-white/5 rounded-2xl md:rounded-3xl;
+  @apply bg-white/[0.03] backdrop-blur-2xl border border-gold/15 rounded-2xl md:rounded-3xl shadow-[var(--shadow-blue)];
+  @apply transition-all duration-300;
 }
 
 /* CodePen-style card hover: shine + golden glow (#D4AF37) */
@@ -233,7 +240,7 @@
   --card-tile-color: rgba(212, 175, 55, 0.05);
   --card-line-color: rgba(212, 175, 55, 0.15);
   @apply relative overflow-hidden transition-all duration-300;
-  @apply hover:border-[var(--card-gold)]/30 hover:shadow-[0_0_0_1px_rgba(212,175,55,0.15),0_8px_25px_-5px_rgba(0,0,0,0.2),0_15px_40px_-10px_rgba(0,0,0,0.25)];
+  @apply hover:border-[var(--card-gold)]/40 hover:shadow-[var(--shadow-blue-strong)];
 }
 
 /* Shine (conic gradient) on hover */
@@ -481,8 +488,8 @@
 
 /* Service Card specific refined tech feel */
 .card-service {
-  @apply relative overflow-hidden bg-white/[0.01] border border-white/5 rounded-3xl transition-all duration-500 backdrop-blur-md;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  @apply relative overflow-hidden bg-white/[0.03] border border-gold/10 rounded-3xl transition-all duration-500 backdrop-blur-xl shadow-[var(--shadow-blue)];
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -490,7 +497,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, transparent 45%, rgba(14, 165, 233, 0.05) 50%, transparent 55%);
+  background: linear-gradient(135deg, transparent 45%, rgba(212, 175, 55, 0.05) 50%, transparent 55%);
   background-size: 200% 200%;
   transition: background-position 0.6s ease;
   background-position: 100% 100%;
@@ -498,7 +505,7 @@
 }
 
 .card-service:hover {
-  @apply border-white/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)];
+  @apply border-gold/30 shadow-[var(--shadow-blue-strong)] scale-[1.01];
   background-position: 0% 0%;
 }
 
@@ -561,6 +568,38 @@
 
 .img-frame-hover {
   @apply transition-transform duration-500 hover:scale-[1.02];
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  50% { transform: translateX(100%) skewX(-15deg); }
+  100% { transform: translateX(100%) skewX(-15deg); }
+}
+
+.btn-gold-shimmer {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.btn-gold-shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.btn-gold-shimmer:hover::before {
+  animation: shimmer 1.5s infinite;
 }
 
 /* Subtle entrance animation class for reuse */

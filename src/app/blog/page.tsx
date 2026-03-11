@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight, TrendingUp, Bot, Landmark } from "lucide-react";
 import Image from "next/image";
 import { CardHoverLines } from "@/components/card-hover-lines";
+import { NewsletterForm } from "@/components/newsletter-form";
 
 const posts = [
     {
@@ -139,13 +140,8 @@ export default function BlogPage() {
                             <h3 className="text-2xl font-bold text-white mb-4">Stay ahead with AI engineering</h3>
                             <p className="text-gray-400">Get our latest case studies and technical insights delivered directly to your inbox. No spam, just logic.</p>
                         </div>
-                        <div className="flex gap-4 w-full lg:w-auto">
-                            <input 
-                                type="email" 
-                                placeholder="Professional email" 
-                                className="bg-white/5 border border-white/10 text-white rounded-xl px-5 h-14 w-full lg:w-72 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
-                            />
-                            <Button className="bg-white text-black hover:bg-gray-100 font-bold px-8 h-14 rounded-xl">Subscribe</Button>
+                        <div className="w-full lg:w-3/5">
+                            <NewsletterForm placeholder="Your professional email" buttonText="Subscribe Now" />
                         </div>
                     </motion.div>
                 </div>

@@ -13,9 +13,9 @@ const caseStudies = [
     problem: "Customer support tickets were overwhelming the team, leading to increased churn and operator burnout.",
     solution: "We engineered a RAG-based AI assistant integrated directly into their knowledge base and Slack workspace.",
     results: [
-      { label: "Ticket Reduction", value: 65, suffix: "%", icon: <TrendingUp className="w-5 h-5" />, color: "text-white" },
-      { label: "Resolution Speed", value: 40, suffix: "% faster", icon: <Clock className="w-5 h-5" />, color: "text-white" },
-      { label: "Automated Responses", value: 100, suffix: "% coverage", icon: <MessageSquare className="w-5 h-5" />, color: "text-white" },
+      { label: "Target Ticket Reduction", value: 65, suffix: "%", icon: <TrendingUp className="w-5 h-5" />, color: "text-white" },
+      { label: "Est. Resolution Speed", value: 40, suffix: "% faster", icon: <Clock className="w-5 h-5" />, color: "text-white" },
+      { label: "Projected Coverage", value: 100, suffix: "%", icon: <MessageSquare className="w-5 h-5" />, color: "text-white" },
     ],
   },
 ];
@@ -72,10 +72,10 @@ export function CaseStudies() {
                   className="flex items-center gap-2 mb-6"
                 >
                   <span className="px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs font-semibold text-sky-400 tracking-wider">
-                    CASE STUDY
+                    PROJECTED IMPACT
                   </span>
                   <span className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="text-sm font-medium text-gray-400">{study.client}</span>
+                  <span className="text-sm font-medium text-gray-400">Target Profile: {study.client}</span>
                 </motion.div>
 
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
@@ -118,7 +118,7 @@ export function CaseStudies() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 + (rIdx * 0.1) }}
-                    className="p-6 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 flex items-center justify-between group hover:border-sky-500/30 transition-all duration-300 shadow-xl"
+                    className="p-6 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-gold/15 flex items-center justify-between group hover:border-gold/30 transition-all duration-300 shadow-[var(--shadow-blue)] hover:shadow-[var(--shadow-blue-strong)]"
                    >
                      <div className="flex items-center gap-4 relative z-10">
                        <div className={`p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400`}>
