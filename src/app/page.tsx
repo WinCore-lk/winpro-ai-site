@@ -11,6 +11,7 @@ import { TrustSignals } from "@/components/trust-signals";
 import { CardHoverLines } from "@/components/card-hover-lines";
 import { WorkflowDiagram } from "@/components/workflow-diagram";
 import { TechStack } from "@/components/tech-stack";
+import { HexagonGrid } from "@/components/hexagon-grid";
 
 const services = [
   {
@@ -128,7 +129,7 @@ export default function Home() {
 
   return (
     <div className="page-root">
-      {/* Subtle background */}
+      {/* Subtle background items including Hexagon grid scoped just to this top relative wrapper */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80rem] h-[40rem] bg-sky-500/[0.04] blur-[120px] rounded-full" />
         <div className="absolute bottom-0 right-0 w-[50rem] h-[30rem] bg-gold/[0.03] blur-[100px] rounded-full" />
@@ -166,8 +167,9 @@ export default function Home() {
       </div>
 
       {/* 1. Hero */}
-      <section className="section-pad flex min-h-[85vh] items-center">
-        <div className="section-inner">
+      <section className="section-pad flex min-h-[85vh] items-center relative overflow-hidden">
+        <HexagonGrid />
+        <div className="section-inner relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
               <motion.h1
@@ -242,7 +244,6 @@ export default function Home() {
                <span className="text-xl font-bold text-white tracking-tighter">GLOBALBPO</span>
                <span className="text-xl font-bold text-white tracking-tighter">MARITIME CO</span>
                <span className="text-xl font-bold text-white tracking-tighter">LOGISTICS PRO</span>
-               <span className="text-xl font-bold text-white tracking-tighter">RETAIL AI</span>
             </div>
           </motion.div> */}
         </div>

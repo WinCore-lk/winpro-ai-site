@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { HexagonGrid } from "@/components/hexagon-grid";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,8 +58,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-[#0a0a0f] text-white selection:bg-sky-500/20 selection:text-white overflow-x-hidden`}
       >
+        <HexagonGrid />
         <Navbar />
-        <main className="flex-grow pt-24">
+        <main className="flex-grow pt-24 relative z-10">
           {children}
         </main>
         <Footer />
