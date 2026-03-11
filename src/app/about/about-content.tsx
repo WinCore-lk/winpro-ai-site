@@ -9,7 +9,7 @@ import { CardHoverLines } from "@/components/card-hover-lines";
 export function AboutContent() {
     return (
         <div className="page-root">
-            <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
+            <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-[40rem] h-[30rem] bg-sky-500/[0.04] blur-[100px] rounded-full" />
             </div>
 

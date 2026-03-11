@@ -51,14 +51,6 @@ export function WorkflowDiagram() {
         <section className="section-pad bg-white/[0.01] border-t border-white/5 relative overflow-hidden">
             <div className="section-inner">
                 <div className="text-center mb-24">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-widest mb-6"
-                    >
-                        Process Architecture
-                    </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}

@@ -59,7 +59,7 @@ export default function ContactPage() {
     return (
         <div className="page-root min-h-screen">
             {/* Artistic Background */}
-            <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
+            <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80rem] h-[40rem] bg-sky-500/[0.04] blur-[120px] rounded-full" />
                 
                 {/* Artistic Brush Stroke (Orange/Yellow) */}

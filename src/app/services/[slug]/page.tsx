@@ -137,7 +137,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
     return (
         <div className="page-root">
-            <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
+            <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-[50rem] h-[30rem] bg-sky-500/[0.05] blur-[120px] rounded-full" />
                 <div className="absolute bottom-0 left-0 w-[40rem] h-[30rem] bg-gold/[0.02] blur-[100px] rounded-full" />
             </div>

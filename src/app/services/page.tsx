@@ -57,7 +57,7 @@ const services = [
 export default function ServicesPage() {
     return (
         <div className="page-root">
-            <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
+            <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[30rem] bg-sky-500/[0.04] blur-[100px] rounded-full" />
                 <div className="absolute bottom-0 right-0 w-[40rem] h-[30rem] bg-gold/[0.02] blur-[100px] rounded-full" />
             </div>

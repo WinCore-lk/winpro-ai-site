@@ -129,37 +129,37 @@ export default function Home() {
   return (
     <div className="page-root">
       {/* Subtle background */}
-      <div className="absolute inset-0 -z-10 bg-[#0a0a0f] overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80rem] h-[40rem] bg-sky-500/[0.04] blur-[120px] rounded-full" />
         <div className="absolute bottom-0 right-0 w-[50rem] h-[30rem] bg-gold/[0.03] blur-[100px] rounded-full" />
-        
+
         {/* Artistic Brush Stroke 1 (Orange) */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 1.1, rotate: -2 }}
           animate={{ opacity: 0.15, scale: 1, rotate: 0 }}
           transition={{ duration: 2, ease: "easeOut" }}
           className="absolute top-[10%] -right-[10%] w-[1000px] h-[1000px] mix-blend-screen grayscale-0"
         >
-          <Image 
-            src="/brush-stroke.png" 
-            alt="" 
-            fill 
+          <Image
+            src="/brush-stroke.png"
+            alt=""
+            fill
             className="object-contain opacity-40 brightness-125"
           />
         </motion.div>
 
         {/* Artistic Brush Stroke 2 (Yellow/Gold) */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9, rotate: 15 }}
           whileInView={{ opacity: 0.12, scale: 1, rotate: 10 }}
           viewport={{ once: true }}
           transition={{ duration: 3, ease: "easeOut" }}
           className="absolute bottom-[5%] -left-[15%] w-[800px] h-[800px] mix-blend-screen grayscale-0 hidden lg:block"
         >
-          <Image 
-            src="/brush-stroke-2.png" 
-            alt="" 
-            fill 
+          <Image
+            src="/brush-stroke-2.png"
+            alt=""
+            fill
             className="object-contain opacity-30 brightness-110"
           />
         </motion.div>
