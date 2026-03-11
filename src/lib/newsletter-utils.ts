@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
-import { supabaseAdmin } from "./supabase";
+import admin from "firebase-admin";
+import { db } from "./firebase-admin";
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -20,18 +21,17 @@ interface BlogPost {
 
 export async function sendNewsletterNotification(post: BlogPost) {
     try {
-        // 1. Fetch all active subscribers
-        const { data: subscribers, error } = await supabaseAdmin
-            .from("subscribers")
-            .select("email")
-            .eq("status", "active"); // Assuming a status column
+        // 1. Fetch all active subscribers from Firestore
+        const subscribersSnapshot = await db.collection("subscribers")
+            .where("status", "==", "active")
+            .get();
 
-        if (error || !subscribers || subscribers.length === 0) {
-            console.log("No subscribers found or error fetching them.");
+        if (subscribersSnapshot.empty) {
+            console.log("No active subscribers found.");
             return;
         }
 
-        const emails = subscribers.map((s) => s.email);
+        const emails = subscribersSnapshot.docs.map(doc => doc.data().email);
         const postUrl = `https://wincore.ai/blog/${post.slug}`;
 
         // 2. Prepare email content
@@ -58,7 +58,7 @@ export async function sendNewsletterNotification(post: BlogPost) {
 
         // 3. Send email
         await transporter.sendMail(mailOptions);
-        console.log(`Newsletter notification sent for: ${post.title}`);
+        console.log(`Newsletter notification sent to ${emails.length} subscribers for: ${post.title}`);
     } catch (err) {
         console.error("Failed to send newsletter notification:", err);
     }

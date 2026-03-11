@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import admin from "firebase-admin";
+import { db } from "@/lib/firebase-admin";
 
 // ---------------------------------------------------------------
 //  Build a reusable SMTP transporter from .env.local variables.
@@ -138,14 +140,24 @@ export async function POST(req: Request) {
         };
 
         // -------------------------------------------------------
-        //  Send BOTH emails concurrently
+        //  Send BOTH emails and store in Firestore concurrently
         // -------------------------------------------------------
         await Promise.all([
             transporter.sendMail(adminMailOptions),
             transporter.sendMail(merchantMailOptions),
+            db.collection("consultations").add({
+                firstName,
+                lastName,
+                fullName,
+                email: email.toLowerCase(),
+                company: company || null,
+                message,
+                createdAt: admin.firestore.FieldValue.serverTimestamp(),
+                status: "new"
+            })
         ]);
 
-        console.log(`[Contact] Emails sent for inquiry from ${fullName} <${email}>`);
+        console.log(`[Contact] Emails sent and inquiry stored for ${fullName} <${email}>`);
 
         return NextResponse.json(
             { message: "Inquiry successfully received. Emails have been dispatched." },

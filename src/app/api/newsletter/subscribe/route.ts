@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import admin from "firebase-admin";
+import { db } from "@/lib/firebase-admin";
 
 export async function POST(req: Request) {
     try {
@@ -12,18 +13,15 @@ export async function POST(req: Request) {
             );
         }
 
-        // Insert email into 'subscribers' table
-        const { error } = await supabase
-            .from("subscribers")
-            .upsert({ email, subscribed_at: new Date().toISOString() }, { onConflict: "email" });
+        // Store email in Firestore 'subscribers' collection
+        // Using email as the document ID to prevent duplicates (acting like upsert)
+        await db.collection("subscribers").doc(email.toLowerCase()).set({
+            email: email.toLowerCase(),
+            subscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+            status: "active"
+        }, { merge: true });
 
-        if (error) {
-            console.error("Supabase error:", error);
-            return NextResponse.json(
-                { error: "Failed to subscribe. Please try again." },
-                { status: 500 }
-            );
-        }
+        console.log(`[Newsletter] Subscribed: ${email}`);
 
         return NextResponse.json(
             { message: "Subscribed successfully!" },

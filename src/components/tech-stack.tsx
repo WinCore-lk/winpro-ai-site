@@ -24,7 +24,7 @@ const row2 = [
     { name: "Google Cloud", logo: "/tech-stack/google-cloud.svg" },
     { name: "Pinecone", logo: "/tech-stack/pinecone.svg" },
     { name: "Slack", logo: "/tech-stack/slack.svg" },
-    { name: "Supabase", logo: "/tech-stack/supabase.svg" },
+    { name: "Firebase", logo: "/tech-stack/firebase.svg" },
     { name: "HubSpot", logo: "/tech-stack/hubspot.svg" },
     { name: "MongoDB", logo: "/tech-stack/mongodb.svg" },
 ];

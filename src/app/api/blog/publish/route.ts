@@ -15,11 +15,11 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
 
-        // 2. Here you would normally save the post to your DB (Supabase/Postgres)
+        // 2. Here you would normally save the post to your DB (Firebase/Firestore)
         console.log(`Publishing blog post: ${title}`);
 
         // 3. Trigger the automated newsletter notification
-        // This fetches all active subscribers from Supabase and sends them an email via SMTP
+        // This fetches all active subscribers from Firebase (Firestore) and sends them an email via SMTP
         await sendNewsletterNotification({
             title,
             excerpt,
