@@ -45,7 +45,7 @@ export function Navbar() {
                                 {link.label}
                             </Link>
                         ))}
-                        <Button asChild className="bg-white hover:bg-gray-100 text-black rounded-xl px-6 h-10 text-sm font-semibold transition-all hover:scale-[1.02]">
+                        <Button asChild variant="gold" className="rounded-xl px-6 h-10 text-sm font-semibold transition-all hover:scale-[1.02]">
                             <Link href="/contact">Free Consultation</Link>
                         </Button>
                     </div>
@@ -81,7 +81,7 @@ export function Navbar() {
                                 </Link>
                             ))}
                             <div className="pt-3">
-                                <Button asChild className="w-full bg-white hover:bg-gray-100 text-black rounded-xl h-11 font-semibold">
+                                <Button asChild variant="gold" className="w-full rounded-xl h-11 font-semibold">
                                     <Link href="/contact" onClick={() => setIsOpen(false)}>Free Consultation</Link>
                                 </Button>
                             </div>

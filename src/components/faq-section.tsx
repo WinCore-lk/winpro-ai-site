@@ -39,24 +39,24 @@ export function FAQSection() {
             <div className="section-inner max-w-4xl">
                 <div className="text-center mb-16">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-widest mb-4"
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-widest mb-6"
                     >
-                        <HelpCircle className="w-3.5 h-3.5" />
-                        Common Questions
+                        Inquiry Repository
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
                         className="section-heading mb-4"
                     >
-                        Everything you need to know
+                        Engineering Transparency
                     </motion.h2>
                     <p className="text-gray-400 text-lg">
-                        Standardizing transparency from the first touchpoint.
+                        Clarity on our process, security, and implementation technicals.
                     </p>
                 </div>
 
@@ -65,10 +65,10 @@ export function FAQSection() {
                         {faqs.map((faq, i) => (
                             <motion.div
                                 key={i}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
+                                transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
                             >
                                 <AccordionItem value={`item-${i}`} className="card-surface card-surface-hover px-6 md:px-8 border-white/5 rounded-2xl overflow-hidden mb-4 hover:bg-white/[0.04] transition-colors group border-none">
                                     <div className="card-shine" />

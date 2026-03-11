@@ -4,13 +4,6 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Database, Award, Users, Globe } from "lucide-react";
 import { CardHoverLines } from "@/components/card-hover-lines";
 
-// const stats = [
-//   { label: "Years Experience", value: "10+", icon: <Award className="w-5 h-5 text-white/70" /> },
-//   { label:  ", icon: <Globe className="w-5 h-5 text-white/70" /> },
-//   { label: "Success Rate", value: "99%", icon: <ShieldCheck className="w-5 h-5 text-white/70" /> },
-//   { label: "Expert Engineers", value: "15+", icon: <Users className="w-5 h-5 text-white/70" /> },
-// ];
-
 const certifications = [
   "10+ Years Experience",
   "5+ Expert Engineers",
@@ -30,16 +23,6 @@ export function TrustSignals() {
             <p className="text-gray-400 text-lg leading-relaxed mb-10">
               Based in Colombo, our senior team brings deep expertise in BPO operations, global compliance, and cutting-edge AI architecture. We don't just build software; we engineer trust.
             </p>
-
-            {/* Integrated Stats */}
-            {/* <div className="grid grid-cols-2 gap-8 mb-10">
-              {stats.map((stat) => (
-                <div key={stat.label} className="flex flex-col">
-                  <span className="text-2xl font-bold text-white">{stat.value}</span>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider mt-1">{stat.label}</span>
-                </div>
-              ))}
-            </div> */}
 
             <div className="flex flex-wrap gap-3">
               {certifications.map((cert) => (

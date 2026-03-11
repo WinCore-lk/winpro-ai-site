@@ -8,6 +8,17 @@ import { CardHoverLines } from "@/components/card-hover-lines";
 
 const caseStudies = [
   {
+    title: "Financial Workflow Automation",
+    client: "Regional BPO Provider",
+    problem: "Manual VAT filing and payroll validation were consuming 120+ man-hours weekly across 50+ client accounts.",
+    solution: "Built a fleet of specialized AI agents to extract data from bank statements and auto-verify it against RAMIS filing rules.",
+    results: [
+      { label: "Efficiency Gain", value: 85, suffix: "%", icon: <TrendingUp className="w-5 h-5" />, color: "text-white" },
+      { label: "Error Reduction", value: 99.8, suffix: "%", icon: <CheckCircle2 className="w-5 h-5" />, color: "text-white" },
+      { label: "Implementation", value: 3, suffix: " weeks", icon: <Clock className="w-5 h-5" />, color: "text-white" },
+    ],
+  },
+  {
     title: "Automating Customer Support",
     client: "Global SaaS Enterprise",
     problem: "Customer support tickets were overwhelming the team, leading to increased churn and operator burnout.",

@@ -17,25 +17,31 @@ const services = [
     title: "AI Automation",
     description: "Automate repetitive tasks with intelligent workflows. Used in finance, BPO, and ecommerce.",
     icon: <Activity className="w-8 h-8 text-white" />,
-    href: "/services",
-  },
-  {
-    title: "Custom AI Development",
-    description: "Build tailored AI systems for your business, from predictive tools to custom APIs.",
-    icon: <LineChart className="w-8 h-8 text-white" />,
-    href: "/services",
+    href: "/services/ai-automation",
   },
   {
     title: "AI Chatbots",
-    description: "Deploy smart assistants for customer support and lead generation.",
+    description: "Deploy context-aware assistants for customer support and lead generation via WhatsApp and Web.",
     icon: <Bot className="w-8 h-8 text-white" />,
-    href: "/services",
+    href: "/services/ai-chatbots",
   },
   {
     title: "AI Consulting",
-    description: "Audit your processes to find bottlenecks and plan your AI roadmap.",
+    description: "Audit your processes to find bottlenecks and build your ROI-focused AI roadmap.",
     icon: <Settings2 className="w-8 h-8 text-white" />,
-    href: "/services",
+    href: "/services/ai-consulting",
+  },
+  {
+    title: "Data Intelligence",
+    description: "Transform raw data into live dashboards and exec-level insights for better decision-making.",
+    icon: <BarChart3 className="w-8 h-8 text-white" />,
+    href: "/services/data-intelligence",
+  },
+  {
+    title: "Document OCR",
+    description: "Intelligent document processing for high-accuracy extraction from invoices and legal contracts.",
+    icon: <FileText className="w-8 h-8 text-white" />,
+    href: "/services/document-processing",
   },
 ];
 
@@ -256,7 +262,7 @@ export default function Home() {
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-6 lg:gap-8 xl:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8 xl:gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -374,6 +380,8 @@ export default function Home() {
               { name: "Logistics", icon: <Plane className="w-6 h-6" />, desc: "Route optimization and supply chain automation." },
               { name: "Retail", icon: <ShoppingCart className="w-6 h-6" />, desc: "Conversational commerce and inventory forecasting." },
               { name: "Legal", icon: <Briefcase className="w-6 h-6" />, desc: "Document processing and compliance auditing." },
+              { name: "Healthcare", icon: <Activity className="w-6 h-6" />, desc: "Patient data extraction and medical billing automation." },
+              { name: "Real Estate", icon: <Globe className="w-6 h-6" />, desc: "Property management automation and lead scoring." },
             ].map((industry, i) => (
               <motion.div
                 key={industry.name}

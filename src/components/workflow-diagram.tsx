@@ -6,24 +6,24 @@ import { MessageSquare, Bot, Cpu, Database, Mail, ArrowRight } from "lucide-reac
 const steps = [
     {
         icon: <MessageSquare className="w-6 h-6" />,
-        label: "Customer Ask",
-        desc: "\"How do I file my VAT?\"",
+        label: "Ingestion",
+        desc: "Unstructured data capture",
         color: "text-blue-400",
         bg: "bg-blue-500/10",
         border: "border-blue-500/20"
     },
     {
         icon: <Bot className="w-6 h-6" />,
-        label: "AI Chatbot",
-        desc: "Analyzes intent & docs",
+        label: "Neural Analysis",
+        desc: "Contextual intent & RAG",
         color: "text-sky-400",
         bg: "bg-sky-500/10",
         border: "border-sky-500/20"
     },
     {
         icon: <Cpu className="w-6 h-6" />,
-        label: "Extraction",
-        desc: "Pulls data from PDFs",
+        label: "Synthesis",
+        desc: "High-precision extraction",
         color: "text-purple-400",
         bg: "bg-purple-500/10",
         border: "border-purple-500/20"
@@ -31,15 +31,15 @@ const steps = [
     {
         icon: <Database className="w-6 h-6" />,
         label: "System Sync",
-        desc: "Updates ERP records",
+        desc: "Autonomous ERP reconciliation",
         color: "text-emerald-400",
         bg: "bg-emerald-500/10",
         border: "border-emerald-500/20"
     },
     {
         icon: <Mail className="w-6 h-6" />,
-        label: "Auto-Reply",
-        desc: "\"Your VAT is filed.\"",
+        label: "Resolution",
+        desc: "Validated stakeholder delivery",
         color: "text-gold",
         bg: "bg-gold/10",
         border: "border-gold/20"
@@ -50,86 +50,124 @@ export function WorkflowDiagram() {
     return (
         <section className="section-pad bg-white/[0.01] border-t border-white/5 relative overflow-hidden">
             <div className="section-inner">
-                <div className="text-center mb-16">
+                <div className="text-center mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-widest mb-6"
+                    >
+                        Process Architecture
+                    </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
                         className="section-heading mb-4"
                     >
-                        Inside an Automated Workflow
+                        AI Orchestration Lifecycle
                     </motion.h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        See how we bridge the gap between incoming requests and system-wide updates using intelligent AI pipelines.
+                        A technical visualization of how our pipelines transform unstructured input into enterprise-grade system orchestration.
                     </p>
                 </div>
 
-                <div className="relative max-w-5xl mx-auto px-4 py-20">
+                <div className="relative max-w-6xl mx-auto px-4 py-12">
                     {/* Background connecting line (Desktop) */}
-                    <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500/5 via-sky-500/20 to-gold/5 -translate-y-1/2 hidden lg:block" />
+                    <div className="absolute top-1/2 left-[10%] right-[10%] h-px bg-white/5 -translate-y-[40px] hidden lg:block" />
 
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-6 relative">
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-4 relative">
                         {steps.map((step, idx) => (
                             <div key={idx} className="relative flex flex-col items-center group">
                                 {/* Flow Animation (Desktop) */}
                                 {idx < steps.length - 1 && (
-                                    <div className="absolute top-1/2 left-full w-full h-[1px] hidden lg:block z-0 pointer-events-none">
+                                    <div className="absolute top-1/2 left-[60%] w-[80%] h-[2px] hidden lg:block z-0 pointer-events-none -translate-y-[40px]">
+                                        {/* Static Track */}
+                                        <div className="absolute inset-0 bg-sky-500/5 rounded-full" />
+                                        
+                                        {/* Active Flow Line */}
                                         <motion.div
-                                            className="h-full bg-sky-400/30"
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: "100%" }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: idx * 0.4 + 0.5, duration: 1 }}
+                                            className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-400/30 to-transparent"
+                                            initial={{ x: "-100%" }}
+                                            animate={{ x: "100%" }}
+                                            transition={{
+                                                repeat: Infinity,
+                                                duration: 3,
+                                                ease: "linear",
+                                                delay: idx * 0.5
+                                            }}
                                         />
+
+                                        {/* Data Packet */}
                                         <motion.div
-                                            className="absolute top-1/2 -translate-y-1/2 left-0 w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_10px_#38bdf8]"
-                                            initial={{ left: 0, opacity: 0 }}
-                                            animate={{ left: "100%", opacity: [0, 1, 1, 0] }}
+                                            className="absolute top-1/2 -translate-y-1/2 left-0 w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_15px_#38bdf8]"
+                                            initial={{ left: "0%", opacity: 0 }}
+                                            animate={{ 
+                                                left: ["0%", "100%"],
+                                                opacity: [0, 1, 1, 0],
+                                                scale: [1, 1.2, 1]
+                                            }}
                                             transition={{
                                                 repeat: Infinity,
                                                 duration: 2,
-                                                ease: "linear",
-                                                delay: idx * 0.4 + 1.5
+                                                ease: "easeInOut",
+                                                delay: idx * 0.4 + 1
                                             }}
-                                        />
+                                        >
+                                            <div className="absolute inset-0 rounded-full bg-sky-400 animate-ping opacity-40 scale-150" />
+                                        </motion.div>
                                     </div>
                                 )}
 
                                 {/* Step Card */}
                                 <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    initial={{ opacity: 0, scale: 0.8 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.3 }}
-                                    whileHover={{ y: -5 }}
-                                    className={`relative z-10 w-20 h-20 rounded-3xl ${step.bg} ${step.border} border-2 flex items-center justify-center ${step.color} shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-300`}
+                                    transition={{ 
+                                        type: "spring",
+                                        stiffness: 100,
+                                        delay: idx * 0.15 
+                                    }}
+                                    className={`relative z-10 w-20 h-20 rounded-2xl ${step.bg} ${step.border} border border-white/10 flex items-center justify-center ${step.color} shadow-2xl group-hover:border-sky-500/40 transition-all duration-500`}
                                 >
-                                    {step.icon}
+                                    <div className="relative z-10">{step.icon}</div>
                                     
-                                    {/* Pulse effect */}
+                                    {/* Pulse effect on active node */}
                                     <motion.div 
-                                        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.1, 0.3] }}
-                                        transition={{ repeat: Infinity, duration: 3, delay: idx * 0.5 }}
-                                        className={`absolute inset-0 rounded-3xl ${step.bg} -z-10`}
+                                        animate={{ 
+                                            scale: [1, 1.3, 1], 
+                                            opacity: [0.1, 0, 0.1],
+                                            rotate: [0, 90, 180]
+                                        }}
+                                        transition={{ repeat: Infinity, duration: 4, delay: idx * 0.8 }}
+                                        className={`absolute inset-[-4px] rounded-2xl border border-white/5 -z-10`}
                                     />
+
+                                    {/* Background glow per node */}
+                                    <div className={`absolute inset-0 rounded-2xl ${step.bg} blur-xl opacity-0 group-hover:opacity-40 transition-opacity`} />
                                 </motion.div>
 
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.3 + 0.2 }}
-                                    className="mt-6 text-center"
+                                    transition={{ delay: idx * 0.15 + 0.2 }}
+                                    className="mt-8 text-center"
                                 >
-                                    <h3 className="text-white font-semibold text-lg mb-1">{step.label}</h3>
-                                    <p className="text-gray-500 text-sm whitespace-nowrap">{step.desc}</p>
+                                    <div className="text-[10px] font-mono text-white/20 mb-2 tracking-[0.3em] uppercase">Phase_0{idx + 1}</div>
+                                    <h3 className="text-white font-bold text-lg mb-2 group-hover:text-white/100 transition-colors">{step.label}</h3>
+                                    <p className="text-gray-500 text-xs leading-relaxed max-w-[160px] mx-auto opacity-80 group-hover:opacity-100 transition-opacity">
+                                        {step.desc}
+                                    </p>
                                 </motion.div>
 
                                 {/* Arrow (Mobile) */}
                                 {idx < steps.length - 1 && (
-                                    <div className="lg:hidden mt-8 text-white/10">
+                                    <div className="lg:hidden mt-8 text-white/5">
                                         <motion.div
-                                            animate={{ y: [0, 5, 0] }}
+                                            animate={{ y: [0, 8, 0], opacity: [0.2, 0.5, 0.2] }}
                                             transition={{ repeat: Infinity, duration: 2 }}
                                         >
                                             <ArrowRight className="w-6 h-6 rotate-90" />
@@ -142,8 +180,8 @@ export function WorkflowDiagram() {
                 </div>
 
                 {/* Background Blobs */}
-                <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/[0.03] blur-[100px] rounded-full -z-10 pointer-events-none" />
-                <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold/[0.02] blur-[100px] rounded-full -z-10 pointer-events-none" />
+                <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/[0.02] blur-[120px] rounded-full -z-10 pointer-events-none" />
+                <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/[0.015] blur-[120px] rounded-full -z-10 pointer-events-none" />
             </div>
         </section>
     );

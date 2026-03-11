@@ -67,8 +67,9 @@ export function NewsletterForm({
                     <Button 
                         type="submit" 
                         size="icon" 
+                        variant="gold"
                         disabled={status === "loading"}
-                        className="h-11 w-11 rounded-xl bg-white text-black hover:bg-gray-100 flex-shrink-0"
+                        className="h-11 w-11 rounded-xl flex-shrink-0"
                     >
                         {status === "loading" ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
                     </Button>
