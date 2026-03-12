@@ -50,7 +50,7 @@ export function WorkflowDiagram() {
     return (
         <section className="section-pad bg-white/[0.01] border-t border-white/5 relative overflow-hidden">
             <div className="section-inner">
-                <div className="text-center mb-24">
+                <div className="text-center mb-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export function WorkflowDiagram() {
                     </p>
                 </div>
 
-                <div className="relative max-w-6xl mx-auto px-4 py-12">
+                <div className="relative max-w-6xl mx-auto px-4 py-8">
                     {/* Background connecting line (Desktop) */}
                     <div className="absolute top-1/2 left-[10%] right-[10%] h-px bg-white/5 -translate-y-[40px] hidden lg:block" />
 
@@ -146,7 +146,7 @@ export function WorkflowDiagram() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.15 + 0.2 }}
-                                    className="mt-8 text-center"
+                                    className="mt-6 text-center"
                                 >
                                     <div className="text-[10px] font-mono text-white/20 mb-2 tracking-[0.3em] uppercase">Phase_0{idx + 1}</div>
                                     <h3 className="text-white font-bold text-lg mb-2 group-hover:text-white/100 transition-colors">{step.label}</h3>

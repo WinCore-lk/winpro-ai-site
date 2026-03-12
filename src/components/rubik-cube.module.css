@@ -141,3 +141,9 @@
   transform: skewX(45deg);
   transition: 1.5s;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .container {
+    animation: none;
+  }
+}

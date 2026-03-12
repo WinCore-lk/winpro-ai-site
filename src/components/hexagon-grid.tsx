@@ -1,25 +1,26 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 export const HexagonGrid = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [mousePos, setMousePos] = useState({ x: -9999, y: -9999 });
+    const hexContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const el = containerRef.current;
-        if (!el) return;
+        const hexEl = hexContainerRef.current;
+        if (!el || !hexEl) return;
 
         const handleMouseMove = (e: MouseEvent) => {
             const rect = el.getBoundingClientRect();
-            setMousePos({
-                x: e.clientX - rect.left,
-                y: e.clientY - rect.top,
-            });
+            // Write directly to the DOM — bypasses React re-render entirely
+            hexEl.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+            hexEl.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
         };
 
         const handleMouseLeave = () => {
-            setMousePos({ x: -9999, y: -9999 });
+            hexEl.style.setProperty("--mouse-x", "-9999px");
+            hexEl.style.setProperty("--mouse-y", "-9999px");
         };
 
         el.addEventListener("mousemove", handleMouseMove);
@@ -41,13 +42,11 @@ export const HexagonGrid = () => {
             {/* Dark base fill for the hero section background */}
             <div className="absolute inset-0 bg-[#0a0a0f]" />
 
-            {/* The hexagon container uses CSS variables to track the mouse position for the mask/hover effects */}
+            {/* The hexagon container uses CSS custom properties for the mouse-driven hover effect */}
             <div
+                ref={hexContainerRef}
                 className="hexagon-container"
-                style={{
-                    '--mouse-x': `${mousePos.x}px`,
-                    '--mouse-y': `${mousePos.y}px`,
-                } as React.CSSProperties}
+                style={{ "--mouse-x": "-9999px", "--mouse-y": "-9999px" } as React.CSSProperties}
             >
                 {[...Array(30)].map((_, i) => (
                     <div key={i} className="hex-row">
@@ -57,7 +56,6 @@ export const HexagonGrid = () => {
                     </div>
                 ))}
             </div>
-
 
             {/* Fade out near edges for smoothness */}
             <div className="absolute inset-0 pointer-events-none" style={{

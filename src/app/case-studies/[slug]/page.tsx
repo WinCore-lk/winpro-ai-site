@@ -89,6 +89,10 @@ const caseStudyDetails: Record<string, CaseStudyDetail> = {
     }
 };
 
+export function generateStaticParams() {
+    return Object.keys(caseStudyDetails).map((slug) => ({ slug }));
+}
+
 export default async function CaseStudyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const resolvedParams = await params;
     const study = caseStudyDetails[resolvedParams.slug];

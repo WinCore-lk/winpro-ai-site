@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 
 interface NewsletterFormProps {
@@ -56,14 +57,19 @@ export function NewsletterForm({
         return (
             <form onSubmit={handleSubscribe} className="space-y-3">
                 <div className="flex gap-2">
-                    <Input
-                        type="email"
-                        placeholder={placeholder}
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="bg-white/5 border-white/10 text-white placeholder-gray-500 focus-visible:ring-gold rounded-xl h-11 text-sm flex-1"
-                    />
+                    <div className="flex-1">
+                        <Label htmlFor="newsletter-email-compact" className="sr-only">Email Address</Label>
+                        <Input
+                            id="newsletter-email-compact"
+                            name="email"
+                            type="email"
+                            placeholder={placeholder}
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="bg-white/5 border-white/10 text-white placeholder-gray-500 focus-visible:ring-gold rounded-xl h-11 text-sm w-full"
+                        />
+                    </div>
                     <Button 
                         type="submit" 
                         size="icon" 
@@ -92,14 +98,19 @@ export function NewsletterForm({
     return (
         <div className="w-full">
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 w-full">
-                <input 
-                    type="email" 
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={placeholder} 
-                    className="bg-white/5 border border-white/10 text-white rounded-xl px-5 h-14 w-full sm:flex-1 focus:outline-none focus:ring-2 focus:ring-sky-500/20 transition-all"
-                />
+                <div className="flex-1">
+                    <Label htmlFor="newsletter-email" className="sr-only">Email Address</Label>
+                    <input 
+                        id="newsletter-email"
+                        name="email"
+                        type="email" 
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={placeholder} 
+                        className="bg-white/5 border border-white/10 text-white rounded-xl px-5 h-14 w-full focus:outline-none focus:ring-2 focus:ring-sky-500/20 transition-all font-medium"
+                    />
+                </div>
                 <Button 
                     type="submit"
                     disabled={status === "loading"}

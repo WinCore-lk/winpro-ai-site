@@ -19,6 +19,18 @@ interface BlogPost {
     imageUrl?: string;
 }
 
+/** Escape HTML special characters to prevent injection in email bodies. */
+function escapeHtml(str: string): string {
+    return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#x27;");
+}
+
+const BATCH_SIZE = 100;
+
 export async function sendNewsletterNotification(post: BlogPost) {
     try {
         // 1. Fetch all active subscribers from Firestore
@@ -31,19 +43,21 @@ export async function sendNewsletterNotification(post: BlogPost) {
             return;
         }
 
-        const emails = subscribersSnapshot.docs.map(doc => doc.data().email);
-        const postUrl = `https://wincore.ai/blog/${post.slug}`;
+        const emails = subscribersSnapshot.docs.map(doc => doc.data().email as string);
+        const postUrl = `https://wincore-ai.site/blog/${post.slug}`;
+
+        const safeTitle   = escapeHtml(post.title);
+        const safeExcerpt = escapeHtml(post.excerpt);
 
         // 2. Prepare email content
-        const mailOptions = {
+        const mailBase = {
             from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.SMTP_USER}>`,
-            bcc: emails, // Use BCC to hide list members from each other
-            subject: `New from WinCore AI: ${post.title}`,
+            subject: `New from WinCore AI: ${safeTitle}`,
             html: `
                 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0f; color: #ffffff; padding: 40px; border-radius: 20px;">
-                    <h1 style="color: #ffffff; margin-bottom: 20px;">${post.title}</h1>
+                    <h1 style="color: #ffffff; margin-bottom: 20px;">${safeTitle}</h1>
                     <p style="color: #9ca3af; font-size: 16px; line-height: 1.6; margin-bottom: 30px;">
-                        ${post.excerpt}
+                        ${safeExcerpt}
                     </p>
                     <a href="${postUrl}" style="display: inline-block; background: #D4AF37; color: #1a1a1a; padding: 12px 24px; text-decoration: none; border-radius: 10px; font-weight: bold;">
                         Read Full Article
@@ -56,8 +70,12 @@ export async function sendNewsletterNotification(post: BlogPost) {
             `,
         };
 
-        // 3. Send email
-        await transporter.sendMail(mailOptions);
+        // 3. Send in batches to avoid SMTP limits
+        for (let i = 0; i < emails.length; i += BATCH_SIZE) {
+            const batch = emails.slice(i, i + BATCH_SIZE);
+            await transporter.sendMail({ ...mailBase, bcc: batch });
+        }
+
         console.log(`Newsletter notification sent to ${emails.length} subscribers for: ${post.title}`);
     } catch (err) {
         console.error("Failed to send newsletter notification:", err);

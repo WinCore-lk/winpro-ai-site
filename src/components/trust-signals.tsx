@@ -14,13 +14,13 @@ const certifications = [
 
 export function TrustSignals() {
   return (
-    <section className="py-20 border-t border-white/5 relative overflow-hidden">
+    <section className="py-12 border-t border-white/5 relative overflow-hidden">
       <div className="section-inner">
         {/* Expertise, Stats & Certifications */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white/[0.01] border border-white/5 rounded-3xl p-8 lg:p-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white/[0.01] border border-white/5 rounded-3xl p-8 lg:p-12">
           <div>
-            <h2 className="text-3xl font-bold text-white mb-6">Built on 10+ Years of Engineering Excellence</h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-10">
+            <h2 className="text-3xl font-bold text-white mb-4">Built on 10+ Years of Engineering Excellence</h2>
+            <p className="text-gray-400 text-lg leading-relaxed mb-6">
               Based in Colombo, our senior team brings deep expertise in BPO operations, global compliance, and cutting-edge AI architecture. We don't just build software; we engineer trust.
             </p>
 

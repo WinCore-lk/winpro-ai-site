@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         openGraph: {
             title,
             description,
-            type: "article",
+            type: "website",
             images: [service.imageUrl],
         },
         twitter: {
@@ -117,6 +117,10 @@ const serviceDetails: Record<string, ServiceDetail> = {
         color: "purple"
     }
 };
+
+export function generateStaticParams() {
+    return Object.keys(serviceDetails).map((slug) => ({ slug }));
+}
 
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const resolvedParams = await params;

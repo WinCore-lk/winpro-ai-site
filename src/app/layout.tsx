@@ -12,6 +12,8 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   },
   description: "Practical automation and consulting for finance, BPO, and compliance. Payroll, VAT, reporting, document processing, chatbots. Up to 40–60% time savings on repetitive tasks. Based in Colombo; serving clients worldwide. Part of WinCore.lk.",
   keywords: ["AI automation", "BPO automation", "AI services", "process automation", "WinCore", "Colombo", "Sri Lanka", "global BPO"],
-  metadataBase: new URL("https://wincore.lk"),
+  metadataBase: new URL("https://wincore-ai.site"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -57,6 +59,42 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-[#0a0a0f] text-white selection:bg-sky-500/20 selection:text-white overflow-x-hidden`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://wincore-ai.site/#organization",
+                  "name": "WinCore AI",
+                  "url": "https://wincore-ai.site",
+                  "logo": "https://wincore-ai.site/wincore-mascot.png",
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer service",
+                    "email": "info@wincore.lk",
+                    "areaServed": "Worldwide"
+                  },
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Colombo",
+                    "addressCountry": "LK"
+                  },
+                  "sameAs": ["https://wincore.lk"]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://wincore-ai.site/#website",
+                  "url": "https://wincore-ai.site",
+                  "name": "WinCore AI",
+                  "publisher": { "@id": "https://wincore-ai.site/#organization" }
+                }
+              ]
+            })
+          }}
+        />
         <Navbar />
         <main className="flex-grow pt-24">
           {children}

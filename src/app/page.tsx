@@ -303,7 +303,7 @@ export default function Home() {
       {/* 3. How we work */}
       <section id="process" className="section-pad border-t border-white/5">
         <div className="section-inner">
-          <div className="mb-14 text-center max-w-3xl mx-auto">
+          <div className="mb-10 text-center max-w-3xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -353,7 +353,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CaseStudies />
+      <CaseStudies isHome={true} />
 
       {/* 4.5 Tech Stack */}
       <TechStack />
@@ -361,8 +361,9 @@ export default function Home() {
       {/* 5. Industries */}
       <section className="section-pad border-t border-white/5 bg-white/[0.01]">
         <div className="section-inner">
-          <div className="flex flex-col items-center mb-16 text-center">
+          <div className="flex flex-col items-center mb-12 text-center">
             <motion.h2
+
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

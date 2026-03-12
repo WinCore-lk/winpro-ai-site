@@ -1,5 +1,3 @@
-"use client";
-
 /** 
  * Enhanced grid lines and tiles overlay for .card-surface-hover (Aaron Iker style). 
  * Place as first child of the card. 

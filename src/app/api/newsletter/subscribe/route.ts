@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import admin from "firebase-admin";
 import { db } from "@/lib/firebase-admin";
+import { rateLimit } from "@/lib/rate-limit";
+import { headers } from "next/headers";
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || "smtp.gmail.com",
@@ -15,18 +17,31 @@ const transporter = nodemailer.createTransport({
 
 const FROM = `"${process.env.EMAIL_FROM_NAME || "WinCore AI"}" <${process.env.SMTP_USER}>`;
 
+const EMAIL_REGEX = /^[^\s@]{1,64}@[^\s@]{1,255}\.[^\s@]{2,}$/;
+const MAX_EMAIL_LEN = 320;
+
 export async function POST(req: Request) {
     try {
+        const ip = (await headers()).get("x-forwarded-for")?.split(",")[0] ?? "unknown";
+        if (!rateLimit(ip, 5, 60_000)) {
+            return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+        }
+
         const { email } = await req.json();
 
-        if (!email || !email.includes("@")) {
+        if (
+            !email ||
+            typeof email !== "string" ||
+            email.length > MAX_EMAIL_LEN ||
+            !EMAIL_REGEX.test(email)
+        ) {
             return NextResponse.json(
                 { error: "Invalid email address" },
                 { status: 400 }
             );
         }
 
-        const subscriberEmail = email.toLowerCase();
+        const subscriberEmail = email.toLowerCase().trim();
 
         // 1. Prepare Emails
         const welcomeMailOptions = {

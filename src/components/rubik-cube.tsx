@@ -5,7 +5,11 @@ import styles from "./rubik-cube.module.css";
 
 const RubikCube = () => {
   return (
-    <div className="flex items-center justify-center w-full h-full min-h-[400px]">
+    <div
+      className="flex items-center justify-center w-full h-full min-h-[400px]"
+      aria-hidden="true"
+      role="presentation"
+    >
       <div className={styles.container}>
         {[0, 1, 2].map((cubeIndex) => (
           <div key={cubeIndex} className={styles.cube}>

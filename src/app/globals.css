@@ -165,11 +165,12 @@
 }
 
 .section-pad {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
 
 @media (min-width: 640px) {
   .section-pad {
@@ -180,19 +181,21 @@
 
 @media (min-width: 768px) {
   .section-pad {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
+
 
 @media (min-width: 1024px) {
   .section-pad {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
+
 
 .section-inner {
   max-width: 90rem;
@@ -877,5 +880,20 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* -----------------------------------------------------------------------
+   Accessibility: respect prefers-reduced-motion for all CSS animations.
+   Framer Motion reads this natively when using useReducedMotion().
+   ----------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

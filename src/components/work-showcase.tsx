@@ -8,7 +8,8 @@ export function WorkShowcase() {
     return (
         <section className="section-pad border-y border-white/5 overflow-hidden">
             <div className="section-inner">
-                <div className="text-center mb-14 max-w-2xl mx-auto">
+                <div className="text-center mb-10 max-w-2xl mx-auto">
+
                     <motion.h2
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
