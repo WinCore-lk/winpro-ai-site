@@ -128,11 +128,6 @@ export async function POST(req: Request) {
                                 Reply to ${firstName}
                             </a>
                         </div>
-                        <div style="margin-top: 24px; padding: 16px; background: #111; border-radius: 8px; border: 1px solid #1e1e1e;">
-                            <p style="margin: 0; font-size: 12px; color: #555;">
-                                This is an automated notification from WinCore AI.
-                            </p>
-                        </div>
                     </div>
                 </div>
             `,
@@ -140,12 +135,56 @@ export async function POST(req: Request) {
         };
 
         // -------------------------------------------------------
-        //  Send BOTH emails and store in Firestore concurrently
+        //  EMAIL 3  -  Customer confirmation
+        //  Sent to the person who filled out the form
+        // -------------------------------------------------------
+        const customerMailOptions = {
+            from: FROM,
+            to: email,
+            subject: `Confirmation: We've received your inquiry - WinCore AI`,
+            html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0f; color: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.1);">
+                    <div style="background: linear-gradient(135deg, #0a0a0f, #1a3a5c); padding: 40px; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.1);">
+                        <div style="display: inline-block; padding: 12px; background: rgba(212, 175, 55, 0.1); border-radius: 12px; margin-bottom: 20px;">
+                            <h2 style="margin:0; color: #D4AF37;">WinCore AI</h2>
+                        </div>
+                        <h1 style="margin: 0; font-size: 24px; color: #ffffff;">Hello ${firstName},</h1>
+                        <p style="margin: 10px 0 0; color: #9ca3af; font-size: 16px;">We've successfully received your consultation request.</p>
+                    </div>
+                    <div style="padding: 40px;">
+                        <p style="color: #d1d5db; font-size: 16px; line-height: 1.6; margin-top: 0;">
+                            Thank you for reaching out to WinCore AI. Our team is currently reviewing your project details, and one of our AI architects will get back to you within the next 24 business hours.
+                        </p>
+                        <div style="margin: 30px 0; padding: 25px; background: rgba(255, 255, 255, 0.03); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                            <h3 style="margin-top: 0; color: #D4AF37; font-size: 14px; text-transform: uppercase; tracking: 0.1em;">Next Steps</h3>
+                            <ul style="color: #9ca3af; padding-left: 20px; font-size: 15px; margin-bottom: 0;">
+                                <li>Technical Review of your requirements</li>
+                                <li>Scheduling a brief discovery call (if needed)</li>
+                                <li>Drafting a tailored AI strategy roadmap</li>
+                            </ul>
+                        </div>
+                        <p style="color: #9ca3af; font-size: 14px;">
+                            While you wait, feel free to explore our <a href="https://wincore.ai/case-studies" style="color: #3b82f6; text-decoration: none;">latest case studies</a> to see how we've helped companies like yours.
+                        </p>
+                        <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.05); margin: 30px 0;" />
+                        <p style="margin: 0; font-size: 14px; text-align: center; color: #4b5563;">
+                            WinCore AI &bull; Intelligent Automation Systems
+                        </p>
+                    </div>
+                </div>
+            `,
+        };
+
+
+        // -------------------------------------------------------
+        //  Send ALL emails and store in Firestore concurrently
         // -------------------------------------------------------
         await Promise.all([
             transporter.sendMail(adminMailOptions),
             transporter.sendMail(merchantMailOptions),
+            transporter.sendMail(customerMailOptions),
             db.collection("consultations").add({
+
                 firstName,
                 lastName,
                 fullName,

@@ -49,14 +49,15 @@ export const HexagonGrid = () => {
                     '--mouse-y': `${mousePos.y}px`,
                 } as React.CSSProperties}
             >
-                {[...Array(18)].map((_, i) => (
+                {[...Array(30)].map((_, i) => (
                     <div key={i} className="hex-row">
-                        {[...Array(28)].map((_, j) => (
+                        {[...Array(60)].map((_, j) => (
                             <div key={j} className="hexagon" />
                         ))}
                     </div>
                 ))}
             </div>
+
 
             {/* Fade out near edges for smoothness */}
             <div className="absolute inset-0 pointer-events-none" style={{

@@ -205,21 +205,22 @@
 
 @media (min-width: 1536px) {
   .section-inner {
-    max-width: 110rem;
+    max-width: 100rem;
   }
 }
 
 @media (min-width: 1920px) {
   .section-inner {
-    max-width: 130rem;
+    max-width: 110rem;
   }
 }
 
 @media (min-width: 2560px) {
   .section-inner {
-    max-width: 160rem;
+    max-width: 120rem;
   }
 }
+
 
 .section-heading {
   @apply text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white;
