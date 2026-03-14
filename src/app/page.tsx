@@ -169,7 +169,7 @@ export default function Home() {
       </div>
 
       {/* 1. Hero */}
-      <section className="section-pad flex min-h-[85vh] items-center relative overflow-hidden">
+      <section className="section-pad flex min-h-[70vh] sm:min-h-[85vh] items-center relative overflow-hidden">
         <HexagonGrid />
         <div className="section-inner relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

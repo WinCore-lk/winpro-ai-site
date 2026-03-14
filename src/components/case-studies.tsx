@@ -102,9 +102,9 @@ export function CaseStudies({ isHome = false }: CaseStudiesProps) {
 
         <div className="relative">
           {caseStudies.slice(0, 2).map((study, idx) => (
-            <div key={study.title} className="h-[120vh] relative mb-12">
+            <div key={study.title} className="h-[100vh] sm:h-[120vh] relative mb-12 last:mb-0">
               <div
-                className="sticky top-6 flex items-start justify-center"
+                className="sticky top-20 sm:top-28 flex items-start justify-center"
                 style={{ zIndex: idx + 1 }}
               >
                 <CaseStudyCard
@@ -142,7 +142,7 @@ function CaseStudyCard({ study, index, total, scrollYProgress }: any) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className={`w-full max-w-6xl h-[720px] rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden ${study.bg} px-10 md:px-16 pt-0 pb-6 relative group card-blueprint card-surface-hover transition-colors duration-500`}
+      className={`w-full max-w-6xl min-h-[500px] h-auto lg:h-[720px] rounded-[2rem] sm:rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden ${study.bg} px-6 sm:px-10 md:px-16 pt-8 sm:pt-12 lg:pt-0 pb-12 sm:pb-6 relative group card-blueprint card-surface-hover transition-colors duration-500`}
     >
       <div className="card-shine" />
       <CardHoverLines />
@@ -167,7 +167,7 @@ function CaseStudyCard({ study, index, total, scrollYProgress }: any) {
             </span>
             <span className="text-xs text-white/30 font-mono tracking-tighter">{study.client}</span>
           </div>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tighter leading-[0.9]">{study.title}</h3>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 lg:mb-6 tracking-tighter leading-[1.1] lg:leading-[0.9]">{study.title}</h3>
 
           <div className="space-y-6 mb-10">
             <div className="flex gap-4">

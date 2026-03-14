@@ -37,7 +37,7 @@ export function Navbar() {
                                     priority
                                 />
                             </div>
-                            <span className="text-xl font-bold text-white group-hover:text-white/90 transition-colors tracking-tight">
+                            <span className="text-lg sm:text-xl font-bold text-white group-hover:text-white/90 transition-colors tracking-tight">
                                 WinCore AI
                             </span>
                         </Link>

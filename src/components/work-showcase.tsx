@@ -28,7 +28,7 @@ export function WorkShowcase() {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-5 md:min-h-[720px]">
+                <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-5 md:min-h-[600px] lg:min-h-[720px]">
 
                     <BentoCard
                         large
