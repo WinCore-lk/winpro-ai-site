@@ -178,7 +178,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05 }}
-                className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.15]"
+                className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold tracking-tight text-white leading-[1.05]"
 
               >
                 Automate Repetitive Business Workflows with AI
@@ -197,7 +197,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.15 }}
                 className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto"
               >
-                <Button size="lg" variant="gold" className="rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02] active:scale-[0.98]" asChild>
+                <Button size="lg" variant="gold" className="rounded-xl px-8 h-12 text-base font-semibold" asChild>
                   <Link href="/contact">Book a Free Consultation</Link>
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-xl px-8 h-12 text-base border-white/20 hover:bg-white/10 text-white" asChild>
@@ -223,7 +223,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex items-center justify-center w-full min-h-[350px] lg:min-h-[500px]"
+              className="relative flex items-center justify-center w-full min-h-[400px] sm:min-h-[450px] lg:min-h-[550px]"
             >
               <RubikCube />
             </motion.div>
@@ -262,7 +262,7 @@ export default function Home() {
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8 xl:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -322,7 +322,7 @@ export default function Home() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
             {playbookSteps.map((step, index) => (
               <motion.div
@@ -467,7 +467,7 @@ export default function Home() {
             <p className="text-lg text-gray-400 mb-8 leading-relaxed">
               Wherever you&apos;re based - we&apos;ll respond with a clear next step.
             </p>
-            <Button size="lg" variant="gold" className="rounded-xl px-8 h-12 text-base font-semibold transition-all hover:scale-[1.02]" asChild>
+            <Button size="lg" variant="gold" className="rounded-xl px-8 h-12 text-base font-semibold" asChild>
               <Link href="/contact">Book a Free Consultation</Link>
             </Button>
           </motion.div>

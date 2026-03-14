@@ -8,16 +8,16 @@ import { NewsletterForm } from "./newsletter-form";
 export function Footer() {
     return (
         <footer className="relative bg-[#0a0a0f] border-t border-white/10 pt-16 pb-10">
-            <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="section-inner">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-10 mb-14">
                     <div className="md:col-span-12 lg:col-span-5">
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-white/5 border border-white/10 p-1.5 flex-shrink-0">
+                            <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-white/5 border border-white/10 p-1 flex-shrink-0">
                                 <Image
-                                    src="/wincore-mascot.png"
-                                    alt="WinCore Mascot"
+                                    src="/logo.webp"
+                                    alt="WinCore AI Official Logo"
                                     fill
-                                    className="object-contain p-1"
+                                    className="object-contain"
                                 />
                             </div>
                             <div className="flex flex-col">

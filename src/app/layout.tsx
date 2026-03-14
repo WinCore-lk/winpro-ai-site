@@ -70,7 +70,7 @@ export default function RootLayout({
                   "@id": "https://wincore-ai.site/#organization",
                   "name": "WinCore AI",
                   "url": "https://wincore-ai.site",
-                  "logo": "https://wincore-ai.site/wincore-mascot.png",
+                  "logo": "https://wincore-ai.site/logo.webp",
                   "contactPoint": {
                     "@type": "ContactPoint",
                     "contactType": "customer service",
