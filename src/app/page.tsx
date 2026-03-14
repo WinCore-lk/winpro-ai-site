@@ -178,7 +178,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05 }}
-                className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold tracking-tight text-white leading-[1.05]"
+                className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.15]"
 
               >
                 Automate Repetitive Business Workflows with AI
@@ -223,7 +223,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex items-center justify-center w-full min-h-[400px] sm:min-h-[450px] lg:min-h-[550px]"
+              className="relative flex items-center justify-center w-full min-h-[350px] lg:min-h-[500px]"
             >
               <RubikCube />
             </motion.div>
@@ -262,7 +262,7 @@ export default function Home() {
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8 xl:gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -322,7 +322,7 @@ export default function Home() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 px-4">
 
             {playbookSteps.map((step, index) => (
               <motion.div

@@ -93,8 +93,8 @@ export function CaseStudies({ isHome = false }: CaseStudiesProps) {
   }
 
   return (
-    <section ref={containerRef} className="relative px-0 bg-black py-0">
-      <div className="section-inner pt-0 pb-12">
+    <section ref={containerRef} className="relative px-4 sm:px-6 lg:px-8 bg-black py-0">
+      <div className="max-w-7xl mx-auto pt-0 pb-12">
         <div className="text-center mb-8 pt-6">
           <h2 className="section-heading mb-2">Case Studies</h2>
           <p className="text-gray-400 text-lg">Engineering impact across industries.</p>
@@ -142,7 +142,7 @@ function CaseStudyCard({ study, index, total, scrollYProgress }: any) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className={`w-full max-w-6xl min-h-[clamp(450px,70vh,780px)] rounded-[2rem] lg:rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden ${study.bg} px-6 sm:px-10 md:px-16 pt-10 lg:pt-0 pb-12 lg:pb-6 relative group card-blueprint card-surface-hover transition-colors duration-500`}
+      className={`w-full max-w-6xl h-[720px] rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden ${study.bg} px-10 md:px-16 pt-0 pb-6 relative group card-blueprint card-surface-hover transition-colors duration-500`}
     >
       <div className="card-shine" />
       <CardHoverLines />
@@ -159,7 +159,7 @@ function CaseStudyCard({ study, index, total, scrollYProgress }: any) {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center h-full relative z-10 py-10 lg:py-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start relative z-10">
         <div>
           <div className="flex items-center gap-3 mb-1 pt-0">
             <span className="px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-[10px] font-bold text-sky-400 uppercase tracking-widest">
@@ -167,7 +167,7 @@ function CaseStudyCard({ study, index, total, scrollYProgress }: any) {
             </span>
             <span className="text-xs text-white/30 font-mono tracking-tighter">{study.client}</span>
           </div>
-          <h3 className="text-[clamp(1.75rem,5vw,3.5rem)] font-bold text-white mb-6 tracking-tighter leading-[1.05]">{study.title}</h3>
+          <h3 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tighter leading-[0.9]">{study.title}</h3>
 
           <div className="space-y-6 mb-10">
             <div className="flex gap-4">

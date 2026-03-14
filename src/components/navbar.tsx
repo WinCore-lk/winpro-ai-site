@@ -28,7 +28,7 @@ export function Navbar() {
                 <div className="flex justify-between items-center h-14">
                     <div className="flex items-center gap-4">
                         <Link href="/" className="flex items-center gap-2 group">
-                            <div className="relative w-8 h-8 sm:w-9 sm:h-9 overflow-hidden rounded-md">
+                            <div className="relative w-8 h-8 overflow-hidden rounded-md">
                                 <Image
                                     src="/logo.webp"
                                     alt="WinCore AI Logo"
@@ -37,7 +37,7 @@ export function Navbar() {
                                     priority
                                 />
                             </div>
-                            <span className="text-lg sm:text-xl font-bold text-white group-hover:text-white/90 transition-colors tracking-tight">
+                            <span className="text-xl font-bold text-white group-hover:text-white/90 transition-colors tracking-tight">
                                 WinCore AI
                             </span>
                         </Link>
@@ -45,7 +45,7 @@ export function Navbar() {
                             href="https://wincore.lk"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[10px] sm:text-sm text-gray-400 hover:text-white transition-colors hidden xs:inline-block"
+                            className="text-sm text-gray-400 hover:text-white transition-colors hidden sm:inline"
                         >
                             WinCore.lk →
                         </a>

@@ -8,7 +8,7 @@ import { NewsletterForm } from "./newsletter-form";
 export function Footer() {
     return (
         <footer className="relative bg-[#0a0a0f] border-t border-white/10 pt-16 pb-10">
-            <div className="section-inner">
+            <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-10 mb-14">
                     <div className="md:col-span-12 lg:col-span-5">
                         <div className="flex items-center gap-4 mb-6">
