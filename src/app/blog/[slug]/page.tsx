@@ -66,10 +66,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: `${post.title} | WinCore AI Blog`,
         description: post.excerpt,
+        alternates: {
+            canonical: `/blog/${resolvedParams.slug}`,
+        },
         openGraph: {
             title: post.title,
             description: post.excerpt,
             type: "article",
+            publishedTime: post.date,
+            authors: ["WinCore Engineering"],
             images: [post.imageUrl],
         },
         twitter: {
@@ -89,6 +94,53 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
     return (
         <div className="page-root">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BlogPosting",
+                        "headline": post.title,
+                        "description": post.excerpt,
+                        "image": [post.imageUrl],
+                        "datePublished": new Date(post.date).toISOString(),
+                        "author": [{
+                            "@type": "Organization",
+                            "name": "WinCore AI",
+                            "url": "https://wincore-ai.site"
+                        }]
+                    })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://wincore-ai.site"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Blog",
+                                "item": "https://wincore-ai.site/blog"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": post.title,
+                                "item": `https://wincore-ai.site/blog/${resolvedParams.slug}`
+                            }
+                        ]
+                    })
+                }}
+            />
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-[50rem] h-[30rem] bg-sky-500/[0.04] blur-[120px] rounded-full" />
             </div>

@@ -23,7 +23,29 @@ export const metadata: Metadata = {
   },
   description: "Practical automation and consulting for finance, BPO, and compliance. Payroll, VAT, reporting, document processing, chatbots. Up to 40–60% time savings on repetitive tasks. Based in Colombo; serving clients worldwide. Part of WinCore.lk.",
   keywords: ["AI automation", "BPO automation", "AI services", "process automation", "WinCore", "Colombo", "Sri Lanka", "global BPO"],
+  authors: [{ name: "WinCore Engineering" }],
+  creator: "WinCore AI",
+  publisher: "WinCore AI",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   metadataBase: new URL("https://wincore-ai.site"),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -47,6 +69,18 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     creator: "@wincore",
   },
+  category: "technology",
+  icons: {
+    icon: "/icon.webp",
+    shortcut: "/icon.webp",
+    apple: "/icon.webp",
+  },
+};
+
+export const viewport = {
+  themeColor: "#0a0a0f",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

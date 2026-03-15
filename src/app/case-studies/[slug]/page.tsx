@@ -15,6 +15,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title,
         description,
+        alternates: {
+            canonical: `/case-studies/${resolvedParams.slug}`,
+        },
         openGraph: {
             title,
             description,
@@ -110,6 +113,52 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
     return (
         <div className="page-root">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Article",
+                        "headline": study.title,
+                        "description": study.problem,
+                        "image": [study.imageUrl],
+                        "author": [{
+                            "@type": "Organization",
+                            "name": "WinCore AI",
+                            "url": "https://wincore-ai.site"
+                        }]
+                    })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://wincore-ai.site"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Case Studies",
+                                "item": "https://wincore-ai.site/case-studies"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": study.title,
+                                "item": `https://wincore-ai.site/case-studies/${resolvedParams.slug}`
+                            }
+                        ]
+                    })
+                }}
+            />
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-[50rem] h-[30rem] bg-sky-500/[0.05] blur-[120px] rounded-full" />
                 <div className="absolute bottom-0 left-0 w-[40rem] h-[30rem] bg-gold/[0.02] blur-[100px] rounded-full" />

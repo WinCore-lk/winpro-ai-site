@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Services | WinCore AI",
     description: "Explore our expert automation capabilities: process pipelines, intelligent chatbots, data reporting, and predictive insights.",
+    alternates: {
+        canonical: "/services",
+    },
     openGraph: {
         title: "Services | WinCore AI",
         description: "Explore our expert automation capabilities: process pipelines, intelligent chatbots, data reporting, and predictive insights.",

@@ -5,6 +5,9 @@ import { ArrowLeft } from "lucide-react";
 export const metadata: Metadata = {
     title: "Privacy Policy | WinCore AI",
     description: "Privacy Policy for WinCore AI. How we handle and protect your data with clinical precision.",
+    alternates: {
+        canonical: "/privacy",
+    },
     openGraph: {
         title: "Privacy Policy | WinCore AI",
         description: "How we handle and protect your data with clinical precision.",

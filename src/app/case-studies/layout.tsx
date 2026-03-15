@@ -2,16 +2,19 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Case Studies | WinCore AI",
-    description: "Proof of excellence in complex AI implementations. Tangible ROI from automating customer support, invoice processing, and compliance workflows.",
+    description: "Real-world examples of how we solve complex business problems with AI and automation. 95% efficiency gains and zero compliance errors.",
+    alternates: {
+        canonical: "/case-studies",
+    },
     openGraph: {
         title: "Case Studies | WinCore AI",
-        description: "Proof of excellence in complex AI implementations. Tangible ROI from automating customer support, invoice processing, and compliance workflows.",
+        description: "Real-world examples of how we solve complex business problems with AI and automation.",
         images: ["/og-image.png"],
     },
     twitter: {
         card: "summary_large_image",
         title: "Case Studies | WinCore AI",
-        description: "Proof of excellence in complex AI implementations. Tangible ROI from automating customer support, invoice processing, and compliance workflows.",
+        description: "95% efficiency gains and zero compliance errors.",
         images: ["/og-image.png"],
     }
 };

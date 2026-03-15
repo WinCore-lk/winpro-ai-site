@@ -15,6 +15,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title,
         description,
+        alternates: {
+            canonical: `/services/${resolvedParams.slug}`,
+        },
         openGraph: {
             title,
             description,
@@ -141,6 +144,63 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
     return (
         <div className="page-root">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": service.title,
+                        "description": service.content,
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "WinCore AI",
+                            "url": "https://wincore-ai.site"
+                        },
+                        "areaServed": "Worldwide",
+                        "hasOfferCatalog": {
+                            "@type": "OfferCatalog",
+                            "name": "AI Services",
+                            "itemListElement": service.features.map((f, i) => ({
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": f
+                                }
+                            }))
+                        }
+                    })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://wincore-ai.site"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Services",
+                                "item": "https://wincore-ai.site/services"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": service.title,
+                                "item": `https://wincore-ai.site/services/${resolvedParams.slug}`
+                            }
+                        ]
+                    })
+                }}
+            />
             <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-[50rem] h-[30rem] bg-sky-500/[0.05] blur-[120px] rounded-full" />
                 <div className="absolute bottom-0 left-0 w-[40rem] h-[30rem] bg-gold/[0.02] blur-[100px] rounded-full" />

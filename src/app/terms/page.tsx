@@ -5,6 +5,9 @@ import { ArrowLeft } from "lucide-react";
 export const metadata: Metadata = {
     title: "Terms of Service | WinCore AI",
     description: "Terms of Service for WinCore AI. Guidelines and agreements for using our services.",
+    alternates: {
+        canonical: "/terms",
+    },
     openGraph: {
         title: "Terms of Service | WinCore AI",
         description: "Guidelines and agreements for using our services.",
